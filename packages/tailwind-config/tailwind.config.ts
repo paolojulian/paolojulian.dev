@@ -9,7 +9,11 @@ const config: Omit<Config, "content"> = {
         white: '#FCF5ED',
         primary: '#CE5A67',
         secondary: '#F4BF96',
-        gray: '#A3A3A3',
+        gray: {
+          darker: '#3c4858',
+          DEFAULT: '#A3A3A3',
+          lighter: '#e0e6ed'
+        }
       },
     },
   },

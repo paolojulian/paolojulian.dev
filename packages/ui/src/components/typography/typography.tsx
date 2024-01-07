@@ -18,41 +18,36 @@ const fontFamilyMap: Record<FontFamilyVariants, string> = {
 };
 
 // FONT SIZE =================================================================================
-export type FontSizeVariants = 'sm' | 'md' | 'lg' | 'heading-2' | 'heading-1'
-
+export type FontSizeVariants = 'sm' | 'md' | 'lg' | 'heading-2' | 'heading-1';
 
 const fontSizeMap: Record<FontSizeVariants, string> = {
   sm: 'ui-text-xs',
   md: 'ui-text-base',
   lg: 'ui-text-2xl',
-  "heading-1": 'ui-text-9xl',
-  "heading-2": 'ui-text-6xl',
-}
+  'heading-1': 'ui-text-9xl',
+  'heading-2': 'ui-text-6xl',
+};
 
 // FONT WEIGHT =================================================================================
 export type FontWeightVariants = 'regular' | 'bold';
 
-
 const fontWeightMap: Record<FontWeightVariants, string> = {
   regular: 'ui-font-base',
   bold: 'ui-font-bold',
-}
+};
 
-export const typographyVariants = cva(
-  '',
-  {
-    variants: {
-      fontFamily: fontFamilyMap,
-      fontSize: fontSizeMap,
-      fontWeight: fontWeightMap,
-    },
-    defaultVariants: {
-      fontFamily: 'barlow-condensed',
-      fontSize: 'md',
-      fontWeight: 'regular',
-    }
-  }
-)
+export const typographyVariants = cva('', {
+  variants: {
+    fontFamily: fontFamilyMap,
+    fontSize: fontSizeMap,
+    fontWeight: fontWeightMap,
+  },
+  defaultVariants: {
+    fontFamily: 'barlow-condensed',
+    fontSize: 'md',
+    fontWeight: 'regular',
+  },
+});
 
 interface Props extends VariantProps<typeof typographyVariants> {
   as?: React.ElementType;

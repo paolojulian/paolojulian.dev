@@ -1,5 +1,5 @@
 import './globals.css';
-import '@repo/ui/styles.css'
+import '@repo/ui/styles.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang='en'>
-      <body className='bg-black'>{children}</body>
+      <body className='bg-black text-white'>{children}</body>
     </html>
   );
 }
