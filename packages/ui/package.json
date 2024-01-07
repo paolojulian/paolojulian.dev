@@ -7,7 +7,8 @@
     "./utils/cn": "./src/utils/cn.ts",
     "./components/row": "./src/components/row/row.tsx",
     "./components/stack": "./src/components/stack/stack.tsx",
-    "./components/typography": "./src/components/typography/typography.tsx"
+    "./components/typography": "./src/components/typography/typography.tsx",
+    "./components/container": "./src/components/container.tsx"
   },
   "scripts": {
     "dev": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",

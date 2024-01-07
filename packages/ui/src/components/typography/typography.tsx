@@ -24,7 +24,7 @@ const fontSizeMap: Record<FontSizeVariants, string> = {
   sm: 'ui-text-xs',
   md: 'ui-text-base',
   lg: 'ui-text-2xl',
-  'heading-1': 'ui-text-9xl',
+  'heading-1': 'ui-text-9xl ui-leading-[0.8]',
   'heading-2': 'ui-text-6xl',
 };
 
