@@ -1,0 +1,23 @@
+@keyframes archive {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.container {
+  position: relative;
+}
+.container--archive::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  opacity: 20%;
+  background-color: #f87171;
+  animation: archive 3s linear forwards;
+  z-index: -1;
+}

@@ -1,0 +1,34 @@
+.app-modal {
+  overflow: hidden;
+  background-color: transparent;
+  outline: none;
+  margin: none !important;
+}
+
+.app-modal[open] {
+  animation: fadeIn 400ms ease normal;
+  overflow: hidden;
+  background-color: transparent;
+  outline: none;
+  margin: none !important;
+}
+
+.app-modal:modal {
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+.app-modal::backdrop {
+  cursor: pointer;
+  background-color: #11182777;
+  backdrop-filter: blur(4px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

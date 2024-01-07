@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TESTING MenuItem component GIVEN valid props WHEN the MenuItem component is rendered in snapshot testing THEN it should match the snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class="flex flex-col gap-1 md:gap-2 last:pr-4 cursor-pointer relative group"
+    data-testid="menu-item-container"
+    href="/"
+    role="button"
+  >
+    <div
+      class="flex flex-row items-center gap-2"
+    >
+      <span
+        class="aspect-square w-3 rounded-full transition opacity-0 group-hover:opacity-100 bg-new-white"
+      />
+      <h3
+        class="font-comfortaa text-sm md:text-lg transition-transform line-clamp-1 text-new-black -translate-x-4 group-hover:translate-x-0"
+      >
+        Sample Heading
+      </h3>
+    </div>
+    <div
+      class="relative aspect-[428/926] md:aspect-[744/1133] lg:aspect-[499/322] h-[220px] md:h-[300px] lg:h-[220px] shadow-default overflow-hidden rounded w-fit"
+    >
+      <div
+        class="md:hidden"
+      >
+        <img
+          alt="Sample Heading"
+          class="object-fill object-center lg:group-hover:scale-105 duration-500"
+          data-nimg="fill"
+          decoding="async"
+          loading="lazy"
+          sizes="33vw"
+          src="/_next/image?url=%2Fassets%2Fmenu%2Fhome-page.phone.png&w=3840&q=75"
+          srcset="/_next/image?url=%2Fassets%2Fmenu%2Fhome-page.phone.png&w=256&q=75 256w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.phone.png&w=384&q=75 384w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.phone.png&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.phone.png&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.phone.png&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.phone.png&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.phone.png&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.phone.png&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.phone.png&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.phone.png&w=3840&q=75 3840w"
+          style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+        />
+      </div>
+      <div
+        class="hidden md:block lg:hidden"
+      >
+        <img
+          alt="Sample Heading"
+          class="object-fill object-center lg:group-hover:scale-105 duration-500"
+          data-nimg="fill"
+          decoding="async"
+          loading="lazy"
+          sizes="33vw"
+          src="/_next/image?url=%2Fassets%2Fmenu%2Fhome-page.tablet.png&w=3840&q=75"
+          srcset="/_next/image?url=%2Fassets%2Fmenu%2Fhome-page.tablet.png&w=256&q=75 256w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.tablet.png&w=384&q=75 384w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.tablet.png&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.tablet.png&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.tablet.png&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.tablet.png&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.tablet.png&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.tablet.png&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.tablet.png&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.tablet.png&w=3840&q=75 3840w"
+          style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+        />
+      </div>
+      <div
+        class="hidden lg:block"
+      >
+        <img
+          alt="Sample Heading"
+          class="object-fill object-center lg:group-hover:scale-105 duration-500"
+          data-nimg="fill"
+          decoding="async"
+          loading="lazy"
+          sizes="33vw"
+          src="/_next/image?url=%2Fassets%2Fmenu%2Fhome-page.desktop.png&w=3840&q=75"
+          srcset="/_next/image?url=%2Fassets%2Fmenu%2Fhome-page.desktop.png&w=256&q=75 256w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.desktop.png&w=384&q=75 384w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.desktop.png&w=640&q=75 640w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.desktop.png&w=750&q=75 750w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.desktop.png&w=828&q=75 828w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.desktop.png&w=1080&q=75 1080w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.desktop.png&w=1200&q=75 1200w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.desktop.png&w=1920&q=75 1920w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.desktop.png&w=2048&q=75 2048w, /_next/image?url=%2Fassets%2Fmenu%2Fhome-page.desktop.png&w=3840&q=75 3840w"
+          style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+        />
+      </div>
+    </div>
+  </a>
+</DocumentFragment>
+`;

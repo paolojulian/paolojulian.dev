@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TESTING MenuItem component GIVEN valid props WHEN the MenuItem component is rendered in snapshot testing THEN it should match the snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class="flex flex-col gap-1 md:gap-2 w-[140px] md:w-[350px] lg:w-[500px] overflow-hidden cursor-pointer relative group"
+    data-testid="menu-item-container"
+    href="/"
+    role="button"
+  >
+    <div
+      class="flex flex-row flex flex-row items-center gap-1 md:gap-2 relative"
+    >
+      <h3
+        class="uppercase font-medium font-comfortaa tracking-wide text-sm md:text-xl xl:text-2xl"
+      >
+        Sample Heading
+      </h3>
+    </div>
+    <div
+      class="flex flex-col flex-1 items-center md:items-start bg-white p-2 md:p-4 justify-between rounded-sm"
+    >
+      <p
+        class="font-comfortaa text-sm line-clamp-4 md:line-clamp-6 lg:line-clamp-none md:text-lg text-gray-500"
+      >
+        Menu description
+      </p>
+    </div>
+  </a>
+</DocumentFragment>
+`;

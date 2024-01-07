@@ -1,0 +1,11 @@
+.container p + p {
+  margin-top: 1.5rem;
+}
+
+.container li + li {
+  margin-top: 1rem;
+}
+
+.container li p {
+  display: inline;
+}
