@@ -1,12 +1,13 @@
 {
-  "name": "paolojulian.blogsite",
+  "name": "landing",
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "@repo/ui": "*",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint && eslint",
     "test": "jest --watch",
     "test:ci": "jest --ci",
     "pre-commit": "yarn test:ci && yarn lint",
@@ -37,7 +38,6 @@
     "merge-refs": "^1.2.1",
     "next": "13.4.12",
     "next-nprogress-bar": "^2.1.2",
-    "next-pwa": "^5.6.0",
     "next-seo": "^6.1.0",
     "nodemailer": "^6.9.4",
     "postcss": "8.4.27",
