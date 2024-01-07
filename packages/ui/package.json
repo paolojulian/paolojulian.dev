@@ -4,11 +4,9 @@
   "private": true,
   "exports": {
     "./utils/cn": "./src/utils/cn.ts",
-    "./components/row": "./src/components/row",
-    "./components/stack": "./src/components/stack",
-    "./button": "./src/button.tsx",
-    "./card": "./src/card.tsx",
-    "./code": "./src/code.tsx"
+    "./components/row": "./src/components/row/row.tsx",
+    "./components/stack": "./src/components/stack/stack.tsx",
+    "./components/typography": "./src/components/typography/typography.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
@@ -29,6 +27,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "tailwind-merge": "^2.2.0"
   }
