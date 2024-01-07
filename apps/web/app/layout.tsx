@@ -1,8 +1,6 @@
 import './globals.css';
+import '@repo/ui/styles.css'
 import type { Metadata } from 'next';
-import { Barlow_Condensed } from 'next/font/google';
-
-const font = Barlow_Condensed({ subsets: ['latin'], weight: ['400', '800'] });
 
 export const metadata: Metadata = {
   title: 'Paolo Julian',
@@ -17,7 +15,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang='en'>
-      <body className={font.className}>{children}</body>
+      <body className='bg-black'>{children}</body>
     </html>
   );
 }

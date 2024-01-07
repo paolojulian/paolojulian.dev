@@ -8,7 +8,7 @@ interface Props extends HtmlHTMLAttributes<HTMLDivElement> {
 
 export default function Stack({ className, children, ...props }: Props) {
   return (
-    <div className={cn('flex flex-col', className)} {...props}>
+    <div className={cn('ui-flex ui-flex-col', className)} {...props}>
       {children}
     </div>
   );

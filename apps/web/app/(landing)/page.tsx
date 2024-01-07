@@ -7,6 +7,8 @@ export default function Home() {
     <Stack>
       <Row>
         <Typography>Landing!</Typography>
+        <Typography fontSize={'heading-1'}>Landing!</Typography>
+        <Typography fontSize={'heading-2'}>Landing!</Typography>
       </Row>
     </Stack>
   );

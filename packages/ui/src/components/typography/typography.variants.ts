@@ -20,11 +20,11 @@ export type FontSizeVariants = 'sm' | 'md' | 'lg' | 'heading-2' | 'heading-1'
 
 
 const fontSizeMap: Record<FontSizeVariants, string> = {
-  sm: 'text-xs',
-  md: 'text-base',
-  lg: 'text-2xl',
-  "heading-1": 'text-9xl',
-  "heading-2": 'text-6xl',
+  sm: 'ui-text-xs',
+  md: 'ui-text-base',
+  lg: 'ui-text-2xl',
+  "heading-1": 'ui-text-9xl',
+  "heading-2": 'ui-text-6xl',
 }
 
 // FONT WEIGHT =================================================================================
@@ -32,10 +32,9 @@ export type FontWeightVariants = 'regular' | 'bold';
 
 
 const fontWeightMap: Record<FontWeightVariants, string> = {
-  regular: 'font-base',
-  bold: 'font-bold',
+  regular: 'ui-font-base',
+  bold: 'ui-font-bold',
 }
-
 
 export const typographyVariants = cva(
   '',

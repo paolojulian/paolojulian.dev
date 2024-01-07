@@ -8,7 +8,7 @@ interface Props extends HtmlHTMLAttributes<HTMLDivElement> {
 
 export default function Row({ className, children, ...props }: Props) {
   return (
-    <div className={cn('flex flex-row', className)} {...props}>
+    <div className={cn('ui-flex ui-flex-row', className)} {...props}>
       {children}
     </div>
   );
