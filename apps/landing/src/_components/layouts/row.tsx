@@ -1,15 +1,12 @@
 import classNames from 'classnames';
+import { ReactNode } from 'react';
 import { FunctionComponent, HtmlHTMLAttributes } from 'react';
 
-export type RowProps = {
-  // No Props
-} & HtmlHTMLAttributes<HTMLDivElement>;
+export interface RowProps extends HtmlHTMLAttributes<HTMLDivElement> {
+  children: ReactNode;
+}
 
-const Row: FunctionComponent<RowProps> = ({
-  children,
-  className = '',
-  ...props
-}) => {
+const Row = ({ children, className = '', ...props }: RowProps) => {
   return (
     <div className={classNames('flex flex-row', className)} {...props}>
       {children}

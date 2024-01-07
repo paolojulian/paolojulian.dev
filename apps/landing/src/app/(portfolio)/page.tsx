@@ -1,3 +1,4 @@
+import React from 'react';
 import AppCopyright from '@/_components/common/app-copyright';
 import SectionHeading from '@/_components/common/section-heading';
 import Text from '@/_components/common/typography/text';
