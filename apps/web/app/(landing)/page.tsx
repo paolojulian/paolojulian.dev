@@ -1,6 +1,10 @@
 import Container from '@repo/ui/components/container';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
+import LinkedInIcon from '@repo/ui/icons/linkedin-icon';
+import MailIcon from '@repo/ui/icons/mail-icon';
+import PhoneIcon from '@repo/ui/icons/phone-icon';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
@@ -36,20 +40,22 @@ export default function Home() {
       </Container>
 
       <div className='fixed bottom-10 inset-x-0 mx-auto w-fit'>
-        <button className='bg-white aspect-square h-20 rounded-full hover:scale-110 transition-transform duration-500'></button>
+        <button className='bg-white aspect-square h-16 rounded-full hover:scale-110 transition-transform duration-500'></button>
       </div>
 
       <Stack className='fixed left-10 top-10 bottom-10 justify-between items-center'>
-        <button className='w-10 aspect-square rounded-full bg-primary'></button>
-        <Stack className='gap-4'>
+        <Link className='w-8 2xl:w-10 aspect-square relative' href='/'>
+          <Image alt='Logo' src='/logo.png' fill quality={100}/>
+        </Link>
+        <Stack className='gap-8'>
           <Link href='#'>
-            <button className='w-6 aspect-square rounded-full bg-primary'></button>
+            <LinkedInIcon className='w-[1.2rem] h-[1.2rem]' />
           </Link>
           <Link href='#'>
-            <button className='w-6 aspect-square rounded-full bg-primary'></button>
+            <MailIcon className='w-5 h-5' />
           </Link>
           <Link href='#'>
-            <button className='w-6 aspect-square rounded-full bg-primary'></button>
+            <PhoneIcon className='w-5 h-5' />
           </Link>
         </Stack>
       </Stack>

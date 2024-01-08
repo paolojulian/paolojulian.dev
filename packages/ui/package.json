@@ -3,12 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./styles.css": "./dist/index.css",
-    "./utils/cn": "./src/utils/cn.ts",
     "./components/row": "./src/components/row/row.tsx",
     "./components/stack": "./src/components/stack/stack.tsx",
     "./components/typography": "./src/components/typography/typography.tsx",
-    "./components/container": "./src/components/container.tsx"
+    "./components/container": "./src/components/container.tsx",
+    "./icons/mail-icon": "./src/components/icons/mail-icon.tsx",
+    "./icons/linkedin-icon": "./src/components/icons/linkedin-icon.tsx",
+    "./icons/phone-icon": "./src/components/icons/phone-icon.tsx",
+    "./utils/cn": "./src/utils/cn.ts",
+    "./styles.css": "./dist/index.css"
   },
   "scripts": {
     "dev": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",

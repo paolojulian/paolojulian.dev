@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "@repo/ui": "*",
-    "dev": "next dev --port 3001",
+    "dev": "next dev --port 3002",
     "build": "next build",
     "start": "next start",
     "lint": "next lint && eslint",
