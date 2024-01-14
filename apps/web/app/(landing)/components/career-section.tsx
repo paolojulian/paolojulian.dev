@@ -7,7 +7,7 @@ export default function CareerSection() {
   return (
     <Stack className='gap-10'>
       <SectionHeader title='Career' />
-      <div className='border-b border-gray-700'>
+      <div className='border-b border-stone-700'>
         <CareerItem
           year='NOW'
           position='Mid Front-end Developer / A.I. Prompter'
@@ -40,7 +40,7 @@ interface CareerItemProps {
 }
 function CareerItem({ year, position, company }: CareerItemProps) {
   return (
-    <Row className='py-6 items-start border-t border-gray-700 gap-20'>
+    <Row className='py-6 items-start border-t border-stone-700 gap-20'>
       <Typography
         className='uppercase leading-[5.12px] w-[180px]'
         fontSize={'heading-2'}

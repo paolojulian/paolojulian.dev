@@ -1,24 +1,33 @@
 import { VariantProps } from 'class-variance-authority';
 import cn from '../../utils/cn';
 import { cva } from 'class-variance-authority';
-import { Barlow_Condensed, Inter } from 'next/font/google';
+import { Barlow_Condensed, Barlow_Semi_Condensed } from 'next/font/google';
 
 // FONT FAMILY =================================================================================
-export type FontFamilyVariants = 'barlow-condensed' | 'montserrat';
+export type FontFamilyVariants = 'barlow-condensed' | 'barlow-semi-condensed';
 
-const montserrat = Inter({ subsets: ['latin'] });
 const barlowCondensed = Barlow_Condensed({
   subsets: ['latin'],
-  weight: ['400', '800'],
+  weight: ['400', '500', '700', '800'],
+});
+const barlowSemiCondensed = Barlow_Semi_Condensed({
+  subsets: ['latin'],
+  weight: ['400', '500', '700', '800'],
 });
 
 const fontFamilyMap: Record<FontFamilyVariants, string> = {
   'barlow-condensed': barlowCondensed.className,
-  montserrat: montserrat.className,
+  'barlow-semi-condensed': barlowSemiCondensed.className,
 };
 
 // FONT SIZE =================================================================================
-export type FontSizeVariants = 'sm' | 'md' | 'lg' | 'xl' | 'heading-2' | 'heading-1';
+export type FontSizeVariants =
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'xl'
+  | 'heading-2'
+  | 'heading-1';
 
 const fontSizeMap: Record<FontSizeVariants, string> = {
   sm: 'ui-text-xs',
@@ -35,7 +44,7 @@ export type FontWeightVariants = 'regular' | 'medium' | 'semi-bold' | 'bold';
 const fontWeightMap: Record<FontWeightVariants, string> = {
   regular: 'ui-font-base',
   medium: 'ui-font-medium',
-  "semi-bold": 'ui-font-semibold',
+  'semi-bold': 'ui-font-semibold',
   bold: 'ui-font-bold',
 };
 
