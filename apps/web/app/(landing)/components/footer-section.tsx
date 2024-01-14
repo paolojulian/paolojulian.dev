@@ -11,14 +11,14 @@ export default function FooterSection() {
           CONNECT
         </Typography>
 
-        <div className='grid grid-cols-3'>
-          <Stack className='gap-2'>
+        <div className='grid grid-cols-3 gap-4'>
+          <Stack>
             <SocialLink name='Home' href={'/'} />
             <SocialLink name='About' href={'/about'} />
             <SocialLink name='Articles' href={'/articles'} />
             <SocialLink name='Apps' href={'/apps'} />
           </Stack>
-          <Stack className='gap-2'>
+          <Stack>
             <SocialLink
               name='Linkedin'
               href={'https://www.linkedin.com/in/pipz/'}
@@ -48,8 +48,8 @@ interface SocialLinkProps {
 }
 function SocialLink({ name, href }: SocialLinkProps) {
   return (
-    <Link href={href} target="_blank">
-      <Row className='gap-6 items-center group'>
+    <Link href={href} target='_blank'>
+      <Row className='gap-4 items-center group'>
         <div>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -65,9 +65,12 @@ function SocialLink({ name, href }: SocialLinkProps) {
             />
           </svg>
         </div>
-        <Typography fontSize='xl' fontWeight={'semi-bold'}>
-          {name}
-        </Typography>
+        <div className='relative h-full flex-1 px-2 py-1 overflow-hidden'>
+          <Typography fontSize='xl' fontWeight={'semi-bold'}>
+            {name}
+          </Typography>
+          <div className='-z-10 absolute -left-2 top-1/2 -translate-y-1/2 -translate-x-full h-full w-full group-hover:translate-x-0 duration-500 bg-primary'></div>
+        </div>
       </Row>
     </Link>
   );
