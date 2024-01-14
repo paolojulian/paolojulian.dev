@@ -6,10 +6,15 @@ import Typography from '@repo/ui/components/typography';
 export default function ToolsSection() {
   return (
     <Stack className='gap-10'>
-      <SectionHeader title='Tech-stack' />
+      <SectionHeader title='Tech Stack' />
       <Row className='gap-2'>
         <div className='pr-10 flex-1'>
-          <Typography as='h2' fontSize={'heading-2'} fontWeight={'semi-bold'}>
+          <Typography
+            as='h2'
+            fontSize={'heading-2'}
+            fontWeight={'semi-bold'}
+            fontFamily='text'
+          >
             These are the <span className='text-secondary'>tools</span> i prefer
             to use. These are all temporary until a new Javascript framework
             appears again.

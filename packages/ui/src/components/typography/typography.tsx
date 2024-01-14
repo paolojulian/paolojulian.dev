@@ -4,7 +4,7 @@ import { cva } from 'class-variance-authority';
 import { Barlow_Condensed, Barlow_Semi_Condensed } from 'next/font/google';
 
 // FONT FAMILY =================================================================================
-export type FontFamilyVariants = 'barlow-condensed' | 'barlow-semi-condensed';
+export type FontFamilyVariants = 'heading' | 'text';
 
 const barlowCondensed = Barlow_Condensed({
   subsets: ['latin'],
@@ -16,8 +16,8 @@ const barlowSemiCondensed = Barlow_Semi_Condensed({
 });
 
 const fontFamilyMap: Record<FontFamilyVariants, string> = {
-  'barlow-condensed': barlowCondensed.className,
-  'barlow-semi-condensed': barlowSemiCondensed.className,
+  heading: barlowCondensed.className,
+  text: barlowSemiCondensed.className,
 };
 
 // FONT SIZE =================================================================================
@@ -55,7 +55,7 @@ export const typographyVariants = cva('', {
     fontWeight: fontWeightMap,
   },
   defaultVariants: {
-    fontFamily: 'barlow-condensed',
+    fontFamily: 'heading',
     fontSize: 'md',
     fontWeight: 'regular',
   },

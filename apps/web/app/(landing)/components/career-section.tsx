@@ -52,7 +52,7 @@ function CareerItem({ year, position, company }: CareerItemProps) {
         <Typography fontSize={'heading-2'} fontWeight={'semi-bold'}>
           {position}
         </Typography>
-        <Typography className='text-gray' fontSize={'lg'}>
+        <Typography className='text-gray' fontSize={'lg'} fontFamily='text'>
           {company}
         </Typography>
       </Stack>

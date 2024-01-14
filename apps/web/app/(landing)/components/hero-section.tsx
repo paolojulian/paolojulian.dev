@@ -69,7 +69,7 @@ export default function HeroSection() {
           </Link>
           <Link href='#'>
             <Typography className='text-gray tracking-[0.24rem]'>
-              TOOLS
+              TECH STACK
             </Typography>
           </Link>
           <Link href='#'>

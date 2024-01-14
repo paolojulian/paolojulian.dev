@@ -48,7 +48,7 @@ interface SocialLinkProps {
 }
 function SocialLink({ name, href }: SocialLinkProps) {
   return (
-    <Link href={href}>
+    <Link href={href} target="_blank">
       <Row className='gap-6 items-center group'>
         <div>
           <svg
@@ -82,12 +82,12 @@ function ContactItem({ label, value }: ContactItemProps) {
     <div>
       <Typography
         className='text-white capitalize'
-        fontFamily='barlow-semi-condensed'
+        fontFamily='text'
         fontWeight={'medium'}
       >
         {label}
       </Typography>
-      <Typography className='text-gray' fontFamily='barlow-semi-condensed'>
+      <Typography className='text-gray' fontFamily='text'>
         {value}
       </Typography>
     </div>

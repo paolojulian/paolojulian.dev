@@ -6,7 +6,7 @@ import Typography from '@repo/ui/components/typography';
 export default function ArticlesSection() {
   return (
     <Stack className='gap-10'>
-      <SectionHeader title='Career' />
+      <SectionHeader title='Writing' />
       <Stack className='gap-20'>
         <ArticleItem
           imageURL='/'
@@ -41,7 +41,7 @@ function ArticleItem({ imageURL, date, title }: ArticleItemProps) {
         <Typography className='text-gray uppercase tracking-widest'>
           {date}
         </Typography>
-        <Typography fontSize={'xl'} fontWeight={'semi-bold'}>
+        <Typography fontSize={'xl'} fontWeight={'semi-bold'} fontFamily='text'>
           {title}
         </Typography>
       </Stack>
