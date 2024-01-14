@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
+    "./components/container": "./src/components/container.tsx",
     "./components/row": "./src/components/row/row.tsx",
+    "./components/SectionHeader": "./src/components/SectionHeader/SectionHeader.tsx",
     "./components/stack": "./src/components/stack/stack.tsx",
     "./components/typography": "./src/components/typography/typography.tsx",
-    "./components/container": "./src/components/container.tsx",
     "./icons/mail-icon": "./src/components/icons/mail-icon.tsx",
     "./icons/linkedin-icon": "./src/components/icons/linkedin-icon.tsx",
     "./icons/phone-icon": "./src/components/icons/phone-icon.tsx",

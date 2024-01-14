@@ -18,21 +18,24 @@ const fontFamilyMap: Record<FontFamilyVariants, string> = {
 };
 
 // FONT SIZE =================================================================================
-export type FontSizeVariants = 'sm' | 'md' | 'lg' | 'heading-2' | 'heading-1';
+export type FontSizeVariants = 'sm' | 'md' | 'lg' | 'xl' | 'heading-2' | 'heading-1';
 
 const fontSizeMap: Record<FontSizeVariants, string> = {
   sm: 'ui-text-xs',
   md: 'ui-text-base',
   lg: 'ui-text-2xl',
+  xl: 'ui-text-4xl',
   'heading-1': 'ui-text-9xl ui-leading-[0.8]',
   'heading-2': 'ui-text-6xl',
 };
 
 // FONT WEIGHT =================================================================================
-export type FontWeightVariants = 'regular' | 'bold';
+export type FontWeightVariants = 'regular' | 'medium' | 'semi-bold' | 'bold';
 
 const fontWeightMap: Record<FontWeightVariants, string> = {
   regular: 'ui-font-base',
+  medium: 'ui-font-medium',
+  "semi-bold": 'ui-font-semibold',
   bold: 'ui-font-bold',
 };
 
