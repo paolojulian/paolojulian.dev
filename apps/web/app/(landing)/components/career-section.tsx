@@ -40,16 +40,16 @@ interface CareerItemProps {
 }
 function CareerItem({ year, position, company }: CareerItemProps) {
   return (
-    <Row className='py-6 items-start border-t border-stone-700 gap-20'>
+    <Row className='py-10 items-start border-t border-stone-700 gap-20'>
       <Typography
-        className='uppercase leading-[5.12px] w-[180px]'
-        fontSize={'heading-2'}
+        className='uppercase leading-[5.12px] w-[80px]'
+        fontSize={'xl'}
         fontWeight={'semi-bold'}
       >
         {year}
       </Typography>
       <Stack>
-        <Typography fontSize={'heading-2'} fontWeight={'semi-bold'}>
+        <Typography fontSize={'xl'} fontWeight={'semi-bold'}>
           {position}
         </Typography>
         <Typography className='text-gray' fontSize={'lg'} fontFamily='text'>

@@ -5,6 +5,7 @@ import CareerSection from './components/career-section';
 import FooterSection from './components/footer-section';
 import HeroSection from './components/hero-section';
 import ToolsSection from './components/tools-section';
+import MenuButton from '../../components/Menu/MenuButton';
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
       <main>
         <HeroSection />
         {/* Main */}
-        <Stack className='max-w-screen-xl mx-auto px-10 py-[200px] gap-[400px]'>
+        <Stack className='max-w-screen-lg mx-auto py-[200px] gap-[400px]'>
           <AboutSection />
           <ToolsSection />
           <CareerSection />
@@ -20,6 +21,7 @@ export default function Home() {
         </Stack>
       </main>
       <FooterSection />
+      <MenuButton />
     </>
   );
 }

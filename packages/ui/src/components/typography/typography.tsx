@@ -35,7 +35,7 @@ const fontSizeMap: Record<FontSizeVariants, string> = {
   lg: 'ui-text-2xl',
   xl: 'ui-text-4xl',
   'heading-1': 'ui-text-9xl ui-leading-[0.8]',
-  'heading-2': 'ui-text-6xl',
+  'heading-2': 'ui-text-7xl',
 };
 
 // FONT WEIGHT =================================================================================

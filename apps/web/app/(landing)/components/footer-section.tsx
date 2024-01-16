@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function FooterSection() {
   return (
     <footer className='border-t border-white pb-40'>
-      <Stack className='max-w-screen-xl mx-auto p-10 gap-20'>
+      <Stack className='max-w-screen-lg mx-auto py-10 gap-20'>
         <Typography className='tracking-[5.76px] text-gray' fontSize={'lg'}>
           CONNECT
         </Typography>
