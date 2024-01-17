@@ -1,9 +1,20 @@
-interface Props {}
+'use client';
+import { useMenuContext } from '../context/MenuProvider';
 
-export default function MenuButton({}: Props) {
+export default function MenuButton() {
+  const { setIsOpen } = useMenuContext();
+
+  const handleClick = () => {
+    setIsOpen((prev) => !prev);
+  };
+
   return (
-    <div className='z-10 fixed bottom-0 inset-x-0 h-40 w-full bg-gradient-to-t from-black via-black to-transparent flex justify-center pt-10'>
-      <button className='relative aspect-square h-16 rounded-full group'>
+    <>
+      <div className='z-30 fixed bottom-0 inset-x-0 h-40 w-full bg-gradient-to-t from-black via-black to-transparent flex justify-center pt-10'></div>
+      <button
+        className='fixed inset-x-0 bottom-10 mx-auto aspect-square h-16 rounded-full group z-50'
+        onClick={handleClick}
+      >
         <svg
           width='63'
           height='63'
@@ -31,6 +42,6 @@ export default function MenuButton({}: Props) {
         </svg>
         <div className='relative bg-white aspect-square h-16 rounded-full group-hover:scale-110 group-active:scale-95 transition-transform duration-500'></div>
       </button>
-    </div>
+    </>
   );
 }
