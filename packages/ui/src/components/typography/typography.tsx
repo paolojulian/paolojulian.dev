@@ -1,23 +1,15 @@
 import { VariantProps } from 'class-variance-authority';
 import cn from '../../utils/cn';
 import { cva } from 'class-variance-authority';
-import { Barlow_Condensed, Barlow_Semi_Condensed } from 'next/font/google';
+import localFont from 'next/font/local';
 
-// FONT FAMILY =================================================================================
-export type FontFamilyVariants = 'heading' | 'text';
-
-const barlowCondensed = Barlow_Condensed({
-  subsets: ['latin'],
-  weight: ['400', '500', '700', '800'],
-});
-const barlowSemiCondensed = Barlow_Semi_Condensed({
-  subsets: ['latin'],
-  weight: ['400', '500', '700', '800'],
+const AvantGardeGothic = localFont({
+  src: '../../fonts/ITC Avant Garde Gothic/ITC Avant Garde Gothic CE Demi.otf',
 });
 
+type FontFamilyVariants = 'avant-garde';
 const fontFamilyMap: Record<FontFamilyVariants, string> = {
-  heading: barlowCondensed.className,
-  text: barlowSemiCondensed.className,
+  'avant-garde': AvantGardeGothic.className,
 };
 
 // FONT SIZE =================================================================================
@@ -55,7 +47,7 @@ export const typographyVariants = cva('', {
     fontWeight: fontWeightMap,
   },
   defaultVariants: {
-    fontFamily: 'heading',
+    fontFamily: 'avant-garde',
     fontSize: 'md',
     fontWeight: 'regular',
   },
