@@ -12,44 +12,28 @@ const fontFamilyMap: Record<FontFamilyVariants, string> = {
   'avant-garde': AvantGardeGothic.className,
 };
 
-// FONT SIZE =================================================================================
-export type FontSizeVariants =
-  | 'sm'
-  | 'md'
-  | 'lg'
-  | 'xl'
-  | 'heading-2'
-  | 'heading-1';
-
-const fontSizeMap: Record<FontSizeVariants, string> = {
-  sm: 'ui-text-xs',
-  md: 'ui-text-base',
-  lg: 'ui-text-2xl',
-  xl: 'ui-text-4xl',
-  'heading-1': 'ui-text-9xl ui-leading-[0.8]',
-  'heading-2': 'ui-text-7xl',
-};
-
-// FONT WEIGHT =================================================================================
-export type FontWeightVariants = 'regular' | 'medium' | 'semi-bold' | 'bold';
-
-const fontWeightMap: Record<FontWeightVariants, string> = {
-  regular: 'ui-font-base',
-  medium: 'ui-font-medium',
-  'semi-bold': 'ui-font-semibold',
-  bold: 'ui-font-bold',
-};
+type FontVariants =
+  | 'body'
+  | 'body-wide'
+  | 'heading'
+  | 'heading-lg'
+  | 'heading-xl';
+const fontVariants = {
+  body: 'ui-text-base ui-tracking-[-0.04em]',
+  'body-wide': 'ui-text-base ui-tracking-[0.40em]',
+  heading: 'ui-text-5xl ui-tracking-[-0.04em]',
+  'heading-lg': 'ui-text-[4rem] ui-tracking-[-0.04em]',
+  'heading-xl': 'ui-text-9xl ui-tracking-[-0.04em] ui-leading-[6.75rem]',
+} satisfies Record<FontVariants, string>;
 
 export const typographyVariants = cva('', {
   variants: {
     fontFamily: fontFamilyMap,
-    fontSize: fontSizeMap,
-    fontWeight: fontWeightMap,
+    variant: fontVariants,
   },
   defaultVariants: {
     fontFamily: 'avant-garde',
-    fontSize: 'md',
-    fontWeight: 'regular',
+    variant: 'body',
   },
 });
 
@@ -65,14 +49,11 @@ export default function Typography({
   children,
   className = '',
   fontFamily,
-  fontSize,
-  fontWeight,
+  variant,
 }: Props) {
   return (
     <Element
-      className={cn(
-        typographyVariants({ fontFamily, fontSize, fontWeight, className })
-      )}
+      className={cn(typographyVariants({ fontFamily, variant, className }))}
     >
       {children}
     </Element>
