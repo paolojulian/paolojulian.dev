@@ -29,7 +29,7 @@ type FontVariants =
 const fontVariantsMap = {
   body: 'ui-text-sm ui-tracking-[-0.01em] ui-font-semibold',
   'body-wide': 'ui-text-sm ui-tracking-[0.40em] ui-font-semibold',
-  heading: 'ui-text-5xl ui-tracking-[-0.01em] ui-font-semibold',
+  heading: 'ui-text-4xl ui-tracking-[-0.01em] ui-font-semibold',
   'heading-lg':
     'ui-text-[4rem] ui-tracking-[-0.01em] ui-font-semibold ui-leading-[4.5rem]',
   'heading-xl':

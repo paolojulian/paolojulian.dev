@@ -9,8 +9,9 @@
     "./components/stack": "./src/components/stack/stack.tsx",
     "./components/typography": "./src/components/typography/typography.tsx",
     "./fonts/avant-garde": "./src/font/ITC Avant Garde Gothic/ITC Avant Garde Gothic CE Demi.otf",
-    "./icons/mail-icon": "./src/components/icons/mail-icon.tsx",
     "./icons/linkedin-icon": "./src/components/icons/linkedin-icon.tsx",
+    "./icons/mail-icon": "./src/components/icons/mail-icon.tsx",
+    "./icons/new-tab-arrow-icon": "./src/components/icons/new-tab-arrow-icon.tsx",
     "./icons/phone-icon": "./src/components/icons/phone-icon.tsx",
     "./utils/cn": "./src/utils/cn.ts",
     "./styles.css": "./dist/index.css"
