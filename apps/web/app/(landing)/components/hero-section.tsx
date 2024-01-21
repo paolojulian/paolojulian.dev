@@ -6,28 +6,28 @@ export default function HeroSection() {
   return (
     <>
       <Container className='min-h-screen'>
-        <Stack className='gap-2 min-h-screen pb-24' shouldCenterContents>
-          <Typography className='text-gray tracking-[0.24rem]' fontSize={'lg'}>
+        <Stack className='gap-10 min-h-screen pb-24' shouldCenterContents>
+          <Typography className='text-gray' variant='body-wide'>
             PAOLO JULIAN
           </Typography>
           <Stack shouldCenterContents>
-            <Typography fontSize={'heading-1'} fontWeight={'bold'}>
+            <Typography variant='heading-xl' weight={'medium'}>
               KEEPING
             </Typography>
-            <Typography fontSize={'heading-1'} fontWeight={'bold'}>
+            <Typography variant='heading-xl' weight={'medium'}>
               THINGS
             </Typography>
             <Typography
-              className='text-secondary'
-              fontSize={'heading-1'}
-              fontWeight={'bold'}
+              className='text-primary'
+              variant='heading-xl'
+              weight={'medium'}
             >
               SIMPLE
             </Typography>
-            <Typography fontSize={'heading-1'} fontWeight={'bold'}>
+            <Typography variant='heading-xl' weight={'medium'}>
               SINCE
             </Typography>
-            <Typography fontSize={'heading-1'} fontWeight={'bold'}>
+            <Typography variant='heading-xl' weight={'medium'}>
               2017
             </Typography>
           </Stack>

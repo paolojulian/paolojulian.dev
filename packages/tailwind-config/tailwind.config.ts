@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import colors from 'tailwindcss/colors'
 
 // We want each package to be responsible for its own content.
 const config: Omit<Config, "content"> = {
@@ -10,7 +11,7 @@ const config: Omit<Config, "content"> = {
         primary: '#CE5A67',
         secondary: '#F4BF96',
         gray: {
-          darker: '#3c4858',
+          darker: colors.stone[500],
           DEFAULT: '#A3A3A3',
           lighter: '#e0e6ed'
         }
