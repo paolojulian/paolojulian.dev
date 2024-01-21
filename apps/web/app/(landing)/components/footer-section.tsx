@@ -7,7 +7,7 @@ export default function FooterSection() {
   return (
     <footer className='border-t border-white pb-40'>
       <Stack className='max-w-screen-lg mx-auto py-10 gap-20'>
-        <Typography className='tracking-[5.76px] text-gray' fontSize={'lg'}>
+        <Typography className='uppercase' variant='body-wide'>
           CONNECT
         </Typography>
 
@@ -66,9 +66,7 @@ function SocialLink({ name, href }: SocialLinkProps) {
           </svg>
         </div>
         <div className='relative h-full flex-1 px-2 py-1 overflow-hidden'>
-          <Typography fontSize='xl' fontWeight={'semi-bold'}>
-            {name}
-          </Typography>
+          <Typography variant='heading'>{name}</Typography>
           <div className='-z-10 absolute -left-2 top-1/2 -translate-y-1/2 -translate-x-full h-full w-full group-hover:translate-x-0 duration-500 bg-primary'></div>
         </div>
       </Row>
