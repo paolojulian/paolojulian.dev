@@ -9,6 +9,8 @@
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
+    "@apollo/client": "^3.9.0-rc.1",
+    "@apollo/experimental-nextjs-app-support": "^0.6.0",
     "@repo/ui": "*",
     "classnames": "^2.5.1",
     "next": "^14.0.4",
