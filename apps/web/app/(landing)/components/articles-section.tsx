@@ -3,6 +3,7 @@ import Row from '@repo/ui/components/row';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import NewTabArrowIcon from '@repo/ui/icons/new-tab-arrow-icon';
+import Highlight from './highlight';
 
 export default function ArticlesSection() {
   return (
@@ -10,9 +11,8 @@ export default function ArticlesSection() {
       <Stack className='gap-10'>
         <SectionHeader title='Writing' />
         <Typography variant='heading-lg'>
-          I love <span className='text-primary'>writing articles</span>; not
-          only do I share my thoughts, but it also serves as documentation for
-          future references.
+          I love <Highlight>writing articles</Highlight>; not only do I share my
+          thoughts, but it also serves as documentation for future references.
         </Typography>
       </Stack>
       <Stack className='gap-10'>

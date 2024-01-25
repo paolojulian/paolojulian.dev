@@ -2,6 +2,7 @@ import SectionHeader from '@repo/ui/components/SectionHeader';
 import Row from '@repo/ui/components/row';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
+import Highlight from './highlight';
 
 export default function CareerSection() {
   return (
@@ -9,10 +10,29 @@ export default function CareerSection() {
       <Stack className='gap-10'>
         <SectionHeader title='Experience' />
         <Typography variant='heading-lg'>
-          With <span className='text-primary'>7 years</span> of experience in
-          web and mobile development. I have primarily worked on commercial and
-          productivity apps.
+          With <Highlight>7 years</Highlight> of experience in web and mobile
+          development. I have primarily worked on{' '}
+          <Highlight>commercial</Highlight> and{' '}
+          <Highlight>productivity apps</Highlight>.
         </Typography>
+      </Stack>
+      <Stack className='gap-10'>
+        <Typography variant={'body-wide'}>TECH STACK</Typography>
+        <div className='border-b border-stone-700'>
+          <ToolItem
+            type='Web'
+            tools={[
+              'NextJS',
+              'ReactJS',
+              'TailwindCSS',
+              'Apollo Graphql',
+              'Tan Stack Query',
+              'Typescript',
+            ]}
+          />
+          <ToolItem type='Mobile' tools={['React Native', 'Expo']} />
+          <ToolItem type='UI/UX' tools={['Figma', "Someone else's website"]} />
+        </div>
       </Stack>
       <Stack className='gap-10'>
         <Typography variant={'body-wide'}>CAREER</Typography>
@@ -56,9 +76,31 @@ function CareerItem({ year, position, company }: CareerItemProps) {
       </Typography>
       <Stack className='gap-4'>
         <Typography variant={'heading'}>{position}</Typography>
-        <Typography variant='body'>
-          {company}
-        </Typography>
+        <Typography variant='body'>{company}</Typography>
+      </Stack>
+    </Row>
+  );
+}
+
+interface ToolItemProps {
+  type: string;
+  tools: string[];
+}
+function ToolItem({ type, tools = [] }: ToolItemProps) {
+  return (
+    <Row className='py-10 items-start border-t border-stone-700'>
+      <Typography
+        variant='heading'
+        className='w-[25%] capitalize text-gray-darker'
+      >
+        {type}
+      </Typography>
+      <Stack className='gap-4'>
+        {tools.map((tool, i) => (
+          <Typography variant={'heading'}>
+            {tool} {i !== tools.length - 1 ? '/' : ''}
+          </Typography>
+        ))}
       </Stack>
     </Row>
   );

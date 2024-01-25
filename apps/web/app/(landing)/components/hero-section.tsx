@@ -1,6 +1,7 @@
 import Container from '@repo/ui/components/container';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
+import Highlight from './highlight';
 
 export default function HeroSection() {
   return (
@@ -17,12 +18,8 @@ export default function HeroSection() {
             <Typography variant='heading-xl' weight={'medium'}>
               THINGS
             </Typography>
-            <Typography
-              className='text-primary'
-              variant='heading-xl'
-              weight={'medium'}
-            >
-              SIMPLE
+            <Typography variant='heading-xl' weight={'medium'}>
+              <Highlight>SIMPLE</Highlight>
             </Typography>
             <Typography variant='heading-xl' weight={'medium'}>
               SINCE

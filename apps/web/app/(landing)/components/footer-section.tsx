@@ -57,7 +57,7 @@ function SocialLink({ name, href }: SocialLinkProps) {
             height='12'
             viewBox='0 0 11 12'
             fill='none'
-            className='text-primary'
+            className='text-secondary'
           >
             <path
               d='M-4.89749e-07 0.397423L10.9999 0.397422L10.9999 11.6016L-4.89749e-07 0.397423Z'
@@ -67,7 +67,7 @@ function SocialLink({ name, href }: SocialLinkProps) {
         </div>
         <div className='relative h-full flex-1 px-2 py-1 overflow-hidden'>
           <Typography variant='heading'>{name}</Typography>
-          <div className='-z-10 absolute -left-2 top-1/2 -translate-y-1/2 -translate-x-full h-full w-full group-hover:translate-x-0 duration-500 bg-primary'></div>
+          <div className='-z-10 absolute -left-2 top-1/2 -translate-y-1/2 -translate-x-full h-full w-full group-hover:translate-x-0 duration-500 bg-secondary/60'></div>
         </div>
       </Row>
     </Link>
@@ -81,16 +81,8 @@ interface ContactItemProps {
 function ContactItem({ label, value }: ContactItemProps) {
   return (
     <div>
-      <Typography
-        className='text-white capitalize'
-        fontFamily='text'
-        fontWeight={'medium'}
-      >
-        {label}
-      </Typography>
-      <Typography className='text-gray' fontFamily='text'>
-        {value}
-      </Typography>
+      <Typography className='capitalize'>{label}</Typography>
+      <Typography className='text-gray'>{value}</Typography>
     </div>
   );
 }

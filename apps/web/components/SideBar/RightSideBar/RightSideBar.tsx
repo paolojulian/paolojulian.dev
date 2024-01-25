@@ -13,10 +13,10 @@ export default function RightSideBar() {
           <Typography className='text-gray'>EXPERIENCE</Typography>
         </Link>
         <Link href='#'>
-          <Typography className='text-gray'>CAREER</Typography>
+          <Typography className='text-gray'>WRITING</Typography>
         </Link>
         <Link href='#'>
-          <Typography className='text-gray'>WRITING</Typography>
+          <Typography className='text-gray'>CONTACT</Typography>
         </Link>
       </Stack>
       <span
@@ -24,7 +24,7 @@ export default function RightSideBar() {
           writingMode: 'vertical-lr',
         }}
       >
-        <Typography className='text-gray rotate-180' variant='body-wide'>
+        <Typography className='text-gray rotate-180' variant='body'>
           paolojulian.dev
         </Typography>
       </span>

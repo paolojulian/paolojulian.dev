@@ -1,6 +1,7 @@
 import SectionHeader from '@repo/ui/components/SectionHeader';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
+import Highlight from './highlight';
 
 export default function AboutSection() {
   return (
@@ -9,14 +10,12 @@ export default function AboutSection() {
         <SectionHeader title='About' />
         <Typography variant='heading-lg'>
           I’m a Full Stack Developer who specializes in{' '}
-          <span className='text-primary'>Front-end Development</span>. I write
-          complex garbage code for a living.
+          <Highlight>Front-end Development</Highlight>. I write garbage code for
+          a living.
         </Typography>
       </Stack>
       <Stack className='gap-10'>
-        <Typography variant='body-wide'>
-          WHAT I DO
-        </Typography>
+        <Typography variant='body-wide'>WHAT I DO</Typography>
         <Stack>
           <Typography
             className='border-t border-gray-darker/50'
