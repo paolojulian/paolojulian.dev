@@ -35,17 +35,14 @@ export default function ArticlesSection() {
           />
         </Stack>
 
-        <a href='/articles' target='_blank'>
-          <Row className='items-center justify-end pt-20 gap-2'>
-            <Typography
-              className='text-secondary leading-none'
-              variant='heading'
-            >
-              See more
-            </Typography>
-            <NewTabArrowIcon />
-          </Row>
-        </a>
+        <Row className='items-center justify-end pt-20'>
+          <a href='/articles' target='_blank'>
+            <Row className='group items-center justify-center gap-2 text-secondary hover:text-primary duration-500 active:scale-95'>
+              <Typography variant='heading'>See more</Typography>
+              <NewTabArrowIcon className='text-secondary group-hover:text-primary duration-500 ease-in-out' />
+            </Row>
+          </a>
+        </Row>
       </Stack>
     </Stack>
   );
