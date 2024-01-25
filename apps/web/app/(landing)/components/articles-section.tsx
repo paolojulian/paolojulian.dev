@@ -17,7 +17,7 @@ export default function ArticlesSection() {
       </Stack>
       <Stack className='gap-10'>
         <Typography variant='body-wide'>LATEST ARTICLES</Typography>
-        <Stack className='gap-20'>
+        <Stack>
           <ArticleItem
             imageURL='/'
             date='Oct 2023'
@@ -55,16 +55,26 @@ interface ArticleItemProps {
 }
 function ArticleItem({ imageURL, date, title }: ArticleItemProps) {
   return (
-    <Row className='gap-10'>
-      <div className='aspect-[320/200] w-[320px] bg-white rounded-md border-4 border-gray'></div>
-      <Stack className='flex-1 justify-center items-start gap-4'>
-        <Typography className='text-gray-darker uppercase' variant='body-wide'>
-          {date}
-        </Typography>
-        <Typography className='line-clamp-2' variant='heading'>
-          {title}
-        </Typography>
-      </Stack>
-    </Row>
+    <a className='cursor-pointer'>
+      <Row className='gap-10 group py-10'>
+        <div className='relative aspect-[320/200] w-[320px] bg-white rounded-md border-4 border-gray overflow-hidden'>
+          <div className='absolute inset-0 -translate-x-full group-hover:translate-x-0 duration-500 ease-in-out bg-primary/70'></div>
+        </div>
+        <Stack className='flex-1 justify-center items-start gap-4'>
+          <Typography
+            className='text-gray-darker uppercase'
+            variant='body-wide'
+          >
+            {date}
+          </Typography>
+          <Typography
+            className='line-clamp-2 text-white group-hover:text-primary duration-500 ease-in-out'
+            variant='heading'
+          >
+            {title}
+          </Typography>
+        </Stack>
+      </Row>
+    </a>
   );
 }

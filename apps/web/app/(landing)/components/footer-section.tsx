@@ -67,7 +67,7 @@ function SocialLink({ name, href }: SocialLinkProps) {
         </div>
         <div className='relative h-full flex-1 px-2 py-1 overflow-hidden'>
           <Typography variant='heading'>{name}</Typography>
-          <div className='-z-10 absolute -left-2 top-1/2 -translate-y-1/2 -translate-x-full h-full w-full group-hover:translate-x-0 duration-500 bg-secondary/60'></div>
+          <div className='-z-10 absolute -left-2 top-1/2 -translate-y-1/2 -translate-x-full h-full w-full group-hover:translate-x-0 duration-500 bg-primary'></div>
         </div>
       </Row>
     </Link>
