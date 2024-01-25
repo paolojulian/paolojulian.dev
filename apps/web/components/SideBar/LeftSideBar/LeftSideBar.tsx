@@ -4,6 +4,7 @@ import MailIcon from '@repo/ui/icons/mail-icon';
 import PhoneIcon from '@repo/ui/icons/phone-icon';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ReactElement } from 'react';
 
 export default function LeftSideBar() {
   return (
@@ -12,16 +13,36 @@ export default function LeftSideBar() {
         <Image alt='Logo' src='/logo.png' fill quality={100} />
       </Link>
       <Stack className='gap-8'>
-        <Link href='#'>
-          <LinkedInIcon className='w-[1.2rem] h-[1.2rem]' />
-        </Link>
-        <Link href='#'>
-          <MailIcon className='w-5 h-5' />
-        </Link>
-        <Link href='#'>
-          <PhoneIcon className='w-5 h-5' />
-        </Link>
+        <SideBarLinkIcon
+          href='#'
+          Icon={
+            <LinkedInIcon className='w-[1.2rem] h-[1.2rem] group-hover:text-primary duration-500 ease-in-out group-hover:scale-125' />
+          }
+        />
+        <SideBarLinkIcon
+          href='#'
+          Icon={
+            <MailIcon className='w-5 h-5 group-hover:text-primary duration-500 ease-in-out group-hover:scale-125' />
+          }
+        />
+        <SideBarLinkIcon
+          href='#'
+          Icon={
+            <PhoneIcon className='w-5 h-5 group-hover:text-primary duration-500 ease-in-out group-hover:scale-125' />
+          }
+        />
       </Stack>
     </Stack>
+  );
+}
+
+function SideBarLinkIcon({ Icon, href }: { Icon: ReactElement; href: string }) {
+  return (
+    <Link
+      href={href}
+      className='text-white hover:text-primary group duration-500 ease-in-out'
+    >
+      {Icon}
+    </Link>
   );
 }

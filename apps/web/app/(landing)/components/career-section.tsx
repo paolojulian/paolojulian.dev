@@ -91,7 +91,7 @@ function ToolItem({ type, tools = [] }: ToolItemProps) {
     <Row className='py-10 items-start border-t border-stone-700'>
       <Typography
         variant='heading'
-        className='w-[25%] capitalize text-gray-darker'
+        className='w-[25%] capitalize'
       >
         {type}
       </Typography>
