@@ -1,21 +1,22 @@
 import Stack from '@repo/ui/components/stack';
+import Image from 'next/image';
 import Menu from '../../components/Menu';
 import MenuButton from '../../components/Menu/MenuButton';
 import MenuContent from '../../components/Menu/MenuContent';
 import MenuProvider from '../../components/Menu/context/MenuProvider';
 import LeftSideBar from '../../components/SideBar/LeftSideBar';
 import RightSideBar from '../../components/SideBar/RightSideBar';
+import { usePortfolio } from '../../graphql/use-portfolio';
 import AboutSection from './components/about-section';
 import ArticlesSection from './components/articles-section';
 import CareerSection from './components/career-section';
 import FooterSection from './components/footer-section';
 import HeroSection from './components/hero-section';
-import Image from 'next/image';
-import { usePortfolio } from '../../graphql/usePortfolio';
 
 export default async function Home() {
-  const data = await usePortfolio();
-  console.log({ data });
+  const portfolio = await usePortfolio();
+
+  if (!portfolio) return null;
 
   return (
     <>
@@ -45,10 +46,24 @@ export default async function Home() {
             {/* Main */}
             <div className='bg-black'>
               <Stack className='max-w-screen-lg mx-auto py-[200px] gap-[400px] bg-black'>
-                <AboutSection />
-                {/* <ToolsSection /> */}
-                <CareerSection />
-                <ArticlesSection />
+                <AboutSection
+                  portfolio={{
+                    about: portfolio.about,
+                    whatIDo: portfolio.whatIDo,
+                  }}
+                />
+                <CareerSection
+                  portfolio={{
+                    careersCollection: portfolio.careersCollection,
+                    experience: portfolio.experience,
+                    toolsCollection: portfolio.toolsCollection,
+                  }}
+                />
+                <ArticlesSection
+                  portfolio={{
+                    writing: portfolio.writing,
+                  }}
+                />
               </Stack>
             </div>
           </main>

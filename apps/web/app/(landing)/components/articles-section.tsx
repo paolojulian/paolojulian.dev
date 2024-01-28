@@ -4,16 +4,19 @@ import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import NewTabArrowIcon from '@repo/ui/icons/new-tab-arrow-icon';
 import Highlight from './highlight';
+import { gql } from '@apollo/client';
+import { Portfolio } from '../../../graphql/portfolio.types';
 
-export default function ArticlesSection() {
+interface Props {
+  portfolio: Pick<Portfolio, 'writing'>;
+}
+
+export default function ArticlesSection({ portfolio }: Props) {
   return (
     <Stack className='gap-52'>
       <Stack className='gap-10'>
         <SectionHeader title='Writing' />
-        <Typography variant='heading-lg'>
-          I love <Highlight>writing articles</Highlight>; not only do I share my
-          thoughts, but it also serves as documentation for future references.
-        </Typography>
+        <Typography variant='heading-lg'>{portfolio.writing}</Typography>
       </Stack>
       <Stack className='gap-10'>
         <Typography variant='body-wide'>LATEST ARTICLES</Typography>
@@ -78,3 +81,11 @@ function ArticleItem({ imageURL, date, title }: ArticleItemProps) {
     </a>
   );
 }
+
+ArticlesSection.fragments = {
+  portfolio: gql`
+    fragment ArticleFragment on Portfolio {
+      writing
+    }
+  `,
+};
