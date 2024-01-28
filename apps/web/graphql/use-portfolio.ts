@@ -36,14 +36,12 @@ interface QueryData {
 }
 
 export async function usePortfolio() {
-  const { data, error, errors } = await getClient().query<QueryData>({
+  const { data } = await getClient().query<QueryData>({
     query: GET_PORTFOLIO,
     variables: {
       limit: 1,
     },
   });
-  console.log('error', error);
-  console.log('errors', errors);
 
   if (data?.portfolioCollection?.items?.length === 0) {
     return undefined;
