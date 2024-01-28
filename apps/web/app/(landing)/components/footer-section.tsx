@@ -1,3 +1,4 @@
+import { gql } from '@apollo/client';
 import Row from '@repo/ui/components/row';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
@@ -86,3 +87,17 @@ function ContactItem({ label, value }: ContactItemProps) {
     </div>
   );
 }
+
+FooterSection.fragments = {
+  portfolio: gql`
+    fragment FooterFragment on Portfolio {
+      contact {
+        linkedin
+        facebook
+        instagram
+        email
+        mobile
+      }
+    }
+  `,
+};
