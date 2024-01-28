@@ -4,6 +4,7 @@ import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import { Portfolio } from '../../../graphql/portfolio.types';
 import classNames from 'classnames';
+import AppReactMarkdown from '../../../components/app-react-markdown/app-react-markdown';
 
 interface Props {
   portfolio: Pick<Portfolio, 'about' | 'whatIDo'>;
@@ -14,12 +15,7 @@ export default function AboutSection({ portfolio }: Props) {
     <Stack className='gap-52'>
       <Stack className='gap-10'>
         <SectionHeader title='About' />
-        <Typography variant='heading-lg'>
-          {/* I’m a Full Stack Developer who specializes in{' '}
-          <Highlight>Front-end Development</Highlight>. I write garbage code for
-          a living. */}
-          {portfolio.about}
-        </Typography>
+        <AppReactMarkdown>{portfolio.about}</AppReactMarkdown>
       </Stack>
       <Stack className='gap-10'>
         <Typography variant='body-wide'>WHAT I DO</Typography>

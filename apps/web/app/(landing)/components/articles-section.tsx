@@ -1,10 +1,10 @@
+import { gql } from '@apollo/client';
 import SectionHeader from '@repo/ui/components/SectionHeader';
 import Row from '@repo/ui/components/row';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import NewTabArrowIcon from '@repo/ui/icons/new-tab-arrow-icon';
-import Highlight from './highlight';
-import { gql } from '@apollo/client';
+import AppReactMarkdown from '../../../components/app-react-markdown/app-react-markdown';
 import { Portfolio } from '../../../graphql/portfolio.types';
 
 interface Props {
@@ -16,7 +16,7 @@ export default function ArticlesSection({ portfolio }: Props) {
     <Stack className='gap-52'>
       <Stack className='gap-10'>
         <SectionHeader title='Writing' />
-        <Typography variant='heading-lg'>{portfolio.writing}</Typography>
+        <AppReactMarkdown>{portfolio.writing}</AppReactMarkdown>
       </Stack>
       <Stack className='gap-10'>
         <Typography variant='body-wide'>LATEST ARTICLES</Typography>

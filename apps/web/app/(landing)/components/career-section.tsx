@@ -6,6 +6,7 @@ import Typography from '@repo/ui/components/typography';
 import dayjs from 'dayjs';
 import { useMemo } from 'react';
 import { Portfolio } from '../../../graphql/portfolio.types';
+import AppReactMarkdown from '../../../components/app-react-markdown/app-react-markdown';
 
 interface Props {
   portfolio: Pick<
@@ -31,13 +32,7 @@ export default function CareerSection({ portfolio }: Props) {
     <Stack className='gap-52'>
       <Stack className='gap-10'>
         <SectionHeader title='Experience' />
-        <Typography variant='heading-lg'>
-          {/* With <Highlight>7 years</Highlight> of experience in web and mobile
-          development. I have primarily worked on{' '}
-          <Highlight>commercial</Highlight> and{' '}
-          <Highlight>productivity apps</Highlight>. */}
-          {portfolio.experience}
-        </Typography>
+        <AppReactMarkdown>{portfolio.experience}</AppReactMarkdown>
       </Stack>
       <Stack className='gap-10'>
         <Typography variant={'body-wide'}>TECH STACK</Typography>
@@ -52,7 +47,7 @@ export default function CareerSection({ portfolio }: Props) {
         <div className='border-b border-stone-700'>
           {formattedCareers.map((careerItem, i) => (
             <CareerItem
-              key={i}
+              key={`${careerItem.title}_${i}`}
               year={careerItem.formattedStartDate}
               position={careerItem.title}
               company={careerItem.company}
