@@ -97,7 +97,7 @@ function ToolItem({ type, tools = [] }: ToolItemProps) {
       </Typography>
       <Stack className='gap-4'>
         {tools.map((tool, i) => (
-          <Typography variant={'heading'}>
+          <Typography key={i} variant={'heading'}>
             {tool} {i !== tools.length - 1 ? '/' : ''}
           </Typography>
         ))}

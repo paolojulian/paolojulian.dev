@@ -11,8 +11,12 @@ import CareerSection from './components/career-section';
 import FooterSection from './components/footer-section';
 import HeroSection from './components/hero-section';
 import Image from 'next/image';
+import { usePortfolio } from '../../graphql/usePortfolio';
 
-export default function Home() {
+export default async function Home() {
+  const data = await usePortfolio();
+  console.log({ data });
+
   return (
     <>
       <div

@@ -14,7 +14,7 @@ export default function NewTabArrowIcon({ className, ...props }: Props) {
       className={cn('ui-text-secondary', className)}
       {...props}
     >
-      <g clip-path='url(#clip0_2414_7900)'>
+      <g clipPath='url(#clip0_2414_7900)'>
         <path
           d='M24.4898 15.9316L40.0283 20.0952M40.0283 20.0952L35.8648 35.6337M40.0283 20.0952L14.6971 34.7202'
           stroke='currentColor'

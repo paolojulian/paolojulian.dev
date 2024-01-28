@@ -2,6 +2,7 @@ import SectionHeader from '@repo/ui/components/SectionHeader';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import Highlight from './highlight';
+import { gql } from '@apollo/client';
 
 export default function AboutSection() {
   return (
@@ -52,3 +53,11 @@ export default function AboutSection() {
     </Stack>
   );
 }
+
+AboutSection.fragments = {
+  portfolio: gql`
+    fragment AboutFragment on Portfolio {
+      about
+    }
+  `,
+};

@@ -3,7 +3,7 @@ import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import Highlight from './highlight';
 
-export default function HeroSection() {
+export default async function HeroSection() {
   return (
     <>
       <Container className='min-h-screen'>
