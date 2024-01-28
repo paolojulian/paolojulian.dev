@@ -5,8 +5,13 @@ import PhoneIcon from '@repo/ui/icons/phone-icon';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactElement } from 'react';
+import { Portfolio } from '../../../graphql/portfolio.types';
 
-export default function LeftSideBar() {
+interface Props {
+  portfolio: Pick<Portfolio, 'contact'>;
+}
+
+export default function LeftSideBar({ portfolio }: Props) {
   return (
     <Stack className='fixed left-10 top-10 bottom-10 justify-between items-center z-30'>
       <Link className='w-8 2xl:w-10 aspect-square relative' href='/'>
@@ -14,19 +19,19 @@ export default function LeftSideBar() {
       </Link>
       <Stack className='gap-8'>
         <SideBarLinkIcon
-          href='#'
+          href={portfolio.contact.linkedin}
           Icon={
             <LinkedInIcon className='w-[1.2rem] h-[1.2rem] group-hover:text-primary duration-500 ease-in-out group-hover:scale-125' />
           }
         />
         <SideBarLinkIcon
-          href='#'
+          href={`mailto:${portfolio.contact.email}`}
           Icon={
             <MailIcon className='w-5 h-5 group-hover:text-primary duration-500 ease-in-out group-hover:scale-125' />
           }
         />
         <SideBarLinkIcon
-          href='#'
+          href={`tel:${portfolio.contact.mobile}`}
           Icon={
             <PhoneIcon className='w-5 h-5 group-hover:text-primary duration-500 ease-in-out group-hover:scale-125' />
           }
@@ -41,6 +46,7 @@ function SideBarLinkIcon({ Icon, href }: { Icon: ReactElement; href: string }) {
     <Link
       href={href}
       className='text-white hover:text-primary group duration-500 ease-in-out'
+      target='_blank'
     >
       {Icon}
     </Link>

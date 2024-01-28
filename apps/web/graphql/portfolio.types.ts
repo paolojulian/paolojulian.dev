@@ -6,7 +6,8 @@ export interface Portfolio {
   experience: string;
   toolsCollection: {
     items: ToolItem[];
-  }
+  };
+  contact: Contact;
   whatIDo: string[];
   writing: string;
 }
@@ -20,4 +21,12 @@ export interface CareerItem {
 export interface ToolItem {
   name: string;
   items: string[];
+}
+
+export interface Contact {
+  linkedin: string;
+  facebook: string;
+  instagram: string;
+  email: string;
+  mobile: string;
 }

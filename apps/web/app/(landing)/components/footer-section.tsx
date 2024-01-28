@@ -3,8 +3,13 @@ import Row from '@repo/ui/components/row';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import Link from 'next/link';
+import { Portfolio } from '../../../graphql/portfolio.types';
 
-export default function FooterSection() {
+interface Props {
+  portfolio: Pick<Portfolio, 'contact'>;
+}
+
+export default function FooterSection({ portfolio }: Props) {
   return (
     <footer className='border-t border-white pb-40'>
       <Stack className='max-w-screen-lg mx-auto py-10 gap-20'>
@@ -20,22 +25,13 @@ export default function FooterSection() {
             <SocialLink name='Apps' href={'/apps'} />
           </Stack>
           <Stack>
-            <SocialLink
-              name='Linkedin'
-              href={'https://www.linkedin.com/in/pipz/'}
-            />
-            <SocialLink
-              name='Facebook'
-              href={'https://www.facebook.com/profile.php?id=100078321445396'}
-            />
-            <SocialLink
-              name='Instagram'
-              href={'https://www.instagram.com/pipz.dev/'}
-            />
+            <SocialLink name='Linkedin' href={portfolio.contact.linkedin} />
+            <SocialLink name='Facebook' href={portfolio.contact.facebook} />
+            <SocialLink name='Instagram' href={portfolio.contact.instagram} />
           </Stack>
           <Stack className='gap-10'>
-            <ContactItem label='Email' value='paolojulian.personal@gmail.com' />
-            <ContactItem label='Phone' value='+639279488654' />
+            <ContactItem label='Email' value={portfolio.contact.email} />
+            <ContactItem label='Phone' value={portfolio.contact.mobile} />
           </Stack>
         </div>
       </Stack>
