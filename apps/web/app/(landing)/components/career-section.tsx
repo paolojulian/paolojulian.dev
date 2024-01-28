@@ -4,9 +4,8 @@ import Row from '@repo/ui/components/row';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import dayjs from 'dayjs';
-import { useMemo } from 'react';
-import { Portfolio } from '../../../graphql/portfolio.types';
 import AppReactMarkdown from '../../../components/app-react-markdown/app-react-markdown';
+import { Portfolio } from '../../../graphql/portfolio.types';
 
 interface Props {
   portfolio: Pick<
@@ -15,18 +14,16 @@ interface Props {
   >;
 }
 export default function CareerSection({ portfolio }: Props) {
-  const formattedCareers = useMemo(() => {
-    return [...portfolio.careersCollection.items]
-      .sort(
-        (a, b) =>
-          new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
-      )
-      .map((item, i) => ({
-        ...item,
-        formattedStartDate:
-          i === 0 ? 'NOW' : dayjs(item.startDate).format('YYYY'),
-      }));
-  }, [portfolio.careersCollection.items]);
+  const formattedCareers = [...portfolio.careersCollection.items]
+    .sort(
+      (a, b) =>
+        new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+    )
+    .map((item, i) => ({
+      ...item,
+      formattedStartDate:
+        i === 0 ? 'NOW' : dayjs(item.startDate).format('YYYY'),
+    }));
 
   return (
     <Stack className='gap-52'>
