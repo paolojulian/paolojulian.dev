@@ -6,12 +6,21 @@ import Typography from '@repo/ui/components/typography';
 import NewTabArrowIcon from '@repo/ui/icons/new-tab-arrow-icon';
 import AppReactMarkdown from '../../../components/app-react-markdown/app-react-markdown';
 import { Portfolio } from '../../../graphql/portfolio.types';
+import { useLatestBlogPosts } from '../../../graphql/use-latest-blog-post';
+import dayjs from 'dayjs';
+import Image from 'next/image';
 
 interface Props {
   portfolio: Pick<Portfolio, 'writing'>;
 }
 
-export default function ArticlesSection({ portfolio }: Props) {
+export default async function ArticlesSection({ portfolio }: Props) {
+  const latestBlogPosts = await useLatestBlogPosts();
+  const formattedLatestBlogPosts = [...latestBlogPosts].map((item) => ({
+    ...item,
+    formattedPublishedAt: dayjs(item.sys.publishedAt).format('MMM YYYY'),
+  }));
+
   return (
     <Stack className='gap-52'>
       <Stack className='gap-10'>
@@ -21,21 +30,14 @@ export default function ArticlesSection({ portfolio }: Props) {
       <Stack className='gap-10'>
         <Typography variant='body-wide'>LATEST ARTICLES</Typography>
         <Stack>
-          <ArticleItem
-            imageURL='/'
-            date='Oct 2023'
-            title='Essential Tools and Libraries for Daily Web Development Works'
-          />
-          <ArticleItem
-            imageURL='/'
-            date='Oct 2023'
-            title='The Right Way to Make Component Variants using Tailwind'
-          />
-          <ArticleItem
-            imageURL='/'
-            date='Oct 2023'
-            title='How to Send Emails in Next.js 13 Using the New App API Route'
-          />
+          {formattedLatestBlogPosts.map((blogPost) => (
+            <ArticleItem
+              key={blogPost.sys.id}
+              imageURL={blogPost.banner.url}
+              date={blogPost.formattedPublishedAt}
+              title={blogPost.title}
+            />
+          ))}
         </Stack>
 
         <Row className='items-center justify-end pt-20'>
@@ -61,7 +63,9 @@ function ArticleItem({ imageURL, date, title }: ArticleItemProps) {
     <a className='cursor-pointer'>
       <Row className='gap-10 group py-10'>
         <div className='relative aspect-[320/200] w-[320px] bg-white rounded-md border-4 border-gray overflow-hidden'>
-          <div className='absolute inset-0 -translate-x-full group-hover:translate-x-0 duration-500 ease-in-out bg-primary/70'></div>
+          <Image alt={title} fill src={imageURL} />
+          <div className='absolute inset-0 -translate-x-full group-hover:translate-x-0 duration-500 ease-in-out bg-primary/50'>
+          </div>
         </div>
         <Stack className='flex-1 justify-center items-start gap-4'>
           <Typography
