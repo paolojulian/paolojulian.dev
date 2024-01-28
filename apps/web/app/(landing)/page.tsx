@@ -67,11 +67,19 @@ export default async function Home() {
               </Stack>
             </div>
           </main>
-          <FooterSection />
+          <FooterSection
+            portfolio={{
+              contact: portfolio.contact,
+            }}
+          />
         </MenuContent>
         <Menu />
         <MenuButton />
-        <LeftSideBar />
+        <LeftSideBar
+          portfolio={{
+            contact: portfolio.contact,
+          }}
+        />
         <RightSideBar />
       </MenuProvider>
     </>
