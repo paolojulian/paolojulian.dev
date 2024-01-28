@@ -11,7 +11,7 @@ interface Props {
 
 export default function FooterSection({ portfolio }: Props) {
   return (
-    <footer className='border-t border-white pb-40'>
+    <section className='border-t border-white pb-40' id={'contact'}>
       <Stack className='max-w-screen-lg mx-auto py-10 gap-20'>
         <Typography className='uppercase' variant='body-wide'>
           CONNECT
@@ -35,7 +35,7 @@ export default function FooterSection({ portfolio }: Props) {
           </Stack>
         </div>
       </Stack>
-    </footer>
+    </section>
   );
 }
 
