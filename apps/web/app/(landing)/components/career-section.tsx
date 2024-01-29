@@ -26,33 +26,35 @@ export default function CareerSection({ portfolio }: Props) {
     }));
 
   return (
-    <Stack className='gap-52'>
-      <Stack className='gap-10'>
-        <SectionHeader title='Experience' />
-        <AppReactMarkdown>{portfolio.experience}</AppReactMarkdown>
+    <section id={'experience'}>
+      <Stack className='gap-52'>
+        <Stack className='gap-10'>
+          <SectionHeader title='Experience' />
+          <AppReactMarkdown>{portfolio.experience}</AppReactMarkdown>
+        </Stack>
+        <Stack className='gap-10'>
+          <Typography variant={'body-wide'}>TECH STACK</Typography>
+          <div className='border-b border-stone-700'>
+            {portfolio.toolsCollection.items.map(({ name, items }, i) => (
+              <ToolItem key={`${name}_${i}`} type={name} tools={items} />
+            ))}
+          </div>
+        </Stack>
+        <Stack className='gap-10'>
+          <Typography variant={'body-wide'}>CAREER</Typography>
+          <div className='border-b border-stone-700'>
+            {formattedCareers.map((careerItem, i) => (
+              <CareerItem
+                key={`${careerItem.title}_${i}`}
+                year={careerItem.formattedStartDate}
+                position={careerItem.title}
+                company={careerItem.company}
+              />
+            ))}
+          </div>
+        </Stack>
       </Stack>
-      <Stack className='gap-10'>
-        <Typography variant={'body-wide'}>TECH STACK</Typography>
-        <div className='border-b border-stone-700'>
-          {portfolio.toolsCollection.items.map(({ name, items }, i) => (
-            <ToolItem key={`${name}_${i}`} type={name} tools={items} />
-          ))}
-        </div>
-      </Stack>
-      <Stack className='gap-10'>
-        <Typography variant={'body-wide'}>CAREER</Typography>
-        <div className='border-b border-stone-700'>
-          {formattedCareers.map((careerItem, i) => (
-            <CareerItem
-              key={`${careerItem.title}_${i}`}
-              year={careerItem.formattedStartDate}
-              position={careerItem.title}
-              company={careerItem.company}
-            />
-          ))}
-        </div>
-      </Stack>
-    </Stack>
+    </section>
   );
 }
 

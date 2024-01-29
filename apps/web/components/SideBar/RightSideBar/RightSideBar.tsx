@@ -1,16 +1,79 @@
+'use client';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import classNames from 'classnames';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+
+export type NavId = 'about' | 'experience' | 'writing' | 'contact';
+type NavItem = {
+  name: string;
+  id: NavId;
+};
+
+export const navItems: NavItem[] = [
+  {
+    name: 'About',
+    id: 'about',
+  },
+  {
+    name: 'Experience',
+    id: 'experience',
+  },
+  {
+    name: 'Writing',
+    id: 'writing',
+  },
+  {
+    name: 'Contact',
+    id: 'contact',
+  },
+];
+
+function isNavSection(id: string): id is NavId {
+  return !!navItems.find((item) => id === item.id);
+}
 
 export default function RightSideBar() {
+  const [activeSection, setActiveSection] = useState<NavId>('about');
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.id;
+          if (entry.isIntersecting && isNavSection(id)) {
+            setActiveSection(id);
+          }
+        });
+      },
+      { threshold: 0.1 } // Adjust the threshold as needed
+    );
+
+    const sections = document.querySelectorAll('section');
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Cleanup observer on component unmount
+    return () => {
+      sections.forEach((section) => {
+        observer.unobserve(section);
+      });
+    };
+  }, []);
+
   return (
     <Stack className='fixed right-10 top-10 bottom-10 justify-between items-end z-30'>
       <Stack className='gap-2 items-end'>
-        <SideBarLink isCurrent={true} href='#about' label='About' />
-        <SideBarLink isCurrent={false} href='#experience' label='Experience' />
-        <SideBarLink isCurrent={false} href='#writing' label='Writing' />
-        <SideBarLink isCurrent={false} href='#contact' label='Contact' />
+        {navItems.map((item, i) => (
+          <SideBarLink
+            key={`${item.name}_${i}`}
+            isCurrent={activeSection === item.id}
+            href={`#${item.id}`}
+            label={item.name}
+          />
+        ))}
       </Stack>
       <span
         style={{
