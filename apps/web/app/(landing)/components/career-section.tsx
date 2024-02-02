@@ -26,8 +26,8 @@ export default function CareerSection({ portfolio }: Props) {
     }));
 
   return (
-    <section id={'experience'} className='py-[200px]'>
-      <Stack className='gap-52'>
+    <section id={'experience'} className='py-[100px] md:py-[200px]'>
+      <Stack className='gap-24 md:gap-52'>
         <Stack className='gap-10'>
           <SectionHeader title='Experience' />
           <AppReactMarkdown>{portfolio.experience}</AppReactMarkdown>
@@ -65,11 +65,11 @@ interface CareerItemProps {
 }
 function CareerItem({ year, position, company }: CareerItemProps) {
   return (
-    <Row className='py-10 items-start border-t border-stone-700'>
+    <Row className='py-6 md:py-10 items-start border-t border-stone-700'>
       <Typography variant='heading' className='uppercase w-[25%]'>
         {year}
       </Typography>
-      <Stack className='gap-4'>
+      <Stack className='md:gap-4'>
         <Typography variant={'heading'}>{position}</Typography>
         <Typography variant='body'>{company}</Typography>
       </Stack>
@@ -83,11 +83,11 @@ interface ToolItemProps {
 }
 function ToolItem({ type, tools = [] }: ToolItemProps) {
   return (
-    <Row className='py-10 items-start border-t border-stone-700'>
+    <Row className='py-6 md:py-10 items-start border-t border-stone-700'>
       <Typography variant='heading' className='w-[25%] capitalize'>
         {type}
       </Typography>
-      <Stack className='gap-4'>
+      <Stack className='md:gap-4'>
         {tools.map((tool, i) => (
           <Typography key={i} variant={'heading'}>
             {tool} {i !== tools.length - 1 ? '/' : ''}
