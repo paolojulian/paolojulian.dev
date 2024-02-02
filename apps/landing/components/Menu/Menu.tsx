@@ -1,5 +1,4 @@
 'use client';
-import styles from './menu.module.css';
 import classNames from 'classnames';
 import { useMenuContext } from './context/MenuProvider';
 
@@ -18,7 +17,6 @@ export default function Menu() {
     >
       <div
         className={classNames(
-          styles.menu,
           'flex flex-row justify-center',
           'w-full pb-8 pr-8',
           'overflow-x-auto text-new-white',
