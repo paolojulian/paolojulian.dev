@@ -1,11 +1,13 @@
 import Stack from '@repo/ui/components/stack';
+import {
+  Menu,
+  MenuButton,
+  MenuContent,
+  MenuProvider,
+} from '@repo/ui/context/menu';
 import Image from 'next/image';
-import Menu from '../../components/Menu';
-import MenuButton from '../../components/Menu/MenuButton';
-import MenuContent from '../../components/Menu/MenuContent';
-import MenuProvider from '../../components/Menu/context/MenuProvider';
-import LeftSideBar from '../../components/SideBar/LeftSideBar';
-import RightSideBar from '../../components/SideBar/RightSideBar';
+import LeftSideBar from '../../components/side-bar/left-side-bar';
+import RightSideBar from '../../components/side-bar/right-side-bar';
 import { usePortfolio } from '../../graphql/use-portfolio';
 import AboutSection from './components/about-section';
 import ArticlesSection from './components/articles-section';
