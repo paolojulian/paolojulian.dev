@@ -13,7 +13,7 @@ interface Props {
 
 export default function LeftSideBar({ portfolio }: Props) {
   return (
-    <Stack className='fixed left-10 top-10 bottom-10 justify-between items-center z-30'>
+    <Stack className='fixed left-4 md:left-10 top-6 md:top-10 bottom-6 md:bottom-10 justify-between items-center z-30'>
       <Link className='w-8 2xl:w-10 aspect-square relative' href='/'>
         <Image alt='Logo' src='/logo.png' fill quality={100} />
       </Link>
