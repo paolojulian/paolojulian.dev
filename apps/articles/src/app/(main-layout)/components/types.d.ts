@@ -1,1 +1,0 @@
-export type ComponentCategories = 'application-ui' | 'marketing' | 'ecommerce';
