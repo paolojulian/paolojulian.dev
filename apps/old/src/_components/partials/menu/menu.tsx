@@ -43,10 +43,7 @@ const Menu: FunctionComponent<Props> = () => {
           isOpen ? '' : 'pointer-events-none',
         ].join(' ')}
       >
-        <ArrowScrollBar
-          addOverlayOnBorders
-          scrollAmount={500}
-        >
+        <ArrowScrollBar addOverlayOnBorders scrollAmount={500}>
           <div className='w-fit flex flex-row gap-4 h-full'>
             <MenuItem
               ImageComponent={<PortfolioIcon className='h-20 md:h-28 w-auto' />}
