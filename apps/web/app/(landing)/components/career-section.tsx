@@ -26,7 +26,7 @@ export default function CareerSection({ portfolio }: Props) {
     }));
 
   return (
-    <section id={'experience'}>
+    <section id={'experience'} className='py-[200px]'>
       <Stack className='gap-52'>
         <Stack className='gap-10'>
           <SectionHeader title='Experience' />

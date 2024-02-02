@@ -22,7 +22,7 @@ export default async function ArticlesSection({ portfolio }: Props) {
   }));
 
   return (
-    <section id={'writing'}>
+    <section id={'writing'} className='py-[200px]'>
       <Stack className='gap-52'>
         <Stack className='gap-10'>
           <SectionHeader title='Writing' />

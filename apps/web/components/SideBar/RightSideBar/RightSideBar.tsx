@@ -102,7 +102,7 @@ function SideBarLink({
       href={href}
       className={classNames('duration-500 ease-in-out', {
         'text-white pointer-events-none': isCurrent,
-        'text-gray hover:text-primary hover:-translate-x-4': !isCurrent,
+        'text-gray hover:text-primary hover:-translate-x-1': !isCurrent,
       })}
     >
       <Typography className='uppercase'>{label}</Typography>
