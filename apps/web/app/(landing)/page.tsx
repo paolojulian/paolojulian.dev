@@ -45,7 +45,7 @@ export default async function Home() {
             <HeroSection />
             {/* Main */}
             <div className='bg-black'>
-              <Stack className='max-w-screen-lg mx-auto bg-black'>
+              <Stack className='max-w-screen-lg mx-auto bg-black px-10 xl:px-0'>
                 <AboutSection
                   portfolio={{
                     about: portfolio.about,
