@@ -1,5 +1,5 @@
 'use client';
-import { useMenuContext } from '../context/MenuProvider';
+import { useMenuContext } from '../context/menu-provider';
 
 export default function MenuButton() {
   const { setIsOpen } = useMenuContext();

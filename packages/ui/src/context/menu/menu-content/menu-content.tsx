@@ -1,6 +1,6 @@
 'use client';
 import { ReactNode } from 'react';
-import { useMenuContext } from '../context/MenuProvider';
+import { useMenuContext } from '../context/menu-provider';
 
 interface Props {
   children: ReactNode;
