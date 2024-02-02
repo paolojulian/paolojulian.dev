@@ -64,7 +64,7 @@ function ArticleItem({ imageURL, date, title }: ArticleItemProps) {
   return (
     <a className='cursor-pointer'>
       <Row className='gap-10 group py-10'>
-        <div className='relative aspect-[320/200] w-[320px] bg-white rounded-md border-4 border-gray overflow-hidden'>
+        <div className='relative aspect-[320/200] w-[40%] lg:w-[320px] bg-white rounded-md border-4 border-gray overflow-hidden'>
           <Image alt={title} fill src={imageURL} />
           <div className='absolute inset-0 -translate-x-full group-hover:translate-x-0 duration-500 ease-in-out bg-primary/50'></div>
         </div>
