@@ -27,13 +27,15 @@ type FontVariants =
   | 'heading-lg'
   | 'heading-xl';
 const fontVariantsMap = {
-  body: 'ui-text-sm ui-tracking-[-0.01em] ui-font-semibold',
-  'body-wide': 'ui-text-sm ui-tracking-[0.40em] ui-font-semibold',
-  heading: 'ui-text-4xl ui-tracking-[-0.01em] ui-font-semibold',
+  body: 'ui-text-[0.75rem] md:ui-text-sm ui-tracking-[-0.01em] ui-font-semibold',
+  'body-wide':
+    'ui-text-[0.75rem] md:ui-text-sm ui-tracking-[0.40em] ui-font-semibold',
+  heading:
+    'ui-text-[1.5rem] md:ui-text-4xl ui-tracking-[-0.01em] ui-font-semibold',
   'heading-lg':
-    'ui-text-[4rem] ui-tracking-[-0.01em] ui-font-semibold ui-leading-[4.5rem]',
+    'ui-text-[2.5rem] md:ui-text-[4rem] ui-tracking-[-0.01em] ui-font-semibold ui-leading-[2.75rem] md:ui-leading-[4.5rem]',
   'heading-xl':
-    'ui-text-[7rem] ui-tracking-[-0.01em] ui-leading-[6rem] ui-font-semibold',
+    'ui-text-[4rem] md:ui-text-[7rem] ui-tracking-[-0.01em] ui-leading-[3.5rem] md:ui-leading-[6rem] ui-font-semibold',
 } satisfies Record<FontVariants, string>;
 
 export const typographyVariants = cva('', {

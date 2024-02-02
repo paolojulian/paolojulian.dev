@@ -64,7 +64,7 @@ export default function RightSideBar() {
   }, []);
 
   return (
-    <Stack className='fixed right-10 top-10 bottom-10 justify-between items-end z-30'>
+    <Stack className='fixed right-4 md:right-10 top-6 md:top-10 bottom-6 md:bottom-10 justify-between items-end z-30'>
       <Stack className='gap-2 items-end'>
         {navItems.map((item, i) => (
           <SideBarLink

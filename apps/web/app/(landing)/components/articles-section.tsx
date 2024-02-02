@@ -22,8 +22,8 @@ export default async function ArticlesSection({ portfolio }: Props) {
   }));
 
   return (
-    <section id={'writing'} className='py-[200px]'>
-      <Stack className='gap-52'>
+    <section id={'writing'} className='py-[100px] md:py-[200px]'>
+      <Stack className='gap-24 md:gap-52'>
         <Stack className='gap-10'>
           <SectionHeader title='Writing' />
           <AppReactMarkdown>{portfolio.writing}</AppReactMarkdown>
@@ -41,7 +41,7 @@ export default async function ArticlesSection({ portfolio }: Props) {
             ))}
           </Stack>
 
-          <Row className='items-center justify-end pt-20'>
+          <Row className='items-center justify-end pt-10 md:pt-20'>
             <a href='/articles' target='_blank'>
               <Row className='group items-center justify-center gap-2 text-secondary hover:text-primary duration-500 active:scale-95'>
                 <Typography variant='heading'>See more</Typography>
@@ -63,12 +63,12 @@ interface ArticleItemProps {
 function ArticleItem({ imageURL, date, title }: ArticleItemProps) {
   return (
     <a className='cursor-pointer'>
-      <Row className='gap-10 group py-10'>
-        <div className='relative aspect-[320/200] w-[40%] lg:w-[320px] bg-white rounded-md border-4 border-gray overflow-hidden'>
+      <div className='flex flex-col md:flex-row gap-6 md:gap-10 group py-10'>
+        <div className='relative aspect-[320/200] w-full md:w-[40%] lg:w-[320px] bg-white rounded-md border-4 border-gray overflow-hidden'>
           <Image alt={title} fill src={imageURL} />
           <div className='absolute inset-0 -translate-x-full group-hover:translate-x-0 duration-500 ease-in-out bg-primary/50'></div>
         </div>
-        <Stack className='flex-1 justify-center items-start gap-4'>
+        <Stack className='flex-1 justify-center items-start gap-2 md:gap-4'>
           <Typography
             className='text-gray-darker uppercase'
             variant='body-wide'
@@ -76,13 +76,13 @@ function ArticleItem({ imageURL, date, title }: ArticleItemProps) {
             {date}
           </Typography>
           <Typography
-            className='line-clamp-2 text-white group-hover:text-primary duration-500 ease-in-out'
+            className='line-clamp-3 md:line-clamp-2 text-white group-hover:text-primary duration-500 ease-in-out'
             variant='heading'
           >
             {title}
           </Typography>
         </Stack>
-      </Row>
+      </div>
     </a>
   );
 }

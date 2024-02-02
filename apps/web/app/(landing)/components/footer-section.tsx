@@ -11,13 +11,16 @@ interface Props {
 
 export default function FooterSection({ portfolio }: Props) {
   return (
-    <section className='border-t border-white pb-40 px-10 xl:px-0' id={'contact'}>
+    <section
+      className='border-t border-white pb-40 px-4 md:px-10 xl:px-0'
+      id={'contact'}
+    >
       <Stack className='max-w-screen-lg mx-auto py-10 gap-20'>
         <Typography className='uppercase' variant='body-wide'>
           CONNECT
         </Typography>
 
-        <div className='grid grid-cols-3 gap-4'>
+        <div className='flex flex-col-reverse md:flex-none md:grid grid-cols-3 gap-10 md:gap-4'>
           <Stack>
             <SocialLink name='Home' href={'/'} />
             <SocialLink name='About' href={'/about'} />
@@ -29,7 +32,7 @@ export default function FooterSection({ portfolio }: Props) {
             <SocialLink name='Facebook' href={portfolio.contact.facebook} />
             <SocialLink name='Instagram' href={portfolio.contact.instagram} />
           </Stack>
-          <Stack className='gap-10'>
+          <Stack className='gap-6 md:gap-10'>
             <ContactItem label='Email' value={portfolio.contact.email} />
             <ContactItem label='Phone' value={portfolio.contact.mobile} />
           </Stack>

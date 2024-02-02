@@ -12,8 +12,8 @@ interface Props {
 
 export default function AboutSection({ portfolio }: Props) {
   return (
-    <section id={'about'} className={'py-[200px]'}>
-      <Stack className='gap-52'>
+    <section id={'about'} className={'py-[100px] md:py-[200px]'}>
+      <Stack className='gap-24 md:gap-52'>
         <Stack className='gap-10'>
           <SectionHeader title='About' />
           <AppReactMarkdown>{portfolio.about}</AppReactMarkdown>
