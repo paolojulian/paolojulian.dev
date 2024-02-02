@@ -23,6 +23,7 @@ export default function AboutSection({ portfolio }: Props) {
           <Stack>
             {portfolio.whatIDo.map((text, i) => (
               <Typography
+                key={i}
                 className={classNames(
                   'border-t border-gray-darker/50 uppercase',
                   { 'border-b': i === portfolio.whatIDo.length - 1 }
