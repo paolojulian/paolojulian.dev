@@ -13,7 +13,11 @@ export const dataTestId = {
 };
 
 interface Props {
-  ImageComponent: ReactNode;
+  imageUrls: {
+    phone: string;
+    tablet: string;
+    desktop: string;
+  };
   description: string;
   isActive: boolean;
   link: string;
@@ -21,7 +25,7 @@ interface Props {
 }
 
 const MenuItem: FunctionComponent<Props> = ({
-  ImageComponent,
+  imageUrls,
   description,
   isActive,
   link,
