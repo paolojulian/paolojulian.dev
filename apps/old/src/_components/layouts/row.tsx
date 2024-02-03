@@ -1,6 +1,5 @@
 import classNames from 'classnames';
-import { ReactNode } from 'react';
-import { FunctionComponent, HtmlHTMLAttributes } from 'react';
+import { HtmlHTMLAttributes, ReactNode } from 'react';
 
 export interface RowProps extends HtmlHTMLAttributes<HTMLDivElement> {
   children: ReactNode;

@@ -10,8 +10,7 @@
     "lint": "next lint && eslint",
     "test": "jest --watch",
     "test:ci": "jest --ci",
-    "pre-commit": "yarn test:ci && yarn lint",
-    "prepare": "husky install"
+    "pre-commit": "yarn test:ci && yarn lint"
   },
   "dependencies": {
     "@algolia/cache-common": "^4.20.0",

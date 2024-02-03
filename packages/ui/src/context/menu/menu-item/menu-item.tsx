@@ -9,9 +9,9 @@ import cn from '../../../utils/cn';
 
 interface Props {
   imageUrls: {
-    phone: string;
-    tablet: string;
-    desktop: string;
+    phone: any;
+    tablet: any;
+    desktop: any;
   };
   isActive: boolean;
   link: string;

@@ -1,8 +1,10 @@
-import Main from '@/_components/partials/main';
-import Menu from '@/_components/partials/menu';
-import MenuButton from '@/_components/partials/menu-btn';
-import MenuProvider from '@/_context/menu-provider';
 import Footer from '@/app/(main-layout)/_components/footer';
+import {
+  Menu,
+  MenuButton,
+  MenuContent,
+  MenuProvider,
+} from '@repo/ui/context/menu';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -18,10 +20,10 @@ export default function RootLayout({
   return (
     <MenuProvider>
       <div className='font-sans text-gray-800'>
-        <Main>
+        <MenuContent>
           {children}
           <Footer />
-        </Main>
+        </MenuContent>
         <Menu />
         <MenuButton />
       </div>
