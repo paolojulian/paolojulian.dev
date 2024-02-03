@@ -10,6 +10,7 @@
     "./components/typography": "./src/components/typography/typography.tsx",
     "./context/menu": "./src/context/menu/index.ts",
     "./fonts/avant-garde": "./src/font/ITC Avant Garde Gothic/ITC Avant Garde Gothic CE Demi.otf",
+    "./icons": "./src/components/icons/index.ts",
     "./icons/linkedin-icon": "./src/components/icons/linkedin-icon.tsx",
     "./icons/mail-icon": "./src/components/icons/mail-icon.tsx",
     "./icons/new-tab-arrow-icon": "./src/components/icons/new-tab-arrow-icon.tsx",
