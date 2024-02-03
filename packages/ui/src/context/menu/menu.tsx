@@ -11,6 +11,7 @@ import HomePagePhone from './assets/home-page.phone.png';
 import HomePageTablet from './assets/home-page.tablet.png';
 import { useMenuContext } from './context/menu-provider';
 import MenuItem from './menu-item';
+import links from '../../utils/links';
 
 export default function Menu() {
   const { isOpen } = useMenuContext();
@@ -18,7 +19,7 @@ export default function Menu() {
   return (
     <nav
       className={[
-        'ui-fixed ui-bottom-0 ui-left-0 ui-bg-white/30 ui-backdrop-blur-lg',
+        'ui-fixed ui-bottom-0 ui-left-0 ui-bg-white/20 ui-backdrop-blur-lg',
         'ui-py-4 ui-md:py-6 ui-lg:py-12 ui-h-[450px] md:ui-h-[600px] xl:ui-h-[500px] ui-w-full ui-z-40',
         'ui-duration-500 ui-overflow-hidden',
         'ui-ease-menu',
@@ -46,7 +47,7 @@ export default function Menu() {
           }}
           title='Home'
           isActive
-          link='#'
+          link={`${links.base}`}
         />
         <MenuItem
           imageUrls={{
@@ -56,7 +57,7 @@ export default function Menu() {
           }}
           title='About'
           isActive={false}
-          link='#'
+          link={`${links.about}/about`}
         />
         <MenuItem
           imageUrls={{
@@ -66,7 +67,7 @@ export default function Menu() {
           }}
           title='Article'
           isActive={false}
-          link='#'
+          link={`${links.articles}/blogs`}
         />
       </div>
     </nav>

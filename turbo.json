@@ -9,7 +9,11 @@
         "^build",
         "$CONTENTFUL_ENV",
         "$CONTENTFUL_SPACE_ID",
-        "$CONTENTFUL_ACCESS_TOKEN"
+        "$CONTENTFUL_ACCESS_TOKEN",
+        "$NEXT_PUBLIC_BASE_URL",
+        "$NEXT_PUBLIC_ABOUT_URL",
+        "$NEXT_PUBLIC_ARTICLES_URL",
+        "$NEXT_PUBLIC_APPS_URL"
       ],
       "outputs": [
         ".next/**",
