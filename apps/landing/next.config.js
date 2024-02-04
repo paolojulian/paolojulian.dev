@@ -8,13 +8,18 @@ module.exports = {
         permanent: true,
       },
       {
-        source: '/blogs*',
-        destination: 'https://v1.paolojulian.dev/blogs*',
+        source: '/blogs',
+        destination: 'https://v1.paolojulian.dev/blogs',
         permanent: true,
       },
       {
-        source: '/apps*',
-        destination: 'https://v1.paolojulian.dev/apps*',
+        source: '/blogs/:slug*',
+        destination: 'https://v1.paolojulian.dev/blogs/:slug*',
+        permanent: true,
+      },
+      {
+        source: '/apps/pomodoro',
+        destination: 'https://v1.paolojulian.dev/apps/pomodoro',
         permanent: true,
       },
     ];

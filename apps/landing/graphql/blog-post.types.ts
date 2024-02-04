@@ -13,5 +13,6 @@ export interface BlogPost {
     url: string;
     title: string;
   },
+  slug: string;
   title: string;
 }
