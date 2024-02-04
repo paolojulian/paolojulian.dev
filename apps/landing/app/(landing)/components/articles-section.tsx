@@ -9,6 +9,7 @@ import Image from 'next/image';
 import AppReactMarkdown from '../../../components/app-react-markdown/app-react-markdown';
 import { Portfolio } from '../../../graphql/portfolio.types';
 import { useLatestBlogPosts } from '../../../graphql/use-latest-blog-post';
+import links from '@repo/ui/utils/links';
 
 interface Props {
   portfolio: Pick<Portfolio, 'writing'>;
@@ -42,7 +43,7 @@ export default async function ArticlesSection({ portfolio }: Props) {
           </Stack>
 
           <Row className='items-center justify-end pt-10 md:pt-20'>
-            <a href='/articles' target='_blank'>
+            <a href={`${links.articles}/blogs`} target='_blank'>
               <Row className='group items-center justify-center gap-2 text-secondary hover:text-primary duration-500 active:scale-95'>
                 <Typography variant='heading'>See more</Typography>
                 <NewTabArrowIcon className='text-secondary group-hover:text-primary duration-500 ease-in-out' />
