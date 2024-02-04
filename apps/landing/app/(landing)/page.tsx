@@ -22,21 +22,12 @@ export default async function Home() {
 
   return (
     <>
-      <div
-        className='w-screen h-screen fixed inset-0 -z-10 bg-black'
-        style={{
-          perspective: '1px',
-        }}
-      >
+      <div className='w-screen h-screen fixed inset-0 -z-10 bg-black'>
         <Image
           className='select-none pointer-events-none mix-blend-color-dodge bg-no-repeat bg-cover bg-fixed bg-center'
-          style={{
-            transform: 'translateZ(-1px)',
-            scale: 2,
-            perspective: '1px',
-          }}
           alt='background'
           src='/assets/background-galaxy.png'
+          sizes='100vw'
           fill
           priority
         />
