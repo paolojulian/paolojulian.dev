@@ -65,7 +65,7 @@ interface ArticleItemProps {
 }
 function ArticleItem({ imageURL, date, slug, title }: ArticleItemProps) {
   return (
-    <a href={`${links.articles}/${slug}`} className='cursor-pointer'>
+    <a href={`${links.articles}/blogs/${slug}`} className='cursor-pointer'>
       <div className='flex flex-col md:flex-row gap-6 md:gap-10 group py-10'>
         <div className='relative aspect-[320/200] w-full md:w-[40%] lg:w-[320px] bg-white rounded-md border-4 border-gray overflow-hidden'>
           <Image alt={title} fill src={imageURL} />
