@@ -1,6 +1,6 @@
 'use client';
 import FretMarker from '@/app/note-trainer/_components/guitar-fretboard/fret-marker';
-import { NOTE_LOCATIONS, String } from '@/app/note-trainer/_note-trainer.types';
+import { String } from '@/app/note-trainer/_note-trainer.types';
 import React from 'react';
 
 interface Props {
@@ -24,8 +24,6 @@ const GuitarFretboard: React.FC<Props> = ({ note, fretNumber, string }) => {
 
   const svgWidth = fretCount * 64 + 100; // Adjusted for dynamic fret width
   const svgHeight = (stringCount - 1) * STRING_HEIGHT + STRING_HEIGHT;
-
-  console.log('test', { NOTE_LOCATIONS })
 
 
   // Mapping string labels to their corresponding index
