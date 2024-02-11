@@ -3,9 +3,11 @@ import Typography from '@repo/ui/components/typography';
 
 export default function Home() {
   return (
-    <main className='w-full overflow-x-hidden'>
+    <main className='w-full overflow-x-hidden py-10'>
       <Typography variant='body-wide'>NOTE MASTERY</Typography>
-      <GuitarFretboard note="C#" fretNumber={14} string='B' />
+      <div className='py-20'>
+        <GuitarFretboard note='C#' fretNumber={14} string='B' />
+      </div>
     </main>
   );
 }

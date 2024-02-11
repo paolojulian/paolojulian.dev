@@ -4,6 +4,6 @@ interface Props {
 }
 export default function FretMarker({ x, y }: Props) {
   return (
-    <circle cx={x} cy={y} r='8' fill='white' stroke='black' strokeWidth='2' />
+    <circle cx={x} cy={y} r='7' fill='black' stroke='black' strokeWidth='2' />
   );
 }
