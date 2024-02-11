@@ -35,9 +35,7 @@ export type FretNumber =
   | 19
   | 20
   | 21
-  | 22
-  | 23
-  | 24;
+  | 22;
 
 export type String = 'E-low' | 'A' | 'D' | 'G' | 'B' | 'E-high';
 
