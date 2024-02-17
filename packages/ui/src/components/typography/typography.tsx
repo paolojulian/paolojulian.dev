@@ -27,9 +27,9 @@ type FontVariants =
   | 'heading-lg'
   | 'heading-xl';
 const fontVariantsMap = {
-  body: 'ui-text-[0.75rem] md:ui-text-sm ui-tracking-[-0.01em] ui-font-semibold',
+  body: 'ui-tracking-[-0.01em] ui-font-semibold',
   'body-wide':
-    'ui-text-[0.75rem] md:ui-text-sm ui-tracking-[0.40em] ui-font-semibold',
+    'ui-text-sm ui-tracking-[0.40em] ui-font-semibold',
   heading:
     'ui-text-[1.5rem] md:ui-text-4xl ui-tracking-[-0.01em] ui-font-semibold',
   'heading-lg':

@@ -6,7 +6,7 @@ interface Props {
 
 export default function SectionTitle({ title }: Props) {
   return (
-    <Typography className='text-gray uppercase' variant={'body-wide'}>
+    <Typography className='text-gray uppercase mt-6' variant={'body-wide'}>
       {title}
     </Typography>
   );
