@@ -1,6 +1,7 @@
 import Button from '@/app/note-trainer/_components/common/button';
 import Container from '@/app/note-trainer/_components/common/container';
 import SectionTitle from '@/app/note-trainer/_components/common/section-title';
+import getAssetURL from '@/app/note-trainer/_utils/asset-map';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import Image from 'next/image';
@@ -11,7 +12,7 @@ export default function WelcomeScreen() {
       <>
         <Image
           className='-z-10 pointer-events-none'
-          src='/assets/welcome-screen-bg.png'
+          src={getAssetURL('welcome-screen')}
           alt='welcome-screen-background'
           quality={90}
           fill
