@@ -25,7 +25,7 @@ export default function WelcomeScreen() {
               Are you ready to master the fretboard?
             </Typography>
           </Stack>
-          <Button title='Get Started!' />
+          <Button title='Get Started!' type='link' href='/note-trainer/menu' />
         </Stack>
       </>
     </Container>
