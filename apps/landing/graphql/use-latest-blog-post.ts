@@ -14,6 +14,7 @@ const GET_LATEST_BLOG_POST = gql`
           url
           title
         }
+        slug
         title
       }
     }

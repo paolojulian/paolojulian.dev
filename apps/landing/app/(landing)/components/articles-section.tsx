@@ -9,6 +9,7 @@ import Image from 'next/image';
 import AppReactMarkdown from '../../../components/app-react-markdown/app-react-markdown';
 import { Portfolio } from '../../../graphql/portfolio.types';
 import { useLatestBlogPosts } from '../../../graphql/use-latest-blog-post';
+import links from '@repo/ui/utils/links';
 
 interface Props {
   portfolio: Pick<Portfolio, 'writing'>;
@@ -36,13 +37,14 @@ export default async function ArticlesSection({ portfolio }: Props) {
                 key={blogPost.sys.id}
                 imageURL={blogPost.banner.url}
                 date={blogPost.formattedPublishedAt}
+                slug={blogPost.slug}
                 title={blogPost.title}
               />
             ))}
           </Stack>
 
           <Row className='items-center justify-end pt-10 md:pt-20'>
-            <a href='/articles' target='_blank'>
+            <a href={`${links.articles}/blogs`} target='_blank'>
               <Row className='group items-center justify-center gap-2 text-secondary hover:text-primary duration-500 active:scale-95'>
                 <Typography variant='heading'>See more</Typography>
                 <NewTabArrowIcon className='text-secondary group-hover:text-primary duration-500 ease-in-out' />
@@ -57,12 +59,13 @@ export default async function ArticlesSection({ portfolio }: Props) {
 
 interface ArticleItemProps {
   imageURL: string;
+  slug: string;
   date: string;
   title: string;
 }
-function ArticleItem({ imageURL, date, title }: ArticleItemProps) {
+function ArticleItem({ imageURL, date, slug, title }: ArticleItemProps) {
   return (
-    <a className='cursor-pointer'>
+    <a href={`${links.articles}/blogs/${slug}`} className='cursor-pointer'>
       <div className='flex flex-col md:flex-row gap-6 md:gap-10 group py-10'>
         <div className='relative aspect-[320/200] w-full md:w-[40%] lg:w-[320px] bg-white rounded-md border-4 border-gray overflow-hidden'>
           <Image alt={title} fill src={imageURL} />

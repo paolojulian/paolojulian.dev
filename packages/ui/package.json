@@ -16,6 +16,7 @@
     "./icons/new-tab-arrow-icon": "./src/components/icons/new-tab-arrow-icon.tsx",
     "./icons/phone-icon": "./src/components/icons/phone-icon.tsx",
     "./utils/cn": "./src/utils/cn.ts",
+    "./utils/links": "./src/utils/links.ts",
     "./styles.css": "./dist/index.css"
   },
   "scripts": {
