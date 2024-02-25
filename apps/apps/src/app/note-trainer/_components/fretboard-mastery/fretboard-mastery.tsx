@@ -1,19 +1,16 @@
 'use client';
 
 import Container from '@/app/note-trainer/_components/common/container';
-import NoteChoices from '@/app/note-trainer/_components/common/note-choices';
 import SectionTitle from '@/app/note-trainer/_components/common/section-title';
 import FretboardMasteryAnswer from '@/app/note-trainer/_components/fretboard-mastery/fretboard-mastery-answer';
+import FretboardMasteryQuestion from '@/app/note-trainer/_components/fretboard-mastery/fretboard-mastery-question';
 import GuitarFretboard from '@/app/note-trainer/_components/guitar-fretboard';
 import {
-  FretNumber,
   NOTE_LOCATIONS,
-  Note,
+  Note
 } from '@/app/note-trainer/_note-trainer.types';
-import Row from '@repo/ui/components/row';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
-import cn from '@repo/ui/utils/cn';
 import Link from 'next/link';
 import { Fragment, useCallback, useEffect, useState } from 'react';
 
@@ -47,24 +44,6 @@ export default function FretboardMasteryPage() {
     setIsCorrectAnswer(false);
   };
 
-  const getFretNumberText = (fretNumber: FretNumber) => {
-    if (fretNumber === 1) {
-      return '1st';
-    }
-    if (fretNumber === 2) {
-      return '2nd';
-    }
-    if (fretNumber === 3) {
-      return '3rd';
-    }
-
-    return `${fretNumber}th`;
-  };
-  const questionText = `What is the note on the ${
-    randomNoteLocation.string
-  }-string on the ${getFretNumberText(randomNoteLocation.fretNumber)} fret`;
-  const answerText = isCorrectAnswer ? 'Correct!' : 'Wrong';
-
   return (
     <div className='py-6 h-full'>
       <Stack className={'items-center h-full w-full'}>
@@ -81,20 +60,11 @@ export default function FretboardMasteryPage() {
         <Container className='h-full flex flex-col'>
           <Fragment>
             {displayState === 'question' && (
-              <Stack className='gap-10'>
-                {/* Question */}
-                <Typography
-                  className='text-white text-center'
-                  variant={'heading'}
-                >
-                  {questionText}
-                </Typography>
-
-                {/* Note Choices */}
-                <Row className='justify-center'>
-                  <NoteChoices onSelectNote={handleSelectNote} />
-                </Row>
-              </Stack>
+              <FretboardMasteryQuestion
+                onSelectNote={handleSelectNote}
+                fretNumber={randomNoteLocation.fretNumber}
+                string={randomNoteLocation.string}
+              />
             )}
 
             {displayState === 'answer' && (
