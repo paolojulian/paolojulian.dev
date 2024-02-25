@@ -83,7 +83,7 @@ export default function FretboardMasteryPage() {
           />
         </div>
 
-        <Container className='h-full'>
+        <Container className='h-full flex flex-col'>
           <Fragment>
             {displayState === 'question' && (
               <Stack className='gap-10'>
