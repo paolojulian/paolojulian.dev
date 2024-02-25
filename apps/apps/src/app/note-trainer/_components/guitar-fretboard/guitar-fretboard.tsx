@@ -25,7 +25,6 @@ const GuitarFretboard: React.FC<Props> = ({ note, fretNumber, string }) => {
   const svgWidth = fretCount * 64 + 100; // Adjusted for dynamic fret width
   const svgHeight = (stringCount - 1) * STRING_HEIGHT + STRING_HEIGHT;
 
-
   // Mapping string labels to their corresponding index
   const stringIndex: Record<String, number> = {
     'E-low': 5,
@@ -40,7 +39,7 @@ const GuitarFretboard: React.FC<Props> = ({ note, fretNumber, string }) => {
 
   return (
     <div>
-      <svg width={svgWidth} height={200}>
+      <svg width={svgWidth} height={120}>
         {/* Fretboard */}
         <rect
           x='50'
@@ -69,6 +68,7 @@ const GuitarFretboard: React.FC<Props> = ({ note, fretNumber, string }) => {
                 x={50 + ((svgWidth - 100) / fretCount) * (index + 0.5)}
                 y={STRING_HEIGHT - 8}
                 fontSize='12'
+                stroke='white'
                 textAnchor='middle'
               >
                 {fretNumber}
@@ -122,6 +122,7 @@ const GuitarFretboard: React.FC<Props> = ({ note, fretNumber, string }) => {
               x='40'
               y={STRING_HEIGHT + STRING_HEIGHT * (str + 0.25)}
               fontSize='12'
+              stroke="white"
               textAnchor='end'
             >
               {stringName.charAt(0)}

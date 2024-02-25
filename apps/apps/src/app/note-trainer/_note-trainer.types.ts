@@ -1,16 +1,31 @@
-export type Note =
-  | 'C'
-  | 'C#'
-  | 'D'
-  | 'D#'
-  | 'E'
-  | 'F'
-  | 'F#'
-  | 'G'
-  | 'G#'
-  | 'A'
-  | 'A#'
-  | 'B';
+// export type Note =
+//   | 'C'
+//   | 'C#'
+//   | 'D'
+//   | 'D#'
+//   | 'E'
+//   | 'F'
+//   | 'F#'
+//   | 'G'
+//   | 'G#'
+//   | 'A'
+//   | 'A#'
+//   | 'B';
+
+export enum Note {
+  C = 'C',
+  'C#' = 'C#',
+  D = 'D',
+  'D#' = 'D#',
+  E = 'E',
+  F = 'F',
+  'F#' = 'F#',
+  G = 'G',
+  'G#' = 'G#',
+  A = 'A',
+  'A#' = 'A#',
+  B = 'B',
+}
 
 export type FretNumber =
   | 0
@@ -64,12 +79,12 @@ function getNoteLocations() {
 // Function to calculate note based on fret and string
 function calculateNoteForFretAndString(fret: FretNumber, string: String): Note {
   const openStringNotes: Record<String, Note> = {
-    'E-low': 'E',
-    A: 'A',
-    D: 'D',
-    G: 'G',
-    B: 'B',
-    'E-high': 'E',
+    'E-low': Note.E,
+    A: Note.A,
+    D: Note.D,
+    G: Note.G,
+    B: Note.B,
+    'E-high': Note.E,
   };
 
   const openNote = openStringNotes[string];
