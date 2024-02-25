@@ -3,6 +3,7 @@
 import Container from '@/app/note-trainer/_components/common/container';
 import NoteChoices from '@/app/note-trainer/_components/common/note-choices';
 import SectionTitle from '@/app/note-trainer/_components/common/section-title';
+import FretboardMasteryAnswer from '@/app/note-trainer/_components/fretboard-mastery/fretboard-mastery-answer';
 import GuitarFretboard from '@/app/note-trainer/_components/guitar-fretboard';
 import {
   FretNumber,
@@ -13,13 +14,12 @@ import Row from '@repo/ui/components/row';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import cn from '@repo/ui/utils/cn';
-import { useRouter } from 'next/navigation';
-import { Fragment, useState } from 'react';
+import Link from 'next/link';
+import { Fragment, useCallback, useEffect, useState } from 'react';
 
-type DisplayState = 'question' | 'answer';
+export type DisplayState = 'question' | 'answer';
 
 export default function FretboardMasteryPage() {
-  const router = useRouter();
   const [randomNoteLocation, setRandomNoteLocation] = useState(
     NOTE_LOCATIONS[0]
   );
@@ -27,23 +27,19 @@ export default function FretboardMasteryPage() {
   const [displayState, setDisplayState] = useState<DisplayState>('question');
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean>(false);
 
-  const generateRandomNoteLocation = () => {
+  const generateRandomNoteLocation = useCallback(() => {
     const randomIndex = Math.floor(Math.random() * NOTE_LOCATIONS.length);
     setRandomNoteLocation(NOTE_LOCATIONS[randomIndex]);
-  };
+  }, []);
 
   const handleSelectNote = (note: Note) => {
     setIsCorrectAnswer(note === randomNoteLocation.note);
     setDisplayState('answer');
   };
 
-  const handleFooterClick = () => {
-    if (displayState === 'answer') {
-      return handleNext();
-    }
-
-    return router.replace('/note-trainer/menu');
-  };
+  useEffect(() => {
+    generateRandomNoteLocation();
+  }, []);
 
   const handleNext = () => {
     generateRandomNoteLocation();
@@ -51,7 +47,6 @@ export default function FretboardMasteryPage() {
     setIsCorrectAnswer(false);
   };
 
-  const footerText = displayState === 'question' ? 'Back to menu' : 'Next';
   const getFretNumberText = (fretNumber: FretNumber) => {
     if (fretNumber === 1) {
       return '1st';
@@ -103,48 +98,43 @@ export default function FretboardMasteryPage() {
             )}
 
             {displayState === 'answer' && (
-              <Fragment>
-                <Typography className='text-center' variant={'body'}>
-                  "Your answer is{' '}
-                  <span
-                    className={cn({
-                      ['text-primary']: !isCorrectAnswer,
-                      ['text-green-400']: isCorrectAnswer,
-                    })}
-                  >
-                    {answerText}
-                  </span>
-                  "
-                </Typography>
-                <Stack
-                  className='justify-center items-center flex-1 gap-2 text-green-400'
-                  onClick={handleNext}
-                >
-                  <Typography variant='body-wide'>CORRECT NOTE</Typography>
-                  <Typography
-                    className={cn('uppercase', {
-                      ['text-primary']: !isCorrectAnswer,
-                      ['text-green-400']: isCorrectAnswer,
-                    })}
-                    variant='heading-xl'
-                  >
-                    {randomNoteLocation.note}
-                  </Typography>
-                </Stack>
-              </Fragment>
+              <FretboardMasteryAnswer
+                onNext={handleNext}
+                correctNote={randomNoteLocation.note}
+                isCorrect={isCorrectAnswer}
+              />
             )}
           </Fragment>
         </Container>
 
-        <button onClick={handleFooterClick}>
-          <Typography
-            variant='body-wide'
-            className='text-secondary uppercase py-5 w-full text-center'
-          >
-            {footerText}
-          </Typography>
-        </button>
+        <FretboardMasteryFooter
+          onNext={handleNext}
+          displayState={displayState}
+        />
       </Stack>
     </div>
   );
+}
+
+function FretboardMasteryFooter({
+  onNext,
+  displayState,
+}: {
+  onNext: () => void;
+  displayState: DisplayState;
+}) {
+  const textContainer = (text: string) => (
+    <Typography
+      variant='body-wide'
+      className='text-secondary uppercase py-5 w-full text-center'
+    >
+      {text}
+    </Typography>
+  );
+
+  if (displayState === 'answer') {
+    return <button onClick={onNext}>{textContainer('Next')}</button>;
+  }
+
+  return <Link href='/note-trainer/menu'>{textContainer('Back to menu')}</Link>;
 }
