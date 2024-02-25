@@ -38,8 +38,7 @@ export default function FretboardMasteryQuestion({
       {/* Question */}
       <Typography className='text-white text-center' variant={'heading'}>
         What is the note on the{' '}
-        <span className='text-green-400'>{string} string</span> on
-        the{' '}
+        <span className='text-green-400'>{string} string</span> on the{' '}
         <span className='text-green-400'>
           {getFretNumberText(fretNumber)} fret
         </span>
