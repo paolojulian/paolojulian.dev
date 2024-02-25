@@ -4,7 +4,7 @@ import Container from '@/app/note-trainer/_components/common/container';
 import NoteChoices from '@/app/note-trainer/_components/common/note-choices';
 import SectionTitle from '@/app/note-trainer/_components/common/section-title';
 import GuitarFretboard from '@/app/note-trainer/_components/guitar-fretboard';
-import { NOTE_LOCATIONS } from '@/app/note-trainer/_note-trainer.types';
+import { NOTE_LOCATIONS, Note } from '@/app/note-trainer/_note-trainer.types';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import { useState } from 'react';
@@ -18,6 +18,10 @@ export default function FretboardMasteryPage() {
     const randomIndex = Math.floor(Math.random() * NOTE_LOCATIONS.length);
     setRandomNoteLocation(NOTE_LOCATIONS[randomIndex]);
   };
+
+  const handleSelectNote = (note: Note) => {
+    const isCorrectNote = note === randomNoteLocation.note;
+  }
 
   return (
     <Container className='py-6 h-full'>
@@ -38,7 +42,7 @@ export default function FretboardMasteryPage() {
 
           {/* Note Choices */}
           <div className='mx-auto'>
-            <NoteChoices />
+            <NoteChoices onSelectNote={} />
           </div>
         </Stack>
       </Stack>
