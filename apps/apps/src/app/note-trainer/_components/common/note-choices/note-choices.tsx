@@ -10,7 +10,7 @@ interface Props {
 
 export default function NoteChoices({ onSelectNote }: Props) {
   return (
-    <div className={cn('grid grid-cols-3 gap-6')}>
+    <div className={cn('grid grid-cols-3 gap-6 w-fit')}>
       {getNotes().map((note, i) => (
         <NoteChoicesButton
           onSelect={onSelectNote}
