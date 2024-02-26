@@ -5,7 +5,11 @@ import SectionTitle from '@/app/note-trainer/_components/common/section-title';
 import FretboardMasteryAnswer from '@/app/note-trainer/_components/fretboard-mastery/fretboard-mastery-answer';
 import FretboardMasteryQuestion from '@/app/note-trainer/_components/fretboard-mastery/fretboard-mastery-question';
 import GuitarFretboard from '@/app/note-trainer/_components/guitar-fretboard';
-import { NOTE_LOCATIONS, Note } from '@/app/note-trainer/_note-trainer.types';
+import {
+  NOTE_LOCATIONS,
+  Note,
+  NoteLocation,
+} from '@/app/note-trainer/_note-trainer.types';
 import { generateNoteLocation } from '@/app/note-trainer/_utils/generate-random-note-location';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
@@ -15,9 +19,7 @@ import { Fragment, useCallback, useEffect, useState } from 'react';
 export type DisplayState = 'question' | 'answer';
 
 export default function FretboardMasteryPage() {
-  const [randomNoteLocation, setRandomNoteLocation] = useState(
-    NOTE_LOCATIONS[0]
-  );
+  const [randomNoteLocation, setRandomNoteLocation] = useState<NoteLocation>();
 
   const [displayState, setDisplayState] = useState<DisplayState>('question');
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean>(false);
@@ -25,6 +27,12 @@ export default function FretboardMasteryPage() {
   const generateRandomNoteLocation = useCallback(() => {
     setRandomNoteLocation(NOTE_LOCATIONS[generateNoteLocation()]);
   }, []);
+
+  useEffect(() => {
+    generateRandomNoteLocation();
+  }, []);
+
+  if (!randomNoteLocation) return null;
 
   const handleSelectNote = (note: Note) => {
     setIsCorrectAnswer(note === randomNoteLocation.note);
@@ -36,10 +44,6 @@ export default function FretboardMasteryPage() {
     setDisplayState('question');
     setIsCorrectAnswer(false);
   };
-
-  useEffect(() => {
-    generateRandomNoteLocation();
-  }, []);
 
   return (
     <div className='py-6 h-full'>

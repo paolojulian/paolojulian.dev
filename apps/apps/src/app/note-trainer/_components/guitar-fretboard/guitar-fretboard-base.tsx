@@ -1,4 +1,5 @@
 import { GUITAR_FRET_NUMBER_HEIGHT } from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-frets';
+import { STRING_HEIGHT } from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-strings';
 import getAssetURL from '@/app/note-trainer/_utils/asset-map';
 
 interface Props {
@@ -6,7 +7,7 @@ interface Props {
 }
 
 export const GUITAR_FRETBOARD_BASE_X_PADDING = 50;
-export const GUITAR_FRETBOARD_BASE_HEIGHT = 115;
+export const GUITAR_FRETBOARD_BASE_HEIGHT = STRING_HEIGHT * 6;
 
 export default function GuitarFretboardBase({ containerWidth }: Props) {
   const yPadding = GUITAR_FRET_NUMBER_HEIGHT;

@@ -10,7 +10,7 @@ interface Props {
 }
 
 const STRING_COLOR = '#FCE6CD';
-const STRING_HEIGHT = GUITAR_FRETBOARD_BASE_HEIGHT / 6;
+export const STRING_HEIGHT = 18;
 export const GUITAR_FRET_NUMBER_HEIGHT = 32;
 
 export default function GuitarFretboardStrings({ containerWidth }: Props) {
