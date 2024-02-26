@@ -24,7 +24,7 @@ export default function GuitarFretboardHighlightedNote({
     ((fretNumber - startFret + 0.5) * neckWidth) / fretCount +
     GUITAR_FRETBOARD_BASE_X_PADDING;
   const yPosition =
-    GUITAR_FRET_NUMBER_HEIGHT + STRING_HEIGHT * stringNumber + 7;
+    GUITAR_FRET_NUMBER_HEIGHT + STRING_HEIGHT * stringNumber + 20;
 
   return <circle cx={xPosition} cy={yPosition} r='10' fill={NOTE_COLOR} />;
 }

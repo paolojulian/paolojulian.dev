@@ -17,6 +17,7 @@ interface Props {
   string: String;
 }
 
+
 const GuitarFretboard: React.FC<Props> = ({ note, fretNumber, string }) => {
   const startFret = Math.max(1, fretNumber - 2);
   const endFret = startFret + 4;

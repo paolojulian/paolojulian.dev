@@ -1,6 +1,4 @@
-import {
-  GUITAR_FRETBOARD_BASE_X_PADDING
-} from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-base';
+import { GUITAR_FRETBOARD_BASE_X_PADDING } from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-base';
 import colors from 'tailwindcss/colors';
 
 interface Props {
@@ -12,7 +10,9 @@ interface Props {
 
 const FIRST_FRET_COLOR = '#FEF3C7';
 const FRET_COLOR = colors.black;
-export const GUITAR_FRET_NUMBER_HEIGHT = 32;
+const TEXT_COLOR = '#A3A3A3';
+const TEXT_BACKGROUND_COLOR = '#A3A3A34D';
+export const GUITAR_FRET_NUMBER_HEIGHT = 43;
 
 export default function GuitarFretboardFrets({
   containerHeight,
@@ -30,6 +30,10 @@ export default function GuitarFretboardFrets({
     const textX =
       GUITAR_FRETBOARD_BASE_X_PADDING + fretPositionX * (index + 0.5);
 
+    const fretColor =
+      index === 0 && fretNumber === 1 ? FIRST_FRET_COLOR : FRET_COLOR;
+    const fretWidth = index === 0 && fretNumber === 1 ? 8 : 5;
+
     return (
       <g key={fretNumber}>
         <line
@@ -37,12 +41,30 @@ export default function GuitarFretboardFrets({
           y1={GUITAR_FRET_NUMBER_HEIGHT}
           x2={lineX}
           y2={containerHeight}
-          stroke={index === 0 ? FIRST_FRET_COLOR : FRET_COLOR}
-          strokeWidth={index === 0 ? 8 : 5}
+          stroke={fretColor}
+          strokeWidth={fretWidth}
         />
-        <text x={textX} y={0} fontSize='12' stroke='white' textAnchor='middle'>
-          {fretNumber}
-        </text>
+
+        <g id={`fretNumber_${fretNumber}`}>
+          <rect
+            x={textX - 16}
+            width='32'
+            height='32'
+            rx='16.5'
+            fill={TEXT_BACKGROUND_COLOR}
+            fillOpacity='0.3'
+          />
+          <text
+            x={textX}
+            y={21}
+            fontSize='14'
+            fontFamily='inherit'
+            fill={TEXT_COLOR}
+            textAnchor='middle'
+          >
+            {fretNumber}
+          </text>
+        </g>
       </g>
     );
   });

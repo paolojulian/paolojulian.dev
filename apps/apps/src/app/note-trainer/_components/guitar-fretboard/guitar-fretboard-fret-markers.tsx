@@ -54,11 +54,19 @@ export default function GuitarFretboardFretMarkers({
           <Fragment key={`${fretMarker}-double`}>
             <FretMarker
               x={markerX}
-              y={STRING_HEIGHT + stringIndex['B'] * STRING_HEIGHT + GUITAR_FRET_NUMBER_HEIGHT - 10}
+              y={
+                STRING_HEIGHT +
+                stringIndex['B'] * STRING_HEIGHT +
+                GUITAR_FRET_NUMBER_HEIGHT
+              }
             />
             <FretMarker
               x={markerX}
-              y={STRING_HEIGHT + stringIndex['A'] * STRING_HEIGHT + GUITAR_FRET_NUMBER_HEIGHT - 10}
+              y={
+                STRING_HEIGHT +
+                stringIndex['A'] * STRING_HEIGHT +
+                GUITAR_FRET_NUMBER_HEIGHT
+              }
             />
           </Fragment>
         );
@@ -68,7 +76,9 @@ export default function GuitarFretboardFretMarkers({
           <FretMarker
             key={fretMarker}
             x={markerX}
-            y={GUITAR_FRET_NUMBER_HEIGHT + GUITAR_FRETBOARD_BASE_HEIGHT / 2 - 2}
+            y={
+              GUITAR_FRET_NUMBER_HEIGHT + GUITAR_FRETBOARD_BASE_HEIGHT / 2 + 10
+            }
           />
         );
       }

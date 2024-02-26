@@ -24,8 +24,8 @@ export default function GuitarFretboardStrings({ containerWidth }: Props) {
     'E-high': 0,
   };
   const stringNames = Object.keys(stringIndex).reverse();
-  const width = containerWidth - GUITAR_FRETBOARD_BASE_X_PADDING;
-  const yPadding = GUITAR_FRET_NUMBER_HEIGHT + 8;
+  const width = containerWidth - GUITAR_FRETBOARD_BASE_X_PADDING + 3.5;
+  const yPadding = GUITAR_FRET_NUMBER_HEIGHT + 20;
 
   return stringNames.map((_, index) => (
     <Fragment key={index}>
