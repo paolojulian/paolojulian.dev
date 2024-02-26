@@ -36,7 +36,7 @@ export default function FretboardMasteryQuestion({
   return (
     <Stack className='gap-10'>
       {/* Question */}
-      <Typography className='text-white text-center' variant={'heading'}>
+      <Typography className='text-white text-center' variant={'body'}>
         What is the note on the{' '}
         <span className='text-green-400'>{string} string</span> on the{' '}
         <span className='text-green-400'>
