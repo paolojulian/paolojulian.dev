@@ -54,7 +54,7 @@ export default function FretboardMasteryPage() {
           />
         </div>
 
-        <Container className='h-full flex flex-col'>
+        <Container className='h-full flex flex-col mb-10'>
           <Fragment>
             {displayState === 'question' && (
               <FretboardMasteryQuestion

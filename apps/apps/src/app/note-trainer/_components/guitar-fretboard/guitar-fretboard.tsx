@@ -1,7 +1,12 @@
 'use client';
 import FretMarker from '@/app/note-trainer/_components/guitar-fretboard/fret-marker';
+import GuitarFretboardBase, {
+  GUITAR_FRETBOARD_BASE_HEIGHT,
+} from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-base';
+import GuitarFretboardFrets, { GUITAR_FRET_NUMBER_HEIGHT } from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-frets';
 import { String } from '@/app/note-trainer/_note-trainer.types';
 import React from 'react';
+import colors from 'tailwindcss/colors';
 
 interface Props {
   note: string;
@@ -12,7 +17,8 @@ interface Props {
 // Fret markers to be displayed
 const FRETS_WITH_MARKER = [3, 5, 7, 9, 12, 15, 17, 19, 21];
 
-const NECK_COLOR = '#d4a853';
+const FRET_COLOR = colors.black;
+const STRING_COLOR = '#FCE6CD';
 
 const STRING_HEIGHT = 18;
 
@@ -20,10 +26,9 @@ const GuitarFretboard: React.FC<Props> = ({ note, fretNumber, string }) => {
   const startFret = Math.max(1, fretNumber - 2);
   const endFret = startFret + 4;
   const fretCount = endFret - startFret + 1;
-  const stringCount = 6;
 
   const svgWidth = fretCount * 64 + 100; // Adjusted for dynamic fret width
-  const svgHeight = (stringCount - 1) * STRING_HEIGHT + STRING_HEIGHT;
+  const svgHeight = GUITAR_FRETBOARD_BASE_HEIGHT + GUITAR_FRET_NUMBER_HEIGHT;
 
   // Mapping string labels to their corresponding index
   const stringIndex: Record<String, number> = {
@@ -39,20 +44,18 @@ const GuitarFretboard: React.FC<Props> = ({ note, fretNumber, string }) => {
 
   return (
     <div>
-      <svg width={svgWidth} height={120}>
+      <svg width={svgWidth} height={svgHeight}>
         {/* Fretboard */}
-        <rect
-          x='50'
-          y={STRING_HEIGHT}
-          width={svgWidth - 100}
-          height={svgHeight - STRING_HEIGHT}
-          fill={NECK_COLOR}
-          stroke='black'
-          strokeWidth='2'
-        />
+        <GuitarFretboardBase containerWidth={svgWidth} />
 
         {/* Frets */}
-        {[...Array(fretCount)].map((_, index) => {
+        <GuitarFretboardFrets
+          containerHeight={svgHeight}
+          containerWidth={svgWidth}
+          endFret={endFret}
+          startFret={startFret}
+        />
+        {/* {[...Array(fretCount)].map((_, index) => {
           const fretNumber = startFret + index;
           return (
             <g key={fretNumber}>
@@ -61,8 +64,8 @@ const GuitarFretboard: React.FC<Props> = ({ note, fretNumber, string }) => {
                 y1={STRING_HEIGHT}
                 x2={50 + ((svgWidth - 100) / fretCount) * index}
                 y2={svgHeight}
-                stroke='black'
-                strokeWidth='2'
+                stroke={FRET_COLOR}
+                strokeWidth='5'
               />
               <text
                 x={50 + ((svgWidth - 100) / fretCount) * (index + 0.5)}
@@ -75,7 +78,7 @@ const GuitarFretboard: React.FC<Props> = ({ note, fretNumber, string }) => {
               </text>
             </g>
           );
-        })}
+        })} */}
 
         {/* Fret markers */}
         {FRETS_WITH_MARKER.map((fretMarker) => {
@@ -101,32 +104,23 @@ const GuitarFretboard: React.FC<Props> = ({ note, fretNumber, string }) => {
               );
             } else {
               // Display a single marker for other frets and strings
-              return <FretMarker key={fretMarker} x={markerX} y={70} />;
+              return <FretMarker key={fretMarker} x={markerX} y={70 - 6.5} />;
             }
           }
 
           return null; // Do not render the marker if it overflows
         })}
         {/* Strings */}
-        {stringNames.map((stringName, str) => (
+        {stringNames.map((_, str) => (
           <React.Fragment key={str}>
             <line
               x1='50'
               y1={STRING_HEIGHT + STRING_HEIGHT * str}
               x2={50 + svgWidth - 100}
               y2={STRING_HEIGHT + STRING_HEIGHT * str}
-              stroke='black'
-              strokeWidth='2'
+              stroke={STRING_COLOR}
+              strokeWidth={2 + str * 0.35}
             />
-            <text
-              x='40'
-              y={STRING_HEIGHT + STRING_HEIGHT * (str + 0.25)}
-              fontSize='12'
-              stroke="white"
-              textAnchor='end'
-            >
-              {stringName.charAt(0)}
-            </text>
           </React.Fragment>
         ))}
 
