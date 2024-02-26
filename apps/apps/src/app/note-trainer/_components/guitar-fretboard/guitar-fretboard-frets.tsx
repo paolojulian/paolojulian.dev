@@ -1,6 +1,5 @@
 import {
-  GUITAR_FRETBOARD_BASE_HEIGHT,
-  GUITAR_FRETBOARD_BASE_X_PADDING,
+  GUITAR_FRETBOARD_BASE_X_PADDING
 } from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-base';
 import colors from 'tailwindcss/colors';
 

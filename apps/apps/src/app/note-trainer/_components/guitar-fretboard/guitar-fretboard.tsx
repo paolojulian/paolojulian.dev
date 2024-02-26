@@ -3,10 +3,12 @@ import FretMarker from '@/app/note-trainer/_components/guitar-fretboard/fret-mar
 import GuitarFretboardBase, {
   GUITAR_FRETBOARD_BASE_HEIGHT,
 } from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-base';
-import GuitarFretboardFrets, { GUITAR_FRET_NUMBER_HEIGHT } from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-frets';
+import GuitarFretboardFrets, {
+  GUITAR_FRET_NUMBER_HEIGHT,
+} from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-frets';
+import GuitarFretboardStrings from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-strings';
 import { String } from '@/app/note-trainer/_note-trainer.types';
 import React from 'react';
-import colors from 'tailwindcss/colors';
 
 interface Props {
   note: string;
@@ -16,9 +18,6 @@ interface Props {
 
 // Fret markers to be displayed
 const FRETS_WITH_MARKER = [3, 5, 7, 9, 12, 15, 17, 19, 21];
-
-const FRET_COLOR = colors.black;
-const STRING_COLOR = '#FCE6CD';
 
 const STRING_HEIGHT = 18;
 
@@ -40,8 +39,6 @@ const GuitarFretboard: React.FC<Props> = ({ note, fretNumber, string }) => {
     'E-high': 0,
   };
 
-  const stringNames = Object.keys(stringIndex).reverse();
-
   return (
     <div>
       <svg width={svgWidth} height={svgHeight}>
@@ -55,30 +52,6 @@ const GuitarFretboard: React.FC<Props> = ({ note, fretNumber, string }) => {
           endFret={endFret}
           startFret={startFret}
         />
-        {/* {[...Array(fretCount)].map((_, index) => {
-          const fretNumber = startFret + index;
-          return (
-            <g key={fretNumber}>
-              <line
-                x1={50 + ((svgWidth - 100) / fretCount) * index}
-                y1={STRING_HEIGHT}
-                x2={50 + ((svgWidth - 100) / fretCount) * index}
-                y2={svgHeight}
-                stroke={FRET_COLOR}
-                strokeWidth='5'
-              />
-              <text
-                x={50 + ((svgWidth - 100) / fretCount) * (index + 0.5)}
-                y={STRING_HEIGHT - 8}
-                fontSize='12'
-                stroke='white'
-                textAnchor='middle'
-              >
-                {fretNumber}
-              </text>
-            </g>
-          );
-        })} */}
 
         {/* Fret markers */}
         {FRETS_WITH_MARKER.map((fretMarker) => {
@@ -110,19 +83,9 @@ const GuitarFretboard: React.FC<Props> = ({ note, fretNumber, string }) => {
 
           return null; // Do not render the marker if it overflows
         })}
+
         {/* Strings */}
-        {stringNames.map((_, str) => (
-          <React.Fragment key={str}>
-            <line
-              x1='50'
-              y1={STRING_HEIGHT + STRING_HEIGHT * str}
-              x2={50 + svgWidth - 100}
-              y2={STRING_HEIGHT + STRING_HEIGHT * str}
-              stroke={STRING_COLOR}
-              strokeWidth={2 + str * 0.35}
-            />
-          </React.Fragment>
-        ))}
+        <GuitarFretboardStrings containerWidth={svgWidth} />
 
         {/* Highlighted note */}
         {note && (
