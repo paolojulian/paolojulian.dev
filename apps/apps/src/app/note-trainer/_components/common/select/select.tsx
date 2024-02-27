@@ -10,7 +10,7 @@ interface Props {
   // eslint-disable-next-line no-unused-vars
   children: ({ handleClose }: { handleClose: () => void }) => ReactElement;
   placeholder: string;
-  value: string;
+  value?: string;
 }
 
 export default function Select({ children, placeholder, value }: Props) {
