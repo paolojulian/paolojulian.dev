@@ -1,6 +1,6 @@
 'use client';
 
-import { DisplayState } from '@/app/note-trainer/_components/fretboard-mastery/fretboard-mastery';
+import { DisplayState } from '@/app/note-trainer/_components/workarea/fretboard-mastery/fretboard-mastery';
 import Typography from '@repo/ui/components/typography';
 import Link from 'next/link';
 

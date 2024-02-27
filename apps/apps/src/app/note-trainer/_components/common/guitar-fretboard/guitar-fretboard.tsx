@@ -1,13 +1,13 @@
 'use client';
 import GuitarFretboardBase, {
   GUITAR_FRETBOARD_BASE_HEIGHT,
-} from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-base';
-import GuitarFretboardFretMarkers from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-fret-markers';
+} from '@/app/note-trainer/_components/common/guitar-fretboard/guitar-fretboard-base';
+import GuitarFretboardFretMarkers from '@/app/note-trainer/_components/common/guitar-fretboard/guitar-fretboard-fret-markers';
 import GuitarFretboardFrets, {
   GUITAR_FRET_NUMBER_HEIGHT,
-} from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-frets';
-import GuitarFretboardHighlightedNote from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-highlighted-note';
-import GuitarFretboardStrings from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-strings';
+} from '@/app/note-trainer/_components/common/guitar-fretboard/guitar-fretboard-frets';
+import GuitarFretboardHighlightedNote from '@/app/note-trainer/_components/common/guitar-fretboard/guitar-fretboard-highlighted-note';
+import GuitarFretboardStrings from '@/app/note-trainer/_components/common/guitar-fretboard/guitar-fretboard-strings';
 import { String } from '@/app/note-trainer/_note-trainer.types';
 import React from 'react';
 

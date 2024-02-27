@@ -1,4 +1,4 @@
-import FretboardMastery from "@/app/note-trainer/_components/fretboard-mastery";
+import FretboardMastery from "@/app/note-trainer/_components/workarea/fretboard-mastery";
 
 export default function FretboardMasteryPage() {
   return <FretboardMastery />

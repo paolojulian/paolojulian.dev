@@ -1,5 +1,5 @@
-import { GUITAR_FRET_NUMBER_HEIGHT } from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-frets';
-import { STRING_HEIGHT } from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-strings';
+import { GUITAR_FRET_NUMBER_HEIGHT } from '@/app/note-trainer/_components/common/guitar-fretboard/guitar-fretboard-frets';
+import { STRING_HEIGHT } from '@/app/note-trainer/_components/common/guitar-fretboard/guitar-fretboard-strings';
 import getAssetURL from '@/app/note-trainer/_utils/asset-map';
 
 interface Props {
