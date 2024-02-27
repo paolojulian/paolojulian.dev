@@ -31,7 +31,7 @@ export default function MenuScreen() {
             imageURL={getAssetURL('triads')} title='Triads'
             />
             <MenuItem
-              href='/note-trainer/fretboard-mastery'
+              href='/note-trainer/generate-random-note'
               imageURL={getAssetURL('random-note')}
               title='Random Note Generator'
             />
