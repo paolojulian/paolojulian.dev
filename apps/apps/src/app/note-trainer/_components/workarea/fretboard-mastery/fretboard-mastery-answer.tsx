@@ -1,6 +1,6 @@
 'use client';
 
-import { Note } from '@/app/note-trainer/_note-trainer.types';
+import { Note } from '@/app/note-trainer/_types/_note-trainer.types';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import cn from '@repo/ui/utils/cn';

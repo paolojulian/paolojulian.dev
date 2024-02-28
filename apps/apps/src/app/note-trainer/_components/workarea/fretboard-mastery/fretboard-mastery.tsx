@@ -9,7 +9,7 @@ import {
   NOTE_LOCATIONS,
   Note,
   NoteLocation,
-} from '@/app/note-trainer/_note-trainer.types';
+} from '@/app/note-trainer/_types/_note-trainer.types';
 import { generateNoteLocation } from '@/app/note-trainer/_utils/generate-random-note-location';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';

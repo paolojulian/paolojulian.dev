@@ -1,4 +1,4 @@
-import { Note } from '@/app/note-trainer/_note-trainer.types';
+import { Note } from '@/app/note-trainer/_types/_note-trainer.types';
 import { getNotes } from '@/app/note-trainer/_utils/get-notes';
 import Typography from '@repo/ui/components/typography';
 import cn from '@repo/ui/utils/cn';

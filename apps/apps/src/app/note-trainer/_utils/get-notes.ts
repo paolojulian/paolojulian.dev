@@ -1,4 +1,4 @@
-import { Note } from '@/app/note-trainer/_note-trainer.types';
+import { Note } from '@/app/note-trainer/_types/_note-trainer.types';
 
 export function getNotes(): Note[] {
   return [

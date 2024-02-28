@@ -1,17 +1,24 @@
 import Select from '@/app/note-trainer/_components/common/select';
-import {
-  majorScales,
-  minorScales,
-} from '@/app/note-trainer/_components/common/select-scale/select-scale.util';
+import { MAJOR_SCALES, Scale } from '@/app/note-trainer/_types/scale.types';
 import Typography from '@repo/ui/components/typography';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function SelectScale() {
-  const [selectedScale, setSelectedScale] = useState<string>();
+interface Props {
+  // eslint-disable-next-line no-unused-vars
+  onSelectScale: (scale: Scale) => void;
+  initialScale: Scale;
+}
 
-  const handleSelectItem = (scale: string) => {
+export default function SelectScale({ initialScale, onSelectScale }: Props) {
+  const [selectedScale, setSelectedScale] = useState<Scale>(initialScale);
+
+  const handleSelectItem = (scale: Scale) => {
     setSelectedScale(scale);
   };
+
+  useEffect(() => {
+    onSelectScale(selectedScale);
+  }, [selectedScale]);
 
   return (
     <Select placeholder='Select Scale' value={selectedScale}>
@@ -24,7 +31,7 @@ export default function SelectScale() {
           >
             MAJOR
           </Typography>
-          {majorScales.map((scale, i) => (
+          {(Object.keys(MAJOR_SCALES) as Scale[]).map((scale, i) => (
             <Typography
               key={`${scale}_${i}`}
               as='li'
@@ -47,7 +54,7 @@ export default function SelectScale() {
             MINOR
           </Typography>
 
-          {minorScales.map((scale, i) => (
+          {/* {minorScales.map((scale, i) => (
             <Typography
               key={`${scale}_${i}`}
               as='li'
@@ -60,7 +67,7 @@ export default function SelectScale() {
             >
               {scale}
             </Typography>
-          ))}
+          ))} */}
         </ul>
       )}
     </Select>

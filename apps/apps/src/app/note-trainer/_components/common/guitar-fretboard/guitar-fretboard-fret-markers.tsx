@@ -3,7 +3,7 @@ import {
   GUITAR_FRETBOARD_BASE_HEIGHT,
   GUITAR_FRETBOARD_BASE_X_PADDING,
 } from '@/app/note-trainer/_components/common/guitar-fretboard/guitar-fretboard-base';
-import { String } from '@/app/note-trainer/_note-trainer.types';
+import { String } from '@/app/note-trainer/_types/_note-trainer.types';
 import { Fragment } from 'react';
 
 interface Props {

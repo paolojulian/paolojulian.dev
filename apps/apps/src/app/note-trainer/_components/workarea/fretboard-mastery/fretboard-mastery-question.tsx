@@ -1,7 +1,7 @@
 'use client';
 
 import NoteChoices from '@/app/note-trainer/_components/common/note-choices/note-choices';
-import { FretNumber, Note } from '@/app/note-trainer/_note-trainer.types';
+import { FretNumber, Note } from '@/app/note-trainer/_types/_note-trainer.types';
 import Row from '@repo/ui/components/row';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';

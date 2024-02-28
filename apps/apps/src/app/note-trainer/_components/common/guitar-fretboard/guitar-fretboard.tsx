@@ -8,7 +8,7 @@ import GuitarFretboardFrets, {
 } from '@/app/note-trainer/_components/common/guitar-fretboard/guitar-fretboard-frets';
 import GuitarFretboardHighlightedNote from '@/app/note-trainer/_components/common/guitar-fretboard/guitar-fretboard-highlighted-note';
 import GuitarFretboardStrings from '@/app/note-trainer/_components/common/guitar-fretboard/guitar-fretboard-strings';
-import { String } from '@/app/note-trainer/_note-trainer.types';
+import { String } from '@/app/note-trainer/_types/_note-trainer.types';
 import React from 'react';
 
 interface Props {

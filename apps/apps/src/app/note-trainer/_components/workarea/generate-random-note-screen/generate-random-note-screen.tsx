@@ -1,15 +1,39 @@
 'use client';
 import Container from '@/app/note-trainer/_components/common/container';
 import SectionTitle from '@/app/note-trainer/_components/common/section-title';
-import Select from '@/app/note-trainer/_components/common/select';
 import SelectScale from '@/app/note-trainer/_components/common/select-scale';
+import { Note } from '@/app/note-trainer/_types/_note-trainer.types';
+import { MAJOR_SCALES, Scale } from '@/app/note-trainer/_types/scale.types';
 import Row from '@repo/ui/components/row';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import cn from '@repo/ui/utils/cn';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+
+const INITIAL_SCALE: Scale = 'E major';
 
 export default function GenerateRandomNoteScreen() {
+  const [note, setNote] = useState<Note>();
+  const [selectedScale, setSelectedScale] = useState<Scale>(INITIAL_SCALE);
+
+  const generateNote = () => {
+    if (!selectedScale) {
+      return;
+    }
+    const randomNote = generateRandomNotePerScale(selectedScale);
+    // Avoid same note at the same time
+    if (randomNote === note) {
+      generateNote();
+      return;
+    }
+    setNote(randomNote);
+  };
+
+  useEffect(() => {
+    generateNote();
+  }, [selectedScale]);
+
   return (
     <div className='py-6 h-full overflow-x-hidden'>
       <Stack className={'items-center h-full w-full'}>
@@ -21,11 +45,14 @@ export default function GenerateRandomNoteScreen() {
                 className='drop-shadow-[0_4px_4px_rgba(0,0,0,0.50)]'
                 variant='heading-xl'
               >
-                E
+                {note}
               </Typography>
             </Stack>
             <Row className='justify-center gap-3'>
-              <SelectScale />
+              <SelectScale
+                initialScale={INITIAL_SCALE}
+                onSelectScale={setSelectedScale}
+              />
               <button
                 className={cn(
                   'flex-1',
@@ -33,6 +60,7 @@ export default function GenerateRandomNoteScreen() {
                   'border-[3px] border-primary focus:border-white rounded-lg',
                   'focus:ring-white focus:outline-none'
                 )}
+                onClick={generateNote}
               >
                 <Typography className='text-primary'>Generate</Typography>
               </button>
@@ -50,4 +78,11 @@ export default function GenerateRandomNoteScreen() {
       </Stack>
     </div>
   );
+}
+
+function generateRandomNotePerScale(scale: Scale) {
+  const scaleNotes = MAJOR_SCALES[scale];
+  const randomIndex = Math.floor(Math.random() * scaleNotes.length);
+
+  return scaleNotes[randomIndex];
 }
