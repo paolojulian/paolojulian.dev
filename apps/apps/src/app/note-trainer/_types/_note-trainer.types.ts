@@ -1,29 +1,20 @@
-// export type Note =
-//   | 'C'
-//   | 'C#'
-//   | 'D'
-//   | 'D#'
-//   | 'E'
-//   | 'F'
-//   | 'F#'
-//   | 'G'
-//   | 'G#'
-//   | 'A'
-//   | 'A#'
-//   | 'B';
-
 export enum Note {
   C = 'C',
   'C#' = 'C#',
+  Db = 'Db',
   D = 'D',
   'D#' = 'D#',
+  Eb = 'Eb',
   E = 'E',
   F = 'F',
   'F#' = 'F#',
+  Gb = 'Gb',
   G = 'G',
   'G#' = 'G#',
+  Ab = 'Ab',
   A = 'A',
   'A#' = 'A#',
+  Bb = 'Bb',
   B = 'B',
 }
 

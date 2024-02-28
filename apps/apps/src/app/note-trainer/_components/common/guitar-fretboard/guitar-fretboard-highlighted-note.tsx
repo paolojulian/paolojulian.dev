@@ -1,5 +1,5 @@
-import { GUITAR_FRETBOARD_BASE_X_PADDING } from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-base';
-import { STRING_HEIGHT } from '@/app/note-trainer/_components/guitar-fretboard/guitar-fretboard-strings';
+import { GUITAR_FRETBOARD_BASE_X_PADDING } from '@/app/note-trainer/_components/common/guitar-fretboard/guitar-fretboard-base';
+import { STRING_HEIGHT } from '@/app/note-trainer/_components/common/guitar-fretboard/guitar-fretboard-strings';
 
 interface Props {
   containerWidth: number;

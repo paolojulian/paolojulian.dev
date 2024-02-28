@@ -2,14 +2,14 @@
 
 import Container from '@/app/note-trainer/_components/common/container';
 import SectionTitle from '@/app/note-trainer/_components/common/section-title';
-import FretboardMasteryAnswer from '@/app/note-trainer/_components/fretboard-mastery/fretboard-mastery-answer';
-import FretboardMasteryQuestion from '@/app/note-trainer/_components/fretboard-mastery/fretboard-mastery-question';
-import GuitarFretboard from '@/app/note-trainer/_components/guitar-fretboard';
+import FretboardMasteryAnswer from '@/app/note-trainer/_components/workarea/fretboard-mastery/fretboard-mastery-answer';
+import FretboardMasteryQuestion from '@/app/note-trainer/_components/workarea/fretboard-mastery/fretboard-mastery-question';
+import GuitarFretboard from '@/app/note-trainer/_components/common/guitar-fretboard';
 import {
   NOTE_LOCATIONS,
   Note,
   NoteLocation,
-} from '@/app/note-trainer/_note-trainer.types';
+} from '@/app/note-trainer/_types/_note-trainer.types';
 import { generateNoteLocation } from '@/app/note-trainer/_utils/generate-random-note-location';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';

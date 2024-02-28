@@ -1,6 +1,6 @@
 import Container from '@/app/note-trainer/_components/common/container';
 import SectionTitle from '@/app/note-trainer/_components/common/section-title';
-import MenuItem from '@/app/note-trainer/_components/menu-screen/menu-item';
+import MenuItem from '@/app/note-trainer/_components/workarea/menu-screen/menu-item';
 import getAssetURL from '@/app/note-trainer/_utils/asset-map';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
@@ -31,7 +31,7 @@ export default function MenuScreen() {
             imageURL={getAssetURL('triads')} title='Triads'
             />
             <MenuItem
-              href='/note-trainer/fretboard-mastery'
+              href='/note-trainer/generate-random-note'
               imageURL={getAssetURL('random-note')}
               title='Random Note Generator'
             />

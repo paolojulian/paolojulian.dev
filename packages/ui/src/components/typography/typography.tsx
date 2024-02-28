@@ -28,8 +28,7 @@ type FontVariants =
   | 'heading-xl';
 const fontVariantsMap = {
   body: 'ui-tracking-[-0.01em] ui-font-semibold',
-  'body-wide':
-    'ui-text-sm ui-tracking-[0.40em] ui-font-semibold',
+  'body-wide': 'ui-text-sm ui-tracking-[0.40em] ui-font-semibold',
   heading:
     'ui-text-[1.5rem] md:ui-text-4xl ui-tracking-[-0.01em] ui-font-semibold',
   'heading-lg':
@@ -53,17 +52,22 @@ interface Props extends VariantProps<typeof typographyVariants> {
   as?: React.ElementType;
   children: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }
 
 export default function Typography({
   as: Element = 'p',
+  onClick,
   children,
   className = '',
   weight,
   variant,
 }: Props) {
   return (
-    <Element className={cn(typographyVariants({ weight, variant, className }))}>
+    <Element
+      className={cn(typographyVariants({ weight, variant, className }))}
+      onClick={onClick}
+    >
       {children}
     </Element>
   );
