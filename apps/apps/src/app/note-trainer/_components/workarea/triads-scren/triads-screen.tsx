@@ -24,6 +24,7 @@ export default function TriadsWorkArea() {
   const [selectedScale, setSelectedScale] = useState<Scale>('E major');
   const [rootNote, setRootNote] = useState<Note>();
   const [noteTriadName, setNoteTriadName] = useState('');
+  const [selectedNotes, setSelectedNotes] = useState<Note[]>([]);
 
   const [answer, setAnswer] = useState<(string | undefined)[]>();
 
@@ -37,7 +38,25 @@ export default function TriadsWorkArea() {
   }, []);
 
   const handleNext = () => {};
-  const handleSelectNote = () => {};
+  const handleSelectNote = (note: Note) => {
+    // If the selected note is already selected, remove it entirely
+    if (selectedNotes.includes(note)) {
+      return setSelectedNotes((prev) => {
+        const index = selectedNotes.indexOf(note);
+
+        // Create a new array containing only elements before the specified index
+        return prev.slice(0, index);
+      });
+    }
+
+    // Don't add/remove root note
+    if (note === rootNote) {
+      return;
+    }
+
+    setSelectedNotes((prev) => [...prev, note]);
+  };
+  console.log('test', selectedNotes);
 
   return (
     <div className='py-6 h-full'>
@@ -61,6 +80,7 @@ export default function TriadsWorkArea() {
                 <NoteChoices
                   onSelectNote={handleSelectNote}
                   generateNotes={() => getScaleRootNotes(selectedScale)}
+                  selectedNotes={[rootNote, ...selectedNotes]}
                 />
               </Row>
             )}
