@@ -2,6 +2,7 @@
 
 import NoteChoices from '@/app/note-trainer/_components/common/note-choices/note-choices';
 import SectionTitle from '@/app/note-trainer/_components/common/section-title';
+import { useSelectedNotes } from '@/app/note-trainer/_components/workarea/triads-screen/hooks/use-selected-notes';
 import TriadsAnswerSection from '@/app/note-trainer/_components/workarea/triads-screen/triads-answer-section';
 import TriadsScreenNotes from '@/app/note-trainer/_components/workarea/triads-screen/triads-screen-notes';
 import TriadsScreenQuestion from '@/app/note-trainer/_components/workarea/triads-screen/triads-screen-question';
@@ -27,16 +28,16 @@ export default function TriadsWorkArea() {
   const [rootNote, setRootNote] = useState<Note>();
   const [noteTriadName, setNoteTriadName] = useState('');
 
-  const [correctAnswer, setCorrectAnswer] = useState<Note []>(
-    []
-  );
-  const [selectedNotes, setSelectedNotes] = useState<Note[]>([]);
+  const [correctAnswer, setCorrectAnswer] = useState<Note[]>([]);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
+
+  const { selectedNotes, handleSelectNote, resetSelectedNotes } =
+    useSelectedNotes(rootNote);
 
   const handleNext = () => {
     setIsAnswerCorrect(false);
     setDisplayState('question');
-    setSelectedNotes([]);
+    resetSelectedNotes();
     randomizeQuestion();
   };
 
@@ -53,25 +54,6 @@ export default function TriadsWorkArea() {
     const answer = [rootNote, ...selectedNotes];
     handleSetAnswer(checkIfAnswerIsCorrect(answer, correctAnswer));
   }, [correctAnswer, selectedNotes]);
-
-  const handleSelectNote = (note: Note) => {
-    // If the selected note is already selected, remove it entirely
-    if (selectedNotes.includes(note)) {
-      return setSelectedNotes((prev) => {
-        const index = selectedNotes.indexOf(note);
-
-        // Create a new array containing only elements before the specified index
-        return prev.slice(0, index);
-      });
-    }
-
-    // Remove everything if the root not is pressed
-    if (note === rootNote) {
-      return setSelectedNotes([]);
-    }
-
-    setSelectedNotes((prev) => [...prev, note]);
-  };
 
   const randomizeQuestion = useCallback(() => {
     if (!selectedScale) return;
