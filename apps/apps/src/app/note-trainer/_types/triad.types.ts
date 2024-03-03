@@ -38,6 +38,12 @@ export const TRIAD_TYPES: TriadTypes = {
   'dominant 7th': { name: 'dominant 7th', intervals: [0, 4, 7, 10] },
   'minor 9th': { name: 'major 9th', intervals: [0, 3, 7, 11, 14] },
   'major 9th': { name: 'major 9th', intervals: [0, 4, 7, 11, 14] },
-  'relative minor 7th': { name: 'major 9th', intervals: [0, 4, 7, 11, 14] },
-  'relative minor 9th': { name: 'major 9th', intervals: [0, 4, 7, 11, 14] },
+  'relative minor 7th': {
+    name: 'relative minor 7th',
+    intervals: [0, 3, 7, 10],
+  },
+  'relative minor 9th': {
+    name: 'relative minor 9th',
+    intervals: [0, 3, 7, 10, 14],
+  },
 };
