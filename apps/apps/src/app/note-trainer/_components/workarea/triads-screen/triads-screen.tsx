@@ -2,6 +2,8 @@
 
 import NoteChoices from '@/app/note-trainer/_components/common/note-choices/note-choices';
 import SectionTitle from '@/app/note-trainer/_components/common/section-title';
+import useAnswerChecker from '@/app/note-trainer/_components/workarea/triads-screen/hooks/use-answer-checker';
+import { useQuestionGenerator } from '@/app/note-trainer/_components/workarea/triads-screen/hooks/use-question-generator';
 import { useSelectedNotes } from '@/app/note-trainer/_components/workarea/triads-screen/hooks/use-selected-notes';
 import TriadsAnswerSection from '@/app/note-trainer/_components/workarea/triads-screen/triads-answer-section';
 import TriadsScreenNotes from '@/app/note-trainer/_components/workarea/triads-screen/triads-screen-notes';
@@ -25,61 +27,29 @@ export type DisplayState = 'question' | 'answer';
 export default function TriadsWorkArea() {
   const [displayState, setDisplayState] = useState<DisplayState>('question');
   const [selectedScale, setSelectedScale] = useState<Scale>('E major');
-  const [rootNote, setRootNote] = useState<Note>();
-  const [noteTriadName, setNoteTriadName] = useState('');
 
-  const [correctAnswer, setCorrectAnswer] = useState<Note[]>([]);
-  const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
-
-  const { selectedNotes, handleSelectNote, resetSelectedNotes } =
+  const { randomizeQuestion, rootNote, noteTriadName, correctAnswer } =
+    useQuestionGenerator(selectedScale);
+  const { handleSelectNote, resetSelectedNotes, selectedNotes } =
     useSelectedNotes(rootNote);
+  const isAnswerCorrect = useAnswerChecker({
+    onAnswerChecked() {
+      setDisplayState('answer');
+    },
+    correctAnswer,
+    rootNote,
+    selectedNotes,
+  });
 
   const handleNext = () => {
-    setIsAnswerCorrect(false);
     setDisplayState('question');
     resetSelectedNotes();
     randomizeQuestion();
   };
 
-  const handleSetAnswer = (isCorrect: boolean) => {
-    setIsAnswerCorrect(isCorrect);
-    setDisplayState('answer');
-  };
-
-  const handleCheckAnswer = useCallback(() => {
-    if (!rootNote) {
-      return;
-    }
-
-    const answer = [rootNote, ...selectedNotes];
-    handleSetAnswer(checkIfAnswerIsCorrect(answer, correctAnswer));
-  }, [correctAnswer, selectedNotes]);
-
-  const randomizeQuestion = useCallback(() => {
-    if (!selectedScale) return;
-
-    const { rootNote, correctAnswer, noteTriadName } =
-      generateTriadQuestion(selectedScale);
-
-    setNoteTriadName(noteTriadName);
-    setCorrectAnswer(correctAnswer as Note[]);
-    setRootNote(rootNote);
-  }, [selectedScale]);
-
   useEffect(() => {
     randomizeQuestion();
   }, [randomizeQuestion]);
-
-  useEffect(() => {
-    if (selectedNotes.length < 2) {
-      return;
-    }
-
-    // - 1 because root note is included on the correct answer
-    if (selectedNotes.length >= correctAnswer.length - 1) {
-      handleCheckAnswer();
-    }
-  }, [selectedNotes, correctAnswer, handleCheckAnswer]);
 
   return (
     <div className='py-6 h-full'>
