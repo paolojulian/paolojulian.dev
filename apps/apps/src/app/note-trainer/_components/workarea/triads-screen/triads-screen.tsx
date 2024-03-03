@@ -2,12 +2,13 @@
 
 import NoteChoices from '@/app/note-trainer/_components/common/note-choices/note-choices';
 import SectionTitle from '@/app/note-trainer/_components/common/section-title';
-import TriadsScreenNotes from '@/app/note-trainer/_components/workarea/triads-scren/triads-screen-notes';
-import TriadsScreenQuestion from '@/app/note-trainer/_components/workarea/triads-scren/triads-screen-question';
+import TriadsAnswerSection from '@/app/note-trainer/_components/workarea/triads-screen/triads-answer-section';
+import TriadsScreenNotes from '@/app/note-trainer/_components/workarea/triads-screen/triads-screen-notes';
+import TriadsScreenQuestion from '@/app/note-trainer/_components/workarea/triads-screen/triads-screen-question';
 import {
   generateTriadQuestion,
   getScaleRootNotes,
-} from '@/app/note-trainer/_components/workarea/triads-scren/triads-screen.utils';
+} from '@/app/note-trainer/_components/workarea/triads-screen/triads-screen.utils';
 import { Note } from '@/app/note-trainer/_types/_note-trainer.types';
 import { Scale } from '@/app/note-trainer/_types/scale.types';
 import Container from '@repo/ui/components/container';
@@ -79,18 +80,18 @@ export default function TriadsWorkArea() {
     setSelectedNotes((prev) => [...prev, note]);
   };
 
-  const randomizeQuestion = () => {
+  const randomizeQuestion = useCallback(() => {
     const { rootNote, correctAnswer, noteTriadName } =
       generateTriadQuestion(selectedScale);
 
     setNoteTriadName(noteTriadName);
     setCorrectAnswer(correctAnswer);
     setRootNote(rootNote);
-  };
+  }, [selectedScale]);
 
   useEffect(() => {
     randomizeQuestion();
-  }, []);
+  }, [randomizeQuestion]);
 
   useEffect(() => {
     if (selectedNotes.length < 2) {
@@ -134,7 +135,11 @@ export default function TriadsWorkArea() {
               </Fragment>
             ) : (
               <Fragment>
-                <Typography>{isAnswerCorrect ? 'Correct' : 'Wrong'}</Typography>
+                <TriadsAnswerSection
+                  onNext={handleNext}
+                  correctNotes={correctAnswer as Note[]}
+                  isCorrect={isAnswerCorrect}
+                />
               </Fragment>
             )}
           </Fragment>
