@@ -8,7 +8,7 @@ interface Props {
   // eslint-disable-next-line no-unused-vars
   onSelectNote: (note: Note) => void;
   generateNotes?: () => Note[];
-  selectedNotes: Note[];
+  selectedNotes?: Note[];
   shouldShuffleNotes?: boolean;
 }
 
