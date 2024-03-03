@@ -1,7 +1,7 @@
 import { generateTriadQuestion } from '@/app/note-trainer/_components/workarea/triads-screen/triads-screen.utils';
 import { Note } from '@/app/note-trainer/_types/_note-trainer.types';
 import { Scale } from '@/app/note-trainer/_types/scale.types';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export function useQuestionGenerator(selectedScale: Scale) {
   const [rootNote, setRootNote] = useState<Note>();
@@ -18,6 +18,10 @@ export function useQuestionGenerator(selectedScale: Scale) {
     setCorrectAnswer(correctAnswer as Note[]);
     setRootNote(rootNote);
   }, [selectedScale]);
+
+  useEffect(() => {
+    randomizeQuestion();
+  }, [randomizeQuestion]);
 
   return {
     randomizeQuestion,

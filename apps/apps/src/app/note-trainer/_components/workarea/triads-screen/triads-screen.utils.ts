@@ -1,5 +1,8 @@
 import { Note } from '@/app/note-trainer/_types/_note-trainer.types';
-import { MAJOR_SCALES, Scale } from '@/app/note-trainer/_types/scale.types';
+import {
+  Scale,
+  getMajorScaleNotes
+} from '@/app/note-trainer/_types/scale.types';
 import {
   SCALE_TRIAD_NAMES,
   TRIAD_TYPES,
@@ -13,7 +16,7 @@ function getRandomElement<T>(array: T[]): T {
 
 export function generateTriadQuestion(scale: Scale) {
   // Get the root notes based on the selected scale
-  const rootNotes = getScaleRootNotes(scale);
+  const rootNotes = getMajorScaleNotes(scale);
 
   // Randomly select a root note and triad type
   const rootNote = getRandomElement(rootNotes);
@@ -39,8 +42,9 @@ function generateTriadNotes({
   scale: Scale;
 }) {
   // 1. Get position of the rootNote on the scale
-  const scaleNotes = MAJOR_SCALES[scale];
+  const scaleNotes = getMajorScaleNotes(scale);
   const rootPosition = scaleNotes.indexOf(rootNote);
+  console.log('test', { rootNote, rootPosition: rootPosition + 1, scaleNotes, scale });
 
   // 2. Get the possible triad type based on the position
   const triadTypes = SCALE_TRIAD_NAMES[getScaleDegree(rootPosition + 1)];
@@ -88,14 +92,6 @@ function getNoteName(rootNote: Note, interval: number) {
   );
 
   return noteName;
-}
-
-export function getScaleRootNotes(scale: Scale) {
-  // Define an object mapping scales to their respective root notes
-  const scaleRootNotes = MAJOR_SCALES;
-
-  // Get the root notes for the selected scale
-  return scaleRootNotes[scale];
 }
 
 export function checkIfAnswerIsCorrect(answer: Note[], correctAnswer: Note[]) {

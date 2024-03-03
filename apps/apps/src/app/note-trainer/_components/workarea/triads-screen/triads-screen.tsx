@@ -8,19 +8,17 @@ import { useSelectedNotes } from '@/app/note-trainer/_components/workarea/triads
 import TriadsAnswerSection from '@/app/note-trainer/_components/workarea/triads-screen/triads-answer-section';
 import TriadsScreenNotes from '@/app/note-trainer/_components/workarea/triads-screen/triads-screen-notes';
 import TriadsScreenQuestion from '@/app/note-trainer/_components/workarea/triads-screen/triads-screen-question';
-import {
-  checkIfAnswerIsCorrect,
-  generateTriadQuestion,
-  getScaleRootNotes,
-} from '@/app/note-trainer/_components/workarea/triads-screen/triads-screen.utils';
 import { Note } from '@/app/note-trainer/_types/_note-trainer.types';
-import { Scale } from '@/app/note-trainer/_types/scale.types';
+import {
+  Scale,
+  getMajorScaleNotes,
+} from '@/app/note-trainer/_types/scale.types';
 import Container from '@repo/ui/components/container';
 import Row from '@repo/ui/components/row';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import Link from 'next/link';
-import { Fragment, useCallback, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 
 export type DisplayState = 'question' | 'answer';
 
@@ -47,10 +45,6 @@ export default function TriadsWorkArea() {
     randomizeQuestion();
   };
 
-  useEffect(() => {
-    randomizeQuestion();
-  }, [randomizeQuestion]);
-
   return (
     <div className='py-6 h-full'>
       <Stack className={'items-center h-full w-full'}>
@@ -74,7 +68,7 @@ export default function TriadsWorkArea() {
                   <Row className='justify-center'>
                     <NoteChoices
                       onSelectNote={handleSelectNote}
-                      generateNotes={() => getScaleRootNotes(selectedScale)}
+                      generateNotes={() => getMajorScaleNotes(selectedScale)}
                       selectedNotes={[rootNote, ...selectedNotes]}
                       shouldShuffleNotes={true}
                     />
