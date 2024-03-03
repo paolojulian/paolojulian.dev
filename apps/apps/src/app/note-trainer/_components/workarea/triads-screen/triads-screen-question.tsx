@@ -23,7 +23,7 @@ export default function TriadsScreenQuestion({
           <Fragment>
             What are the notes of an{' '}
             <span className='text-secondary'>{noteTriadName}</span> triad in the{' '}
-            <span className='text-secondary'>{scaleName}</span> scale?
+            <span className='text-secondary'>{scaleName} scale</span>?
           </Fragment>
         )}
       </Typography>
