@@ -29,15 +29,10 @@ export const SCALE_TRIAD_NAMES: Record<number, TriadName[]> = {
 };
 
 export const TRIAD_TYPES: TriadTypes = {
-  major: { name: 'major', intervals: [0, 4, 7] },
+  // minors
   minor: { name: 'minor', intervals: [0, 3, 7] },
-  diminished: { name: 'diminished', intervals: [0, 3, 6] },
-  augmented: { name: 'augmented', intervals: [0, 4, 8] },
-  'major 7th': { name: 'major 7th', intervals: [0, 4, 7, 11] },
   'minor 7th': { name: 'minor 7th', intervals: [0, 3, 7, 10] },
-  'dominant 7th': { name: 'dominant 7th', intervals: [0, 4, 7, 10] },
-  'minor 9th': { name: 'major 9th', intervals: [0, 3, 7, 11, 14] },
-  'major 9th': { name: 'major 9th', intervals: [0, 4, 7, 11, 14] },
+  'minor 9th': { name: 'major 9th', intervals: [0, 3, 7, 10, 14] },
   'relative minor 7th': {
     name: 'relative minor 7th',
     intervals: [0, 3, 7, 10],
@@ -46,4 +41,12 @@ export const TRIAD_TYPES: TriadTypes = {
     name: 'relative minor 9th',
     intervals: [0, 3, 7, 10, 14],
   },
+
+  // majors
+  major: { name: 'major', intervals: [0, 4, 7] },
+  'major 7th': { name: 'major 7th', intervals: [0, 4, 7, 11] },
+  'major 9th': { name: 'major 9th', intervals: [0, 4, 7, 11, 14] },
+  diminished: { name: 'diminished', intervals: [0, 3, 6] },
+  augmented: { name: 'augmented', intervals: [0, 4, 7] },
+  'dominant 7th': { name: 'dominant 7th', intervals: [0, 4, 7, 10] },
 };
