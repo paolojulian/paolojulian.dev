@@ -16,14 +16,17 @@ export default function NoteChoices({
   generateNotes = getNotes,
   selectedNotes = [],
 }: Props) {
-  const notes = useMemo(() => generateNotes(), []);
+  const shuffledNotes = useMemo(() => {
+    const notes = generateNotes()
+    return shuffleArray(notes);
+  }, []);
   const checkIfSelected = (note: Note) => {
     return selectedNotes.includes(note);
   };
 
   return (
     <div className={cn('grid grid-cols-3 gap-6 w-fit')}>
-      {notes.map((note, i) => (
+      {shuffledNotes.map((note, i) => (
         <NoteChoicesButton
           onSelect={onSelectNote}
           key={`${note}_${i}`}
@@ -71,4 +74,14 @@ function NoteChoicesButton({
       </div>
     </button>
   );
+}
+
+function shuffleArray<T>(array: T[]): T[] {
+  // Fisher-Yates (Knuth) shuffle algorithm
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+
+  return array;
 }

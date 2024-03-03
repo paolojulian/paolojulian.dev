@@ -15,7 +15,7 @@ import Row from '@repo/ui/components/row';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import Link from 'next/link';
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useCallback, useEffect, useState } from 'react';
 
 export type DisplayState = 'question' | 'answer';
 
@@ -26,18 +26,40 @@ export default function TriadsWorkArea() {
   const [noteTriadName, setNoteTriadName] = useState('');
   const [selectedNotes, setSelectedNotes] = useState<Note[]>([]);
 
-  const [answer, setAnswer] = useState<(string | undefined)[]>();
+  const [correctAnswer, setCorrectAnswer] = useState<(string | undefined)[]>(
+    []
+  );
+  const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
 
-  useEffect(() => {
-    const { rootNote, correctAnswer, noteTriadName } =
-      generateTriadQuestion(selectedScale);
+  const handleNext = () => {
+    setIsAnswerCorrect(false);
+    setDisplayState('question');
+    setSelectedNotes([]);
+    randomizeQuestion();
+  };
 
-    setNoteTriadName(noteTriadName);
-    setAnswer(correctAnswer);
-    setRootNote(rootNote);
-  }, []);
+  const handleSetAnswer = (isCorrect: boolean) => {
+    setIsAnswerCorrect(isCorrect);
+    setDisplayState('answer');
+  };
 
-  const handleNext = () => {};
+  const handleCheckAnswer = useCallback(() => {
+    const answer = [rootNote, ...selectedNotes];
+
+    if (answer.length !== correctAnswer.length) {
+      return handleSetAnswer(false);
+    }
+
+    // Check if each element is the same in both arrays
+    for (let i = 0; i < correctAnswer.length; i++) {
+      if (correctAnswer[i] !== answer[i]) {
+        return handleSetAnswer(false);
+      }
+    }
+
+    return handleSetAnswer(true);
+  }, [correctAnswer, selectedNotes]);
+
   const handleSelectNote = (note: Note) => {
     // If the selected note is already selected, remove it entirely
     if (selectedNotes.includes(note)) {
@@ -49,14 +71,37 @@ export default function TriadsWorkArea() {
       });
     }
 
-    // Don't add/remove root note
+    // Remove everything if the root not is pressed
     if (note === rootNote) {
-      return;
+      return setSelectedNotes([]);
     }
 
     setSelectedNotes((prev) => [...prev, note]);
   };
-  console.log('test', selectedNotes);
+
+  const randomizeQuestion = () => {
+    const { rootNote, correctAnswer, noteTriadName } =
+      generateTriadQuestion(selectedScale);
+
+    setNoteTriadName(noteTriadName);
+    setCorrectAnswer(correctAnswer);
+    setRootNote(rootNote);
+  };
+
+  useEffect(() => {
+    randomizeQuestion();
+  }, []);
+
+  useEffect(() => {
+    if (selectedNotes.length < 2) {
+      return;
+    }
+
+    // - 1 because root note is included on the correct answer
+    if (selectedNotes.length >= correctAnswer.length - 1) {
+      handleCheckAnswer();
+    }
+  }, [selectedNotes, correctAnswer, handleCheckAnswer]);
 
   return (
     <div className='py-6 h-full'>
@@ -66,23 +111,31 @@ export default function TriadsWorkArea() {
         <Container className='w-full h-full flex flex-col gap-6 py-12'>
           <Fragment>
             {/* Display Notes */}
-            <TriadsScreenNotes rootNote={rootNote} otherNotes={[]} />
+            <TriadsScreenNotes rootNote={rootNote} otherNotes={selectedNotes} />
 
-            {/* Question */}
-            <TriadsScreenQuestion
-              noteTriadName={noteTriadName}
-              scaleName={selectedScale}
-            />
-
-            {/* Note Choices */}
-            {!!rootNote && (
-              <Row className='justify-center'>
-                <NoteChoices
-                  onSelectNote={handleSelectNote}
-                  generateNotes={() => getScaleRootNotes(selectedScale)}
-                  selectedNotes={[rootNote, ...selectedNotes]}
+            {displayState === 'question' ? (
+              <Fragment>
+                {/* Question */}
+                <TriadsScreenQuestion
+                  noteTriadName={noteTriadName}
+                  scaleName={selectedScale}
                 />
-              </Row>
+
+                {/* Note Choices */}
+                {!!rootNote && (
+                  <Row className='justify-center'>
+                    <NoteChoices
+                      onSelectNote={handleSelectNote}
+                      generateNotes={() => getScaleRootNotes(selectedScale)}
+                      selectedNotes={[rootNote, ...selectedNotes]}
+                    />
+                  </Row>
+                )}
+              </Fragment>
+            ) : (
+              <Fragment>
+                <Typography>{isAnswerCorrect ? 'Correct' : 'Wrong'}</Typography>
+              </Fragment>
             )}
           </Fragment>
         </Container>

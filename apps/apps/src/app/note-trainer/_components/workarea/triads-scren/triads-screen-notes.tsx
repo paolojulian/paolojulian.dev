@@ -14,9 +14,10 @@ export default function TriadsScreenNotes({ rootNote, otherNotes }: Props) {
     <Stack className='-mx-10 bg-primary h-[180px] justify-center items-center'>
       <Typography
         className='drop-shadow-[0_4px_4px_rgba(0,0,0,0.50)]'
-        variant='heading-xl'
+        variant='heading-lg'
       >
-        {rootNote}
+        {Boolean(rootNote) &&
+          [rootNote, ...otherNotes].map((note) => `${note}`).join(' - ')}
       </Typography>
     </Stack>
   );
