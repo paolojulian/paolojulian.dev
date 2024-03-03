@@ -27,8 +27,9 @@ export default function MenuScreen() {
               title='Ear Training'
             />
             <MenuItem
-              href='/note-trainer/fretboard-mastery'
-            imageURL={getAssetURL('triads')} title='Triads'
+              href='/note-trainer/triads'
+              imageURL={getAssetURL('triads')}
+              title='Triads'
             />
             <MenuItem
               href='/note-trainer/generate-random-note'
