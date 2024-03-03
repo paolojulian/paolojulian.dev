@@ -5,7 +5,7 @@ import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 
 interface Props {
-  rootNote: Note;
+  rootNote?: Note;
   otherNotes: Note[];
 }
 
