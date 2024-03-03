@@ -17,7 +17,7 @@ export default function TriadsScreenNotes({ rootNote, otherNotes }: Props) {
         variant='heading-lg'
       >
         {Boolean(rootNote) &&
-          [rootNote, ...otherNotes].map((note) => `${note}`).join(' - ')}
+          [rootNote, ...otherNotes].map((note) => `${note}`).join('-')}
       </Typography>
     </Stack>
   );

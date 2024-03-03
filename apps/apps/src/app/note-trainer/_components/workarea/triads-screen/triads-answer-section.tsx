@@ -43,7 +43,7 @@ export default function TriadsAnswerSection({
           })}
           variant='heading-lg'
         >
-          {correctNotes.join(' - ')}
+          {correctNotes.join('-')}
         </Typography>
       </Stack>
     </Fragment>
