@@ -3,7 +3,7 @@ import Container from '@/app/note-trainer/_components/common/container';
 import SectionTitle from '@/app/note-trainer/_components/common/section-title';
 import SelectScale from '@/app/note-trainer/_components/common/select-scale';
 import { Note } from '@/app/note-trainer/_types/_note-trainer.types';
-import { MAJOR_SCALES, Scale } from '@/app/note-trainer/_types/scale.types';
+import { Scale, getMajorScaleNotes } from '@/app/note-trainer/_types/scale.types';
 import Row from '@repo/ui/components/row';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
@@ -81,7 +81,7 @@ export default function GenerateRandomNoteScreen() {
 }
 
 function generateRandomNotePerScale(scale: Scale) {
-  const scaleNotes = MAJOR_SCALES[scale];
+  const scaleNotes = getMajorScaleNotes(scale);
   const randomIndex = Math.floor(Math.random() * scaleNotes.length);
 
   return scaleNotes[randomIndex];

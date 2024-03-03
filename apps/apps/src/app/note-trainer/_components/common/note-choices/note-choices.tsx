@@ -16,14 +16,12 @@ export default function NoteChoices({
   onSelectNote,
   generateNotes = getNotes,
   selectedNotes = [],
-  shouldShuffleNotes = false
+  shouldShuffleNotes = false,
 }: Props) {
   const shuffledNotes = useMemo(() => {
-    const notes = generateNotes()
+    const notes = generateNotes();
 
-    return shouldShuffleNotes
-      ? shuffleArray(notes)
-      : notes
+    return shouldShuffleNotes ? shuffleArray(notes) : notes;
   }, [shouldShuffleNotes]);
 
   const checkIfSelected = (note: Note) => {
@@ -82,12 +80,13 @@ function NoteChoicesButton({
   );
 }
 
-function shuffleArray<T>(array: T[]): T[] {
+function shuffleArray<T>(answer: T[]): T[] {
+  const copy = Array.from(answer);
   // Fisher-Yates (Knuth) shuffle algorithm
-  for (let i = array.length - 1; i > 0; i--) {
+  for (let i = copy.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    [copy[i], copy[j]] = [copy[j], copy[i]];
   }
 
-  return array;
+  return copy;
 }
