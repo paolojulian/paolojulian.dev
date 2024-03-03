@@ -6,6 +6,7 @@ import TriadsAnswerSection from '@/app/note-trainer/_components/workarea/triads-
 import TriadsScreenNotes from '@/app/note-trainer/_components/workarea/triads-screen/triads-screen-notes';
 import TriadsScreenQuestion from '@/app/note-trainer/_components/workarea/triads-screen/triads-screen-question';
 import {
+  checkIfAnswerIsCorrect,
   generateTriadQuestion,
   getScaleRootNotes,
 } from '@/app/note-trainer/_components/workarea/triads-screen/triads-screen.utils';
@@ -25,11 +26,11 @@ export default function TriadsWorkArea() {
   const [selectedScale, setSelectedScale] = useState<Scale>('E major');
   const [rootNote, setRootNote] = useState<Note>();
   const [noteTriadName, setNoteTriadName] = useState('');
-  const [selectedNotes, setSelectedNotes] = useState<Note[]>([]);
 
-  const [correctAnswer, setCorrectAnswer] = useState<(string | undefined)[]>(
+  const [correctAnswer, setCorrectAnswer] = useState<Note []>(
     []
   );
+  const [selectedNotes, setSelectedNotes] = useState<Note[]>([]);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
 
   const handleNext = () => {
@@ -45,20 +46,12 @@ export default function TriadsWorkArea() {
   };
 
   const handleCheckAnswer = useCallback(() => {
+    if (!rootNote) {
+      return;
+    }
+
     const answer = [rootNote, ...selectedNotes];
-
-    if (answer.length !== correctAnswer.length) {
-      return handleSetAnswer(false);
-    }
-
-    // Check if each element is the same in both arrays
-    for (let i = 0; i < correctAnswer.length; i++) {
-      if (correctAnswer[i] !== answer[i]) {
-        return handleSetAnswer(false);
-      }
-    }
-
-    return handleSetAnswer(true);
+    handleSetAnswer(checkIfAnswerIsCorrect(answer, correctAnswer));
   }, [correctAnswer, selectedNotes]);
 
   const handleSelectNote = (note: Note) => {
@@ -81,11 +74,13 @@ export default function TriadsWorkArea() {
   };
 
   const randomizeQuestion = useCallback(() => {
+    if (!selectedScale) return;
+
     const { rootNote, correctAnswer, noteTriadName } =
       generateTriadQuestion(selectedScale);
 
     setNoteTriadName(noteTriadName);
-    setCorrectAnswer(correctAnswer);
+    setCorrectAnswer(correctAnswer as Note[]);
     setRootNote(rootNote);
   }, [selectedScale]);
 
@@ -129,6 +124,7 @@ export default function TriadsWorkArea() {
                       onSelectNote={handleSelectNote}
                       generateNotes={() => getScaleRootNotes(selectedScale)}
                       selectedNotes={[rootNote, ...selectedNotes]}
+                      shouldShuffleNotes={true}
                     />
                   </Row>
                 )}

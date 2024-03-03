@@ -9,17 +9,23 @@ interface Props {
   onSelectNote: (note: Note) => void;
   generateNotes?: () => Note[];
   selectedNotes: Note[];
+  shouldShuffleNotes?: boolean;
 }
 
 export default function NoteChoices({
   onSelectNote,
   generateNotes = getNotes,
   selectedNotes = [],
+  shouldShuffleNotes = false
 }: Props) {
   const shuffledNotes = useMemo(() => {
     const notes = generateNotes()
-    return shuffleArray(notes);
-  }, []);
+
+    return shouldShuffleNotes
+      ? shuffleArray(notes)
+      : notes
+  }, [shouldShuffleNotes]);
+
   const checkIfSelected = (note: Note) => {
     return selectedNotes.includes(note);
   };

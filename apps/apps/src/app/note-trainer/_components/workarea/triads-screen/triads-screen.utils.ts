@@ -97,3 +97,18 @@ export function getScaleRootNotes(scale: Scale) {
   // Get the root notes for the selected scale
   return scaleRootNotes[scale];
 }
+
+export function checkIfAnswerIsCorrect(answer: Note[], correctAnswer: Note[]) {
+  if (answer.length !== correctAnswer.length) {
+    return false;
+  }
+
+  // Check if each element is the same in both arrays
+  for (let i = 0; i < correctAnswer.length; i++) {
+    if (correctAnswer[i] !== answer[i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
