@@ -90,7 +90,7 @@ function getNoteName(rootNote: Note, interval: number) {
   return noteName;
 }
 
-function getScaleRootNotes(scale: Scale) {
+export function getScaleRootNotes(scale: Scale) {
   // Define an object mapping scales to their respective root notes
   const scaleRootNotes = MAJOR_SCALES;
 

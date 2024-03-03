@@ -4,7 +4,10 @@ import NoteChoices from '@/app/note-trainer/_components/common/note-choices/note
 import SectionTitle from '@/app/note-trainer/_components/common/section-title';
 import TriadsScreenNotes from '@/app/note-trainer/_components/workarea/triads-scren/triads-screen-notes';
 import TriadsScreenQuestion from '@/app/note-trainer/_components/workarea/triads-scren/triads-screen-question';
-import { generateTriadQuestion } from '@/app/note-trainer/_components/workarea/triads-scren/triads-screen.utils';
+import {
+  generateTriadQuestion,
+  getScaleRootNotes,
+} from '@/app/note-trainer/_components/workarea/triads-scren/triads-screen.utils';
 import { Note } from '@/app/note-trainer/_types/_note-trainer.types';
 import { Scale } from '@/app/note-trainer/_types/scale.types';
 import Container from '@repo/ui/components/container';
@@ -55,7 +58,10 @@ export default function TriadsWorkArea() {
             {/* Note Choices */}
             {!!rootNote && (
               <Row className='justify-center'>
-                <NoteChoices onSelectNote={handleSelectNote} />
+                <NoteChoices
+                  onSelectNote={handleSelectNote}
+                  generateNotes={() => getScaleRootNotes(selectedScale)}
+                />
               </Row>
             )}
           </Fragment>

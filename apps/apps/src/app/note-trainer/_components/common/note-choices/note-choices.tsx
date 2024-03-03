@@ -6,12 +6,16 @@ import cn from '@repo/ui/utils/cn';
 interface Props {
   // eslint-disable-next-line no-unused-vars
   onSelectNote: (note: Note) => void;
+  generateNotes?: () => Note[];
 }
 
-export default function NoteChoices({ onSelectNote }: Props) {
+export default function NoteChoices({
+  onSelectNote,
+  generateNotes = getNotes,
+}: Props) {
   return (
     <div className={cn('grid grid-cols-3 gap-6 w-fit')}>
-      {getNotes().map((note, i) => (
+      {generateNotes().map((note, i) => (
         <NoteChoicesButton
           onSelect={onSelectNote}
           key={`${note}_${i}`}
