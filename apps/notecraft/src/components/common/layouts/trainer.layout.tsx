@@ -13,7 +13,7 @@ type Props = {
 
 export default function TrainerLayout({ title, children }: Props) {
   return (
-    <Container className='py-6 bg-black h-full w-lvw overflow-hidden'>
+    <Container className='py-6 bg-black h-full w-lvw overflow-x-hidden'>
       <Stack className='h-full'>
         {/* Header */}
         <Row className='mb-12 justify-center'>
@@ -27,7 +27,7 @@ export default function TrainerLayout({ title, children }: Props) {
         </Row>
 
         {/* Content */}
-        <Stack className='gap-4 flex-1'>{children}</Stack>
+        <Stack className='gap-4 flex-1 mb-12'>{children}</Stack>
 
         {/* Footer */}
         <Row className='justify-center'>
