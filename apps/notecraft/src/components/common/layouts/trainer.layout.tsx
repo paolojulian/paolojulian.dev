@@ -1,5 +1,6 @@
 import Container from '@/components/common/container';
 import Typography from '@/components/common/typography';
+import HomeIcon from '@/components/icons/home-icon';
 import Row from '@repo/ui/components/row';
 import Stack from '@repo/ui/components/stack';
 import Link from 'next/link';
@@ -35,7 +36,7 @@ export default function TrainerLayout({ title, children }: Props) {
             role='button'
             href='/menu'
           >
-            H
+            <HomeIcon />
           </Link>
         </Row>
       </Stack>
