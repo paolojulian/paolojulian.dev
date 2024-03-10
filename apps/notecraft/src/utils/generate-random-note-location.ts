@@ -1,5 +1,8 @@
-import { NOTE_LOCATIONS } from "../types/note-trainer.types";
 
   export const generateNoteLocation = () => {
-    return Math.floor(Math.random() * NOTE_LOCATIONS.length - 1) + 1;
+    return getFretNumber(5, 71);
+  }
+
+  function getFretNumber(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
