@@ -16,6 +16,7 @@ import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import Link from 'next/link';
 import { Fragment, useState } from 'react';
+import TrainerLayout from '@/components/common/layouts/trainer.layout';
 
 export type DisplayState = 'question' | 'answer';
 
@@ -43,74 +44,43 @@ export default function TriadsWorkArea() {
   };
 
   return (
-    <div className='py-6 h-full'>
-      <Stack className={'items-center h-full w-full'}>
-        <SectionTitle title='Triads' />
+    <TrainerLayout title='Triads'>
+      <Fragment>
+        {/* Display Notes */}
+        <TriadsScreenNotes rootNote={rootNote} otherNotes={selectedNotes} />
 
-        <Container className='w-full h-full flex flex-col gap-6 py-12'>
+        {displayState === 'question' ? (
           <Fragment>
-            {/* Display Notes */}
-            <TriadsScreenNotes rootNote={rootNote} otherNotes={selectedNotes} />
+            {/* Question */}
+            <TriadsScreenQuestion
+              noteTriadName={noteTriadName}
+              scaleName={selectedScale}
+            />
 
-            {displayState === 'question' ? (
-              <Fragment>
-                {/* Question */}
-                <TriadsScreenQuestion
-                  noteTriadName={noteTriadName}
-                  scaleName={selectedScale}
+            {/* Note Choices */}
+            {!!rootNote && (
+              <Row className='justify-center'>
+                <NoteChoices
+                  gridType='7'
+                  title='Select Correct Notes'
+                  onSelectNote={handleSelectNote}
+                  generateNotes={() => getMajorScaleNotes(selectedScale)}
+                  selectedNotes={[rootNote, ...selectedNotes]}
+                  shouldShuffleNotes={true}
                 />
-
-                {/* Note Choices */}
-                {!!rootNote && (
-                  <Row className='justify-center'>
-                    <NoteChoices
-                      gridType='7'
-                      title='Select Correct Notes'
-                      onSelectNote={handleSelectNote}
-                      generateNotes={() => getMajorScaleNotes(selectedScale)}
-                      selectedNotes={[rootNote, ...selectedNotes]}
-                      shouldShuffleNotes={true}
-                    />
-                  </Row>
-                )}
-              </Fragment>
-            ) : (
-              <Fragment>
-                <TriadsAnswerSection
-                  onNext={handleNext}
-                  correctNotes={correctAnswer as Note[]}
-                  isCorrect={isAnswerCorrect}
-                />
-              </Fragment>
+              </Row>
             )}
           </Fragment>
-        </Container>
-
-        <TriadsFooter onNext={handleNext} displayState={displayState} />
-      </Stack>
-    </div>
+        ) : (
+          <Fragment>
+            <TriadsAnswerSection
+              onNext={handleNext}
+              correctNotes={correctAnswer as Note[]}
+              isCorrect={isAnswerCorrect}
+            />
+          </Fragment>
+        )}
+      </Fragment>
+    </TrainerLayout>
   );
-}
-
-function TriadsFooter({
-  onNext,
-  displayState,
-}: {
-  onNext: () => void;
-  displayState: DisplayState;
-}) {
-  const textContainer = (text: string) => (
-    <Typography
-      variant='body-wide'
-      className='text-secondary uppercase py-5 w-full text-center'
-    >
-      {text}
-    </Typography>
-  );
-
-  if (displayState === 'answer') {
-    return <button onClick={onNext}>{textContainer('Next')}</button>;
-  }
-
-  return <Link href='/note-trainer/menu'>{textContainer('Back to menu')}</Link>;
 }
