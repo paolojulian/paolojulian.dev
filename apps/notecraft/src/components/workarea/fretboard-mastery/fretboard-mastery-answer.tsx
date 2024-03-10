@@ -1,10 +1,11 @@
 'use client';
 
+import SuccessFailCard from '@/components/common/success-fail-card';
 import { Note } from '../../../types/note-trainer.types';
 import Stack from '@repo/ui/components/stack';
-import Typography from '@repo/ui/components/typography';
 import cn from '@repo/ui/utils/cn';
 import { Fragment } from 'react';
+import Typography from '@/components/common/typography/typography';
 
 export default function FretboardMasteryAnswer({
   onNext,
@@ -15,37 +16,46 @@ export default function FretboardMasteryAnswer({
   correctNote: Note;
   isCorrect: boolean;
 }) {
-  const answerText = isCorrect ? 'Correct!' : 'Wrong';
+  const answerText = isCorrect ? (
+    <Fragment>
+      <div>You</div>
+      <div>are</div>
+      <div>correct</div>
+    </Fragment>
+  ) : (
+    <Fragment>
+      <div>You</div>
+      <div>are</div>
+      <div>wrong</div>
+    </Fragment>
+  );
 
   return (
     <Fragment>
-      <Typography className='text-center' variant={'body'}>
-        "Your answer is{' '}
-        <span
-          className={cn({
-            ['text-primary']: !isCorrect,
-            ['text-green-400']: isCorrect,
-          })}
-        >
-          {answerText}
-        </span>
-        "
-      </Typography>
-      <Stack
-        className='justify-center items-center flex-1 gap-2 text-green-400 w-full'
+      <SuccessFailCard
         onClick={onNext}
+        title={answerText}
+        type={isCorrect ? 'success' : 'fail'}
       >
-        <Typography variant='body-wide'>CORRECT NOTE</Typography>
-        <Typography
-          className={cn('uppercase', {
-            ['text-primary']: !isCorrect,
-            ['text-green-400']: isCorrect,
-          })}
-          variant='heading-xl'
+        <div
+          className={cn(
+            'aspect-square w-16',
+            'rounded-xl',
+            'flex items-center justify-center',
+            {
+              ['bg-green']: isCorrect,
+              ['bg-red']: !isCorrect,
+            }
+          )}
         >
-          {correctNote}
-        </Typography>
-      </Stack>
+          <Typography
+            className={cn('uppercase', 'text-black')}
+            variant='heading-sm'
+          >
+            {correctNote}
+          </Typography>
+        </div>
+      </SuccessFailCard>
     </Fragment>
   );
 }
