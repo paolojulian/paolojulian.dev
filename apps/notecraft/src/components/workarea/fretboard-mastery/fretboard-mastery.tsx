@@ -15,6 +15,7 @@ import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
 import Link from 'next/link';
 import { Fragment, useCallback, useEffect, useState } from 'react';
+import TrainerLayout from '@/components/common/layouts/trainer.layout';
 
 export type DisplayState = 'question' | 'answer';
 
@@ -46,44 +47,52 @@ export default function FretboardMasteryPage() {
   };
 
   return (
-    <div className='py-6 h-full'>
-      <Stack className={'items-center h-full w-full'}>
-        <SectionTitle title='Fretboard Mastery' />
-
-        <div className='py-12'>
-          <GuitarFretboard
-            note={randomNoteLocation.note}
-            fretNumber={randomNoteLocation.fretNumber}
-            string={randomNoteLocation.string}
-          />
-        </div>
-
-        <Container className='h-full flex flex-col mb-10'>
-          <Fragment>
-            {displayState === 'question' && (
-              <FretboardMasteryQuestion
-                onSelectNote={handleSelectNote}
-                fretNumber={randomNoteLocation.fretNumber}
-                string={randomNoteLocation.string}
-              />
-            )}
-
-            {displayState === 'answer' && (
-              <FretboardMasteryAnswer
-                onNext={handleNext}
-                correctNote={randomNoteLocation.note}
-                isCorrect={isCorrectAnswer}
-              />
-            )}
-          </Fragment>
-        </Container>
-
-        <FretboardMasteryFooter
-          onNext={handleNext}
-          displayState={displayState}
+    <TrainerLayout title='Fretboard Mastery'>
+      <div className='-mx-6'>
+        <GuitarFretboard
+          note={randomNoteLocation.note}
+          fretNumber={randomNoteLocation.fretNumber}
+          string={randomNoteLocation.string}
         />
-      </Stack>
-    </div>
+      </div>
+    </TrainerLayout>
+    // <div className='py-6 h-full'>
+    //   <Stack className={'items-center h-full w-full'}>
+
+    //     <div className='py-12'>
+    //       <GuitarFretboard
+    //         note={randomNoteLocation.note}
+    //         fretNumber={randomNoteLocation.fretNumber}
+    //         string={randomNoteLocation.string}
+    //       />
+    //     </div>
+
+    //     <Container className='h-full flex flex-col mb-10'>
+    //       <Fragment>
+    //         {displayState === 'question' && (
+    //           <FretboardMasteryQuestion
+    //             onSelectNote={handleSelectNote}
+    //             fretNumber={randomNoteLocation.fretNumber}
+    //             string={randomNoteLocation.string}
+    //           />
+    //         )}
+
+    //         {displayState === 'answer' && (
+    //           <FretboardMasteryAnswer
+    //             onNext={handleNext}
+    //             correctNote={randomNoteLocation.note}
+    //             isCorrect={isCorrectAnswer}
+    //           />
+    //         )}
+    //       </Fragment>
+    //     </Container>
+
+    //     <FretboardMasteryFooter
+    //       onNext={handleNext}
+    //       displayState={displayState}
+    //     />
+    //   </Stack>
+    // </div>
   );
 }
 

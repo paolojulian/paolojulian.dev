@@ -38,7 +38,7 @@ const fontVariantsMap = {
   'heading-md': 'font-bold text-[3rem] leading-[2.813rem]',
   'heading-sm': 'font-bold text-[2rem] leading-[2rem]',
   'body-md': 'font-regular text-[1rem]',
-  'body-wide': 'font-semibold text-[0.75rem] tracking-[0.40em]',
+  'body-wide': 'font-semibold text-sm tracking-[0.40em]',
 } satisfies Record<FontVariants, string>;
 
 export const typographyVariants = cva('', {
@@ -63,8 +63,7 @@ export default function Typography({
     <Element
       onClick={onClick}
       className={cn(
-        typographyVariants({ variant, family: variant, className }),
-        'text-inherit'
+        typographyVariants({ variant, family: variant, className })
       )}
     >
       {children}
