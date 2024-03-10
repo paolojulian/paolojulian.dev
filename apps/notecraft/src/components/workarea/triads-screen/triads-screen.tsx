@@ -9,10 +9,7 @@ import TriadsAnswerSection from './triads-answer-section';
 import TriadsScreenNotes from './triads-screen-notes';
 import TriadsScreenQuestion from './triads-screen-question';
 import { Note } from '../../../types/note-trainer.types';
-import {
-  Scale,
-  getMajorScaleNotes,
-} from '../../../types/scale.types';
+import { Scale, getMajorScaleNotes } from '../../../types/scale.types';
 import Container from '@repo/ui/components/container';
 import Row from '@repo/ui/components/row';
 import Stack from '@repo/ui/components/stack';
@@ -67,6 +64,8 @@ export default function TriadsWorkArea() {
                 {!!rootNote && (
                   <Row className='justify-center'>
                     <NoteChoices
+                      gridType='7'
+                      title='Select Correct Notes'
                       onSelectNote={handleSelectNote}
                       generateNotes={() => getMajorScaleNotes(selectedScale)}
                       selectedNotes={[rootNote, ...selectedNotes]}

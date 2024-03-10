@@ -5,18 +5,8 @@ import { Note } from '../../../types/note-trainer.types';
 import { getNotes } from '../../../utils/get-notes';
 import Typography from '@/components/common/typography/typography';
 
-interface Props {
-  // eslint-disable-next-line no-unused-vars
-  onSelectNote: (note: Note) => void;
-  generateNotes?: () => Note[];
-  selectedNotes?: Note[];
-  shouldShuffleNotes?: boolean;
-  title?: string;
-  footer?: string;
-}
-
 type GridType = '7' | '12';
-const grids: Record<GridType, number[][]> = {
+const GRIDS: Record<GridType, number[][]> = {
   12: [
     [0, 0, 0, 1],
     [0, 0, 1, 1],
@@ -33,11 +23,23 @@ const grids: Record<GridType, number[][]> = {
   ],
 };
 
+interface Props {
+  // eslint-disable-next-line no-unused-vars
+  onSelectNote: (note: Note) => void;
+  generateNotes?: () => Note[];
+  selectedNotes?: Note[];
+  shouldShuffleNotes?: boolean;
+  title?: string;
+  footer?: string;
+  gridType?: GridType;
+}
+
 export default function NoteChoices({
   onSelectNote,
   generateNotes = getNotes,
   selectedNotes = [],
   shouldShuffleNotes = false,
+  gridType = '12',
   title,
   footer,
 }: Props) {
@@ -59,6 +61,7 @@ export default function NoteChoices({
     }
     return undefined;
   };
+  const grid = GRIDS[gridType];
 
   return (
     <div className={cn('relative w-full grid grid-cols-4 gap-3 m-6')}>
@@ -76,12 +79,15 @@ export default function NoteChoices({
         </Typography>
       </div>
 
-      {grids[12].map((row, rowIndex) => {
+      {grid.map((row, rowIndex) => {
         return row.map((cell, cellIndex) => {
           const note = getNote(cell);
 
           return (
-            <div key={`${rowIndex}_${cellIndex}`}>
+            <div
+              key={`${rowIndex}_${cellIndex}`}
+              className='w-full aspect-square'
+            >
               {note && (
                 <NoteChoicesButton
                   onSelect={onSelectNote}
