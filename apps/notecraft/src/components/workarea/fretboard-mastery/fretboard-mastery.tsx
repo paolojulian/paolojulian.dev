@@ -44,7 +44,7 @@ export default function FretboardMasteryPage() {
   return (
     <TrainerLayout title='Fretboard Mastery'>
       <Fragment>
-        <div className='-mx-6'>
+        <div className='-mx-6 mb-10'>
           <GuitarFretboard
             note={randomNoteLocation.note}
             fretNumber={randomNoteLocation.fretNumber}

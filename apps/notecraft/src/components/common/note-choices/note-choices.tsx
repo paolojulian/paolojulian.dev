@@ -64,7 +64,7 @@ export default function NoteChoices({
   const grid = GRIDS[gridType];
 
   return (
-    <div className={cn('relative w-full grid grid-cols-4 gap-3 m-6')}>
+    <div className={cn('relative w-full grid grid-cols-4 gap-3')}>
       {/* Header */}
       <div className='absolute left-0 top-0'>
         <Typography className='uppercase max-w-28' variant='heading-sm'>
