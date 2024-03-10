@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 export default function WelcomeScreen() {
   return (
-    <Container className='py-6 h-full relative'>
+    <Container className='py-6 h-full relative bg-black'>
       <>
         <Image
           className='-z-10 pointer-events-none'
