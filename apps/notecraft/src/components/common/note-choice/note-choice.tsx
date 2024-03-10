@@ -23,22 +23,24 @@ export const noteChoiceVariants = cva('button', {
 });
 
 type Props = {
+  onClick?: () => void;
   note: string;
   noteNumber: number;
 } & VariantProps<typeof noteChoiceVariants>;
 
-export default function NoteChoice({ note, variant }: Props) {
+export default function NoteChoice({ onClick, note, variant }: Props) {
   return (
     <button
+      onClick={onClick}
       className={cn(
         noteChoiceVariants({ variant }),
         'duration-200',
-        'aspect-square w-20 h-20',
+        'aspect-square w-full',
         'active:scale-95',
         'rounded-xl'
       )}
     >
-      <Typography as='span' variant='heading-md'>
+      <Typography as='span' variant='heading-sm'>
         {note}
       </Typography>
     </button>

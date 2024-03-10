@@ -34,20 +34,14 @@ export default function FretboardMasteryQuestion({
   fretNumber: FretNumber;
 }) {
   return (
-    <Stack className='gap-10'>
-      {/* Question */}
-      <Typography className='text-white text-center' variant={'body'}>
-        What is the note on the{' '}
-        <span className='text-green-400'>{string} string</span> on the{' '}
-        <span className='text-green-400'>
-          {getFretNumberText(fretNumber)} fret
-        </span>
-        ?
-      </Typography>
-
+    <Stack className='gap-6'>
       {/* Note Choices */}
       <Row className='justify-center'>
-        <NoteChoices onSelectNote={onSelectNote} />
+        <NoteChoices
+          onSelectNote={onSelectNote}
+          title='Select Correct Note'
+          footer='1 of 5'
+        />
       </Row>
     </Stack>
   );

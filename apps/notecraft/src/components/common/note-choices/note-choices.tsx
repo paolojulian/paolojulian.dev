@@ -1,8 +1,9 @@
-import { Note } from '../../../types/note-trainer.types';
-import { getNotes } from '../../../utils/get-notes';
-import Typography from '@repo/ui/components/typography';
+import NoteChoice from '@/components/common/note-choice';
 import cn from '@repo/ui/utils/cn';
 import { useMemo } from 'react';
+import { Note } from '../../../types/note-trainer.types';
+import { getNotes } from '../../../utils/get-notes';
+import Typography from '@/components/common/typography/typography';
 
 interface Props {
   // eslint-disable-next-line no-unused-vars
@@ -10,13 +11,35 @@ interface Props {
   generateNotes?: () => Note[];
   selectedNotes?: Note[];
   shouldShuffleNotes?: boolean;
+  title?: string;
+  footer?: string;
 }
+
+type GridType = '7' | '12';
+const grids: Record<GridType, number[][]> = {
+  12: [
+    [0, 0, 0, 1],
+    [0, 0, 1, 1],
+    [0, 1, 1, 1],
+    [1, 1, 1, 1],
+    [1, 0, 0, 0],
+  ],
+  7: [
+    [0, 0, 0, 0],
+    [0, 0, 1, 1],
+    [0, 1, 1, 1],
+    [1, 1, 0, 0],
+    [0, 0, 0, 0],
+  ],
+};
 
 export default function NoteChoices({
   onSelectNote,
   generateNotes = getNotes,
   selectedNotes = [],
   shouldShuffleNotes = false,
+  title,
+  footer,
 }: Props) {
   const shuffledNotes = useMemo(() => {
     const notes = generateNotes();
@@ -28,16 +51,48 @@ export default function NoteChoices({
     return selectedNotes.includes(note);
   };
 
+  const copyOfShuffledNotes = [...shuffledNotes];
+
+  const getNote = (cell: number) => {
+    if (cell === 1) {
+      return copyOfShuffledNotes.shift();
+    }
+    return undefined;
+  };
+
   return (
-    <div className={cn('grid grid-cols-3 gap-6 w-fit')}>
-      {shuffledNotes.map((note, i) => (
-        <NoteChoicesButton
-          onSelect={onSelectNote}
-          key={`${note}_${i}`}
-          note={note}
-          isSelected={checkIfSelected(note)}
-        />
-      ))}
+    <div className={cn('relative w-full grid grid-cols-4 gap-3 m-6')}>
+      {/* Header */}
+      <div className='absolute left-0 top-0'>
+        <Typography className='uppercase max-w-28' variant='heading-sm'>
+          {title}
+        </Typography>
+      </div>
+
+      {/* Footer */}
+      <div className='absolute right-0 bottom-0'>
+        <Typography className='text-gray' variant='body-md'>
+          {footer}
+        </Typography>
+      </div>
+
+      {grids[12].map((row, rowIndex) => {
+        return row.map((cell, cellIndex) => {
+          const note = getNote(cell);
+
+          return (
+            <div key={`${rowIndex}_${cellIndex}`}>
+              {note && (
+                <NoteChoicesButton
+                  onSelect={onSelectNote}
+                  note={note}
+                  isSelected={checkIfSelected(note)}
+                />
+              )}
+            </div>
+          );
+        });
+      })}
     </div>
   );
 }
@@ -59,24 +114,12 @@ function NoteChoicesButton({
   };
 
   return (
-    <button className={'relative w-fit group'} onClick={handleClick}>
-      {/* Circle */}
-      <div
-        className={cn(
-          'w-20 h-20 rounded-full',
-          'group-active:scale-90 duration-200 ease-in-out',
-          {
-            ['bg-primary bg-opacity-50 scale-95']: isSelected,
-            ['bg-[#9CA3AF] bg-opacity-15']: !isSelected,
-          }
-        )}
-      ></div>
-
-      {/* Note */}
-      <div className={'absolute inset-0 flex items-center justify-center'}>
-        <Typography variant={'heading'}>{note}</Typography>
-      </div>
-    </button>
+    <NoteChoice
+      onClick={handleClick}
+      variant={isSelected ? 'selected' : 'default'}
+      note={note}
+      noteNumber={1}
+    />
   );
 }
 
