@@ -17,22 +17,22 @@ export default function MenuScreen() {
           </Typography>
           <Stack className='gap-6 items-stretch w-full'>
             <MenuItem
-              href='/note-trainer/fretboard-mastery'
+              href='/fretboard-mastery'
               imageURL={getAssetURL('fretboard-training')}
               title='Fretboard Training'
             />
             <MenuItem
-              href='/note-trainer/fretboard-mastery'
+              href='/fretboard-mastery'
               imageURL={getAssetURL('ear-training')}
               title='Ear Training'
             />
             <MenuItem
-              href='/note-trainer/triads'
+              href='/triads'
               imageURL={getAssetURL('triads')}
               title='Triads'
             />
             <MenuItem
-              href='/note-trainer/generate-random-note'
+              href='/generate-random-note'
               imageURL={getAssetURL('random-note')}
               title='Random Note Generator'
             />
