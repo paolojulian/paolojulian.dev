@@ -21,7 +21,7 @@ const BARLOW_CONDENSED = Barlow_Condensed({
   subsets: ['latin'],
 });
 const POPPINS = Poppins({
-  weight: '400',
+  weight: ['400', '700'],
   subsets: ['latin'],
 });
 
@@ -37,8 +37,8 @@ const fontVariantsMap = {
   'heading-lg': 'font-bold text-[4rem] leading-[3.563rem]',
   'heading-md': 'font-bold text-[3rem] leading-[2.813rem]',
   'heading-sm': 'font-bold text-[2rem] leading-[2rem]',
-  'body-md': 'font-regular text-sm',
-  'body-wide': 'font-semibold text-sm tracking-[0.40em]',
+  'body-md': 'font-regular text-[1rem]',
+  'body-wide': 'font-semibold text-xs tracking-[0.40em]',
 } satisfies Record<FontVariants, string>;
 
 export const typographyVariants = cva('', {
