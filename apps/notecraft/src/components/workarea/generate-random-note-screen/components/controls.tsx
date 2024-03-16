@@ -3,7 +3,6 @@ import Typography from '@/components/common/typography/typography';
 import GenerateButton from '@/components/workarea/generate-random-note-screen/components/generate-button';
 import NoteCount from '@/components/workarea/generate-random-note-screen/components/note-count';
 import { Scale } from '@/types/scale.types';
-import cn from '@repo/ui/utils/cn';
 
 type Props = {
   onGenerate: () => void;
