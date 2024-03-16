@@ -33,8 +33,8 @@ export default function Select({ children, placeholder, value }: Props) {
       <button
         className={cn(
           'flex-1',
-          'px-6 py-4',
-          'w-full h-full',
+          'px-6',
+          'w-full h-full aspect-[4/1]',
           'bg-gray/10',
           'border border-gray/10 focus:border-white rounded-lg',
           'focus:ring-white focus:outline-none'

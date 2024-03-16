@@ -23,7 +23,7 @@ export default function SelectScale({ initialScale, onSelectScale }: Props) {
   return (
     <Select placeholder='Select Scale' value={selectedScale}>
       {({ handleClose }) => (
-        <ul className='flex flex-col py-2 px-2 max-h-56 overflow-y-auto bg-gray border border-white/20 text-white rounded-lg'>
+        <ul className='flex flex-col py-2 px-2 max-h-56 w-full overflow-y-auto bg-gray border border-white/20 text-white rounded-lg'>
           <Typography
             className='text-white/70 pointer-events-none uppercase px-2'
             variant={'body-wide'}

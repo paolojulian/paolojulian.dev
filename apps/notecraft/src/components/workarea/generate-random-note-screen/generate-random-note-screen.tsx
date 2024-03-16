@@ -6,6 +6,7 @@ import Stack from '@repo/ui/components/stack';
 import { useCallback, useEffect, useState } from 'react';
 import { Note } from '../../../types/note-trainer.types';
 import { Scale, getMajorScaleNotes } from '../../../types/scale.types';
+import cn from '@repo/ui/utils/cn';
 
 const INITIAL_SCALE: Scale = 'E major';
 
@@ -35,15 +36,29 @@ export default function GenerateRandomNoteScreen() {
     <TrainerLayout title='Generate Random Notes'>
       <div className='flex-1 py-10 w-full'>
         <Stack className='justify-center w-full h-full gap-8'>
-          <div className={'-mx-6'}>
-            <Stack className=' bg-primary h-[180px] w-full justify-center items-center'>
-              <div className='flex gap-3'>
+          <div
+            className={cn(
+              'w-full aspect-[3/1] h-full',
+              'rounded-xl',
+              'border-[2px] border-red/25',
+              'bg-gray/10',
+              'p-4'
+            )}
+          >
+            <Stack
+              className={cn(
+                'h-full',
+                'rounded-xl',
+                'p-4',
+                'border border-gray/20',
+                'justify-center items-center'
+              )}
+            >
+              <Typography className='gap-3 text-center' variant='heading-lg'>
                 {notes.map((note, i) => (
-                  <Typography variant='heading-lg' key={`${note}_${i}`}>
-                    {note}
-                  </Typography>
+                  <span key={`${note}-${i}`}>{note} </span>
                 ))}
-              </div>
+              </Typography>
             </Stack>
           </div>
           <Controls

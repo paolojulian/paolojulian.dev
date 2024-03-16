@@ -49,8 +49,7 @@ export default function Controls({
       <NoteCount onChangeNoteCount={onChangeNoteCount} noteCount={noteCount} />
 
       {/* Scale */}
-      <div className='w-full aspect-square'></div>
-      <div className='col-span-3'>
+      <div className='col-span-4'>
         <SelectScale initialScale={scale} onSelectScale={onSelectScale} />
       </div>
     </div>

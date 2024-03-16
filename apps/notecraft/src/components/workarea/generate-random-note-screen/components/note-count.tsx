@@ -3,7 +3,7 @@ import cn from '@repo/ui/utils/cn';
 import { Fragment, ReactElement } from 'react';
 
 const MIN_NOTE_COUNT = 1;
-const MAX_NOTE_COUNT = 5;
+const MAX_NOTE_COUNT = 7;
 
 type Props = {
   // eslint-disable-next-line no-unused-vars
