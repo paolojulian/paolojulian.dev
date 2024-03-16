@@ -29,7 +29,7 @@ export const fontFamilyMap: Record<FontVariants, string> = {
   'heading-lg': BARLOW_CONDENSED.className,
   'heading-md': BARLOW_CONDENSED.className,
   'heading-sm': BARLOW_CONDENSED.className,
-  'body-wide': BARLOW_CONDENSED.className,
+  'body-wide': POPPINS.className,
   'body-md': POPPINS.className,
 };
 
