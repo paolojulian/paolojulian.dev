@@ -1,7 +1,6 @@
 'use client';
 
 import TrainerLayout from '@/components/common/layouts/trainer.layout';
-import Row from '@repo/ui/components/row';
 import { Fragment, useState } from 'react';
 import { Note } from '../../../types/note-trainer.types';
 import { Scale, getMajorScaleNotes } from '../../../types/scale.types';
@@ -11,7 +10,7 @@ import { useQuestionGenerator } from './hooks/use-question-generator';
 import { useSelectedNotes } from './hooks/use-selected-notes';
 import TriadsAnswerSection from './triads-answer-section';
 import TriadsScreenNotes from './triads-screen-notes';
-import TriadsScreenQuestion from './triads-screen-question';
+import SelectScale from '@/components/common/select-scale/select-scale';
 
 export type DisplayState = 'question' | 'answer';
 
@@ -32,6 +31,8 @@ export default function TriadsWorkArea() {
     selectedNotes,
   });
 
+  const handleGenerateNotes = () => getMajorScaleNotes(selectedScale);
+
   const handleNext = () => {
     setDisplayState('question');
     resetSelectedNotes();
@@ -42,28 +43,33 @@ export default function TriadsWorkArea() {
     <TrainerLayout title='Triads'>
       <Fragment>
         {/* Display Notes */}
-        <TriadsScreenNotes rootNote={rootNote} otherNotes={selectedNotes} />
+        <TriadsScreenNotes
+          rootNote={rootNote}
+          otherNotes={selectedNotes}
+          noteTriadName={noteTriadName}
+          selectedScale={selectedScale}
+        />
+
+        <div className='w-full'>
+          <SelectScale
+            initialScale='E major'
+            onSelectScale={setSelectedScale}
+          />
+        </div>
 
         {displayState === 'question' ? (
           <Fragment>
-            {/* Question */}
-            <TriadsScreenQuestion
-              noteTriadName={noteTriadName}
-              scaleName={selectedScale}
-            />
-
             {/* Note Choices */}
             {!!rootNote && (
-              <Row className='justify-center'>
-                <NoteChoices
-                  gridType='7'
-                  title='Select Correct Notes'
-                  onSelectNote={handleSelectNote}
-                  generateNotes={() => getMajorScaleNotes(selectedScale)}
-                  selectedNotes={[rootNote, ...selectedNotes]}
-                  shouldShuffleNotes={true}
-                />
-              </Row>
+              <NoteChoices
+                key={selectedScale}
+                onSelectNote={handleSelectNote}
+                generateNotes={handleGenerateNotes}
+                gridType='7'
+                title='Select Correct Notes'
+                selectedNotes={[rootNote, ...selectedNotes]}
+                shouldShuffleNotes={true}
+              />
             )}
           </Fragment>
         ) : (
