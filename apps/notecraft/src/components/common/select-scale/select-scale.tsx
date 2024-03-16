@@ -1,7 +1,7 @@
 import Select from '../select';
 import { MAJOR_SCALES, Scale } from '../../../types/scale.types';
-import Typography from '@repo/ui/components/typography';
 import { useEffect, useState } from 'react';
+import Typography from '@/components/common/typography';
 
 interface Props {
   // eslint-disable-next-line no-unused-vars
@@ -23,9 +23,9 @@ export default function SelectScale({ initialScale, onSelectScale }: Props) {
   return (
     <Select placeholder='Select Scale' value={selectedScale}>
       {({ handleClose }) => (
-        <ul className='flex flex-col py-2 max-h-56 overflow-y-auto bg-white/30 border border-white/20 text-white rounded-lg'>
+        <ul className='flex flex-col py-2 px-2 max-h-56 overflow-y-auto bg-gray border border-white/20 text-white rounded-lg'>
           <Typography
-            className='text-gray pointer-events-none uppercase px-2'
+            className='text-white/70 pointer-events-none uppercase px-2'
             variant={'body-wide'}
             as='li'
           >
@@ -36,7 +36,7 @@ export default function SelectScale({ initialScale, onSelectScale }: Props) {
               key={`${scale}_${i}`}
               as='li'
               className='py-1 px-2 min-w-52 text-left active:bg-white/30 duration-200 cursor-pointer'
-              variant={'body'}
+              variant={'heading-sm'}
               onClick={() => {
                 handleClose();
                 handleSelectItem(scale);
@@ -46,28 +46,6 @@ export default function SelectScale({ initialScale, onSelectScale }: Props) {
             </Typography>
           ))}
           <div className='w-full h-1 bg-white px-2 my-2'></div>
-          <Typography
-            className='text-gray pointer-events-none uppercase px-2'
-            variant={'body-wide'}
-            as='li'
-          >
-            MINOR
-          </Typography>
-
-          {/* {minorScales.map((scale, i) => (
-            <Typography
-              key={`${scale}_${i}`}
-              as='li'
-              className='py-1 px-2 min-w-52 text-left active:bg-white/30 duration-200 cursor-pointer'
-              variant={'body'}
-              onClick={() => {
-                handleClose();
-                handleSelectItem(scale);
-              }}
-            >
-              {scale}
-            </Typography>
-          ))} */}
         </ul>
       )}
     </Select>
