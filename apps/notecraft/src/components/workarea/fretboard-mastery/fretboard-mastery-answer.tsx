@@ -1,11 +1,10 @@
 'use client';
 
 import SuccessFailCard from '@/components/common/success-fail-card';
-import { Note } from '../../../types/note-trainer.types';
-import Stack from '@repo/ui/components/stack';
+import Typography from '@/components/common/typography/typography';
 import cn from '@repo/ui/utils/cn';
 import { Fragment } from 'react';
-import Typography from '@/components/common/typography/typography';
+import { Note } from '../../../types/note-trainer.types';
 
 export default function FretboardMasteryAnswer({
   onNext,

@@ -22,13 +22,21 @@ export default function SuccessFailCard({
 }: Props) {
   return (
     <div
-      className={cn('p-6', 'border', 'bg-green/10', 'rounded-2xl', 'relative', {
-        ['border-green bg-green/10']: type === 'success',
-        ['border-red bg-red/10']: type === 'fail',
-      })}
+      className={cn(
+        'h-full',
+        'p-6',
+        'border',
+        'bg-green/10',
+        'rounded-2xl',
+        'relative',
+        {
+          ['border-green bg-green/10']: type === 'success',
+          ['border-red bg-red/10']: type === 'fail',
+        }
+      )}
       onClick={onClick}
     >
-      <Stack className='gap-10'>
+      <Stack className='gap-10 h-full'>
         <Typography
           className={cn('uppercase', {
             ['text-green']: type === 'success',
@@ -40,7 +48,7 @@ export default function SuccessFailCard({
         </Typography>
 
         {/* Content */}
-        <div>{children}</div>
+        <div className='flex-1'>{children}</div>
 
         {/* Footer */}
         <Row className='justify-end'>
