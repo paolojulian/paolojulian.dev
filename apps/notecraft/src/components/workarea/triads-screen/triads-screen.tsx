@@ -11,12 +11,16 @@ import { useSelectedNotes } from './hooks/use-selected-notes';
 import TriadsAnswerSection from './triads-answer-section';
 import TriadsScreenNotes from './triads-screen-notes';
 import SelectScale from '@/components/common/select-scale/select-scale';
+import useLocalStorage from '@/utils/use-local-storage';
 
 export type DisplayState = 'question' | 'answer';
 
 export default function TriadsWorkArea() {
   const [displayState, setDisplayState] = useState<DisplayState>('question');
-  const [selectedScale, setSelectedScale] = useState<Scale>('E major');
+  const [selectedScale, setSelectedScale] = useLocalStorage<Scale>(
+    'scale',
+    'C major'
+  );
 
   const { randomizeQuestion, rootNote, noteTriadName, correctAnswer } =
     useQuestionGenerator(selectedScale);
@@ -52,7 +56,7 @@ export default function TriadsWorkArea() {
 
         <div className='w-full'>
           <SelectScale
-            initialScale='E major'
+            initialScale={selectedScale}
             onSelectScale={setSelectedScale}
           />
         </div>
@@ -66,7 +70,7 @@ export default function TriadsWorkArea() {
                 onSelectNote={handleSelectNote}
                 generateNotes={handleGenerateNotes}
                 gridType='7'
-                title='Select Correct Notes'
+                title={noteTriadName}
                 selectedNotes={[rootNote, ...selectedNotes]}
                 shouldShuffleNotes={true}
               />

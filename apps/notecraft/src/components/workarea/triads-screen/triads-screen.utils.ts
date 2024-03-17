@@ -44,7 +44,6 @@ function generateTriadNotes({
   // 1. Get position of the rootNote on the scale
   const scaleNotes = getMajorScaleNotes(scale);
   const rootPosition = scaleNotes.indexOf(rootNote);
-  console.log('test', { rootNote, rootPosition: rootPosition + 1, scaleNotes, scale });
 
   // 2. Get the possible triad type based on the position
   const triadTypes = SCALE_TRIAD_NAMES[getScaleDegree(rootPosition + 1)];
