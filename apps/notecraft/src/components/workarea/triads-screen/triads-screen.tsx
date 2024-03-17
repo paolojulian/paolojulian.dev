@@ -15,11 +15,13 @@ import useLocalStorage from '@/utils/use-local-storage';
 
 export type DisplayState = 'question' | 'answer';
 
+const INITIAL_SCALE: Scale = 'C major';
+
 export default function TriadsWorkArea() {
   const [displayState, setDisplayState] = useState<DisplayState>('question');
   const [selectedScale, setSelectedScale] = useLocalStorage<Scale>(
-    'scale',
-    'C major'
+    'triads-scale',
+    INITIAL_SCALE
   );
 
   const { randomizeQuestion, rootNote, noteTriadName, correctAnswer } =

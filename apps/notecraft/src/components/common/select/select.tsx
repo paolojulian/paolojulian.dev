@@ -77,7 +77,7 @@ export default function Select({ children, placeholder, value }: Props) {
         createPortal(
           <div
             ref={setPopperElement}
-            className='mt-2'
+            className='my-2'
             style={styles.popper}
             {...attributes.popper}
           >

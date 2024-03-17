@@ -7,12 +7,16 @@ import { useCallback, useEffect, useState } from 'react';
 import { Note } from '../../../types/note-trainer.types';
 import { Scale, getMajorScaleNotes } from '../../../types/scale.types';
 import cn from '@repo/ui/utils/cn';
+import useLocalStorage from '@/utils/use-local-storage';
 
-const INITIAL_SCALE: Scale = 'E major';
+const INITIAL_SCALE: Scale = 'C major';
 
 export default function GenerateRandomNoteScreen() {
   const [notes, setNotes] = useState<Note[]>([]);
-  const [selectedScale, setSelectedScale] = useState<Scale>(INITIAL_SCALE);
+  const [selectedScale, setSelectedScale] = useLocalStorage<Scale>(
+    'generate-random-note-scale',
+    INITIAL_SCALE
+  );
   const [noteCount, setNoteCount] = useState(1);
 
   const generateNotes = useCallback(() => {
@@ -66,7 +70,7 @@ export default function GenerateRandomNoteScreen() {
             onGenerate={generateNotes}
             onSelectScale={setSelectedScale}
             noteCount={noteCount}
-            scale={INITIAL_SCALE}
+            scale={selectedScale}
           />
         </Stack>
       </div>
