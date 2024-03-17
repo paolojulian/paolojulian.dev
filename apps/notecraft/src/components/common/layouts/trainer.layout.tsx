@@ -14,7 +14,7 @@ type Props = {
 
 export default function TrainerLayout({ title, children }: Props) {
   return (
-    <Container className='py-6 bg-black h-full w-lvw overflow-x-hidden'>
+    <Container className='py-6 bg-black h-full w-lvw sm:w-full overflow-x-hidden'>
       <Stack className='h-full'>
         {/* Header */}
         <Row className='mb-6 justify-center'>

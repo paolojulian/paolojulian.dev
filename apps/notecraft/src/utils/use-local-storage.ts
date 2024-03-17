@@ -8,7 +8,7 @@ function useLocalStorage<T>(
 ): [T, Dispatch<SetStateAction<T>>] {
   // Retrieve the stored value from localStorage (if available)
   const storedValue =
-    typeof window !== 'undefined' ? localStorage.getItem(key) : '';
+    typeof window !== 'undefined' ? localStorage.getItem(key) : undefined;
   // Parse the stored value or use the initial value if it doesn't exist
   const initial = storedValue ? JSON.parse(storedValue) : initialValue;
   // Create state to store the value
