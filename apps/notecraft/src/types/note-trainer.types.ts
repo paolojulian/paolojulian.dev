@@ -18,6 +18,9 @@ export enum Note {
   B = 'B',
 }
 
+export type Tone = 'low' | 'mid' | 'high'
+export const ALL_TONES: Tone[] = ['low', 'mid', 'high']
+
 export type FretNumber =
   | 0
   | 1

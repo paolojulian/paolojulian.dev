@@ -12,7 +12,8 @@ export type Scale =
   | 'Db major'
   | 'Bb major'
   | 'Eb major'
-  | 'Ab major';
+  | 'Ab major'
+  | 'Chromatic';
 
 export const MAJOR_SCALES: Record<Scale, Note[]> = Object.freeze({
   'C major': [Note.C, Note.D, Note.E, Note.F, Note.G, Note.A, Note.B],
@@ -59,6 +60,20 @@ export const MAJOR_SCALES: Record<Scale, Note[]> = Object.freeze({
   'Bb major': [Note['Bb'], Note.C, Note.D, Note.Eb, Note.F, Note.G, Note.A],
   'Eb major': [Note.Eb, Note.F, Note.G, Note.Ab, Note['Bb'], Note.C, Note.D],
   'Ab major': [Note.Ab, Note['Bb'], Note.C, Note.Db, Note.Eb, Note.F, Note.G],
+  Chromatic: [
+    Note.C,
+    Note['C#'],
+    Note.D,
+    Note['D#'],
+    Note.E,
+    Note.F,
+    Note['F#'],
+    Note.G,
+    Note['G#'],
+    Note.A,
+    Note['A#'],
+    Note.B,
+  ],
 });
 
 export function getMajorScaleNotes(scale: Scale) {

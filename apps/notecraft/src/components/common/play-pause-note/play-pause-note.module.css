@@ -21,8 +21,10 @@
   /* 2 * Math.PI * radius + 1  */
   stroke-dasharray: 629px;
   stroke-dashoffset: 629px;
+}
 
-  animation: loading 1s ease;
+.isPlaying {
+  animation: loading 2.15s linear;
 }
 
 @keyframes loading {
