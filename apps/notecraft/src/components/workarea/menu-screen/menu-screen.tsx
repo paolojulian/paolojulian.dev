@@ -22,7 +22,7 @@ export default function MenuScreen() {
               title='Fretboard Training'
             />
             <MenuItem
-              href='/fretboard-mastery'
+              href='/ear-training'
               imageURL={getAssetURL('ear-training')}
               title='Ear Training'
             />

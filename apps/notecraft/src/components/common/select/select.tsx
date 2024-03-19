@@ -34,7 +34,7 @@ export default function Select({ children, placeholder, value }: Props) {
         className={cn(
           'flex-1',
           'px-6',
-          'w-full h-full aspect-[4/1]',
+          'w-full h-full aspect-[4.45/1]',
           'bg-gray/10',
           'border border-gray/10 focus:border-white rounded-lg',
           'focus:ring-white focus:outline-none'
