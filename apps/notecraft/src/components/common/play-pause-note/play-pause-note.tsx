@@ -3,6 +3,7 @@ import { Note, Tone } from '@/types/note-trainer.types';
 import cn from '@repo/ui/utils/cn';
 import { useEffect, useRef, useState } from 'react';
 import styles from './play-pause-note.module.css';
+import { getMusicFilePath } from '@/utils/preload-notes';
 
 type Props = {
   note: Note;
@@ -38,7 +39,7 @@ export default function PlayPauseNote({ note, tone }: Props) {
         onPlay={handleAudioPlaying}
         onEnded={handleAudioEnded}
       >
-        <source src={`/notes/${note}-${tone}.mp3`} type='audio/mp3' />
+        <source src={getMusicFilePath(note, tone)} type='audio/mp3' />
       </audio>
       <div className={styles.donut} onClick={handleClick} role='button'>
         <svg

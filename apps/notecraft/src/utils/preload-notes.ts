@@ -9,7 +9,7 @@ const allTones: Tone[] = ['low', 'mid', 'high'];
 
 type Props = {
   children: ReactElement;
-}
+};
 export default function PreloadNotes({ children }: Props) {
   const [preloadingComplete, setPreloadingComplete] = useState(false);
 
@@ -18,7 +18,7 @@ export default function PreloadNotes({ children }: Props) {
       return allTones.map((tone) => {
         return new Promise<void>((resolve) => {
           const audio = document.createElement('audio');
-          audio.src = getMusicFile(note, tone);
+          audio.src = getMusicFilePath(note, tone);
           audio.preload = 'auto';
           audio.onloadeddata = () => {
             resolve();
@@ -41,11 +41,28 @@ export default function PreloadNotes({ children }: Props) {
     return;
   }
 
-  return children
+  return children;
 }
 
-function getMusicFile(note: Note, tone: Tone) {
+export function getMusicFilePath(note: Note, tone: Tone) {
   const basePath = '/notes';
-  const fileName = `${note.charAt(0).toUpperCase()}-${tone}.mp3`; // Assuming music files are in MP3 format
+  let convertedNote = note;
+
+  // Convert flats to sharps
+  if (convertedNote === Note.Db) {
+    convertedNote = Note['C#'];
+  } else if (convertedNote === Note.Gb) {
+    convertedNote = Note['F#'];
+  } else if (convertedNote === Note.Ab) {
+    convertedNote = Note['G#'];
+  } else if (convertedNote === Note.Bb) {
+    convertedNote = Note['A#'];
+  } else if (convertedNote === Note.Eb) {
+    convertedNote = Note['D#'];
+  }
+
+  let escapedNote = encodeURIComponent(convertedNote); // Escape the "#" character in the note
+
+  const fileName = `${escapedNote}-${tone}.mp3`; // Assuming music files are in MP3 format
   return `${basePath}/${fileName}`;
 }
