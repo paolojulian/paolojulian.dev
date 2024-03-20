@@ -14,8 +14,8 @@ export default function PreloadNotes({ children }: Props) {
   const [preloadingComplete, setPreloadingComplete] = useState(false);
 
   useEffect(() => {
-    const preloadPromises = allNotes.map((note) => {
-      allTones.map((tone) => {
+    const preloadPromises = allNotes.flatMap((note) => {
+      return allTones.map((tone) => {
         return new Promise<void>((resolve) => {
           const audio = document.createElement('audio');
           audio.src = getMusicFile(note, tone);

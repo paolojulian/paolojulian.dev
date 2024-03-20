@@ -5,15 +5,12 @@ import NoteChoices from '@/components/common/note-choices';
 import PlayPauseNote from '@/components/common/play-pause-note';
 import SelectScale from '@/components/common/select-scale/select-scale';
 import EarTrainingResult from '@/components/workarea/ear-training-screen/components/ear-training-result';
-import { Note, Tone } from '@/types/note-trainer.types';
-import { Scale, getMajorScaleNotes } from '@/types/scale.types';
-import {
-  generateRandomNotePerScale,
-  generateRandomTone,
-} from '@/utils/generate-random-note-per-scale';
+import useGenerator from '@/components/workarea/ear-training-screen/hooks/use-generator';
+import { Note } from '@/types/note-trainer.types';
+import { Scale } from '@/types/scale.types';
 import PreloadNotes from '@/utils/preload-notes';
 import useLocalStorage from '@/utils/use-local-storage';
-import { memo, useEffect, useState } from 'react';
+import { memo, useState } from 'react';
 
 const MemoizedPreloadNotes = memo(PreloadNotes);
 
@@ -27,34 +24,24 @@ export default function EarTrainingScreen() {
     'ear-training-scale',
     INITIAL_SCALE
   );
-  const [randomNote, setRandomNote] = useState<Note>(
-    generateRandomNotePerScale(selectedScale)
-  );
-  const [randomTone, setRandomTone] = useState<Tone>(generateRandomTone());
   const [displayType, setDisplayType] = useState<DisplayTypes>('question');
+
+  const {
+    randomNote,
+    randomTone,
+    handleGenerateNotes,
+    generateNewNoteAndTone,
+  } = useGenerator(selectedScale);
 
   const handleSelectNote = (note: Note) => {
     setSelectedNotes(note);
     setDisplayType('result');
   };
-  const handleGenerateNotes = () => getMajorScaleNotes(selectedScale);
-
-  const generateNewNoteAndTone = () => {
-    const randomNote = generateRandomNotePerScale(selectedScale);
-    const randomTone = generateRandomTone();
-    setRandomNote(randomNote);
-    setRandomTone(randomTone);
-  };
-
   const handleNext = () => {
     setDisplayType('question');
     setSelectedNotes(undefined);
     generateNewNoteAndTone();
   };
-
-  useEffect(() => {
-    generateNewNoteAndTone();
-  }, [selectedScale]);
 
   return (
     <TrainerLayout title='Ear Training'>

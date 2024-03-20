@@ -1,7 +1,7 @@
 'use client';
 import { Note, Tone } from '@/types/note-trainer.types';
 import cn from '@repo/ui/utils/cn';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './play-pause-note.module.css';
 
 type Props = {
