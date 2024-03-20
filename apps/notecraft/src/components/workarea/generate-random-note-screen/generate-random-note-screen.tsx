@@ -2,12 +2,13 @@
 import TrainerLayout from '@/components/common/layouts/trainer.layout';
 import Typography from '@/components/common/typography';
 import Controls from '@/components/workarea/generate-random-note-screen/components/controls';
+import { generateRandomNotePerScale } from '@/utils/generate-random-note-per-scale';
+import useLocalStorage from '@/utils/use-local-storage';
 import Stack from '@repo/ui/components/stack';
+import cn from '@repo/ui/utils/cn';
 import { useCallback, useEffect, useState } from 'react';
 import { Note } from '../../../types/note-trainer.types';
-import { Scale, getMajorScaleNotes } from '../../../types/scale.types';
-import cn from '@repo/ui/utils/cn';
-import useLocalStorage from '@/utils/use-local-storage';
+import { Scale } from '../../../types/scale.types';
 
 const INITIAL_SCALE: Scale = 'C major';
 
@@ -76,11 +77,4 @@ export default function GenerateRandomNoteScreen() {
       </div>
     </TrainerLayout>
   );
-}
-
-function generateRandomNotePerScale(scale: Scale) {
-  const scaleNotes = getMajorScaleNotes(scale);
-  const randomIndex = Math.floor(Math.random() * scaleNotes.length);
-
-  return scaleNotes[randomIndex];
 }

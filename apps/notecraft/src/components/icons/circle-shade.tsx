@@ -19,14 +19,14 @@ export default function CircleShade({ className }: Props) {
         cy='192.5'
         r='181.5'
         fill='currentColor'
-        fill-opacity='0.1'
+        fillOpacity='0.1'
       />
       <circle
         cx='199'
         cy='199'
         r='199'
         fill='currentColor'
-        fill-opacity='0.1'
+        fillOpacity='0.1'
       />
     </svg>
   );

@@ -34,7 +34,7 @@ export default function Select({ children, placeholder, value }: Props) {
         className={cn(
           'flex-1',
           'px-6',
-          'w-full h-full aspect-[4/1]',
+          'w-full h-full aspect-[4.45/1]',
           'bg-gray/10',
           'border border-gray/10 focus:border-white rounded-lg',
           'focus:ring-white focus:outline-none'
@@ -54,7 +54,7 @@ export default function Select({ children, placeholder, value }: Props) {
             xmlns='http://www.w3.org/2000/svg'
             className='-mt-1'
           >
-            <g clip-path='url(#clip0_79_532)'>
+            <g clipPath='url(#clip0_79_532)'>
               <path
                 d='M1.21448 4.89258H14.7855C15.0257 4.89263 15.2605 4.9639 15.4603 5.09738C15.66 5.23086 15.8156 5.42056 15.9075 5.64249C15.9995 5.86442 16.0235 6.10863 15.9767 6.34423C15.9298 6.57983 15.8142 6.79625 15.6443 6.96613L8.85882 13.7517C8.63102 13.9794 8.3221 14.1073 8 14.1073C7.6779 14.1073 7.36898 13.9794 7.14118 13.7517L0.355659 6.96613C0.185827 6.79625 0.0701766 6.57983 0.0233271 6.34423C-0.0235223 6.10863 0.000533418 5.86442 0.0924526 5.64249C0.184372 5.42056 0.340028 5.23086 0.539742 5.09738C0.739457 4.9639 0.974264 4.89263 1.21448 4.89258Z'
                 fill='#FCF5ED'
