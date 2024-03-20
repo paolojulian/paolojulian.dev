@@ -48,7 +48,7 @@ export default function EarTrainingResult({
           )}
         >
           <Typography
-            className={cn('uppercase', 'text-black')}
+            className={cn('text-black')}
             variant='heading-sm'
           >
             {correctNote}
