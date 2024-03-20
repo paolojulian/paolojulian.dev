@@ -35,6 +35,46 @@ export default function RootLayout({
           href='/favicon-16x16.png'
         />
         <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#fcf5ed' />
+
+        <link rel="preload" href="/notes/C-low.mp3" as="audio" />
+        <link rel="preload" href="/notes/C#-low.mp3" as="audio" />
+        <link rel="preload" href="/notes/D-low.mp3" as="audio" />
+        <link rel="preload" href="/notes/D#-low.mp3" as="audio" />
+        <link rel="preload" href="/notes/E-low.mp3" as="audio" />
+        <link rel="preload" href="/notes/F-low.mp3" as="audio" />
+        <link rel="preload" href="/notes/F#-low.mp3" as="audio" />
+        <link rel="preload" href="/notes/G-low.mp3" as="audio" />
+        <link rel="preload" href="/notes/G#-low.mp3" as="audio" />
+        <link rel="preload" href="/notes/A-low.mp3" as="audio" />
+        <link rel="preload" href="/notes/A#-low.mp3" as="audio" />
+        <link rel="preload" href="/notes/B-low.mp3" as="audio" />
+
+        <link rel="preload" href="/notes/C-mid.mp3" as="audio" />
+        <link rel="preload" href="/notes/C#-mid.mp3" as="audio" />
+        <link rel="preload" href="/notes/D-mid.mp3" as="audio" />
+        <link rel="preload" href="/notes/D#-mid.mp3" as="audio" />
+        <link rel="preload" href="/notes/E-mid.mp3" as="audio" />
+        <link rel="preload" href="/notes/F-mid.mp3" as="audio" />
+        <link rel="preload" href="/notes/F#-mid.mp3" as="audio" />
+        <link rel="preload" href="/notes/G-mid.mp3" as="audio" />
+        <link rel="preload" href="/notes/G#-mid.mp3" as="audio" />
+        <link rel="preload" href="/notes/A-mid.mp3" as="audio" />
+        <link rel="preload" href="/notes/A#-mid.mp3" as="audio" />
+        <link rel="preload" href="/notes/B-mid.mp3" as="audio" />
+
+        <link rel="preload" href="/notes/C-high.mp3" as="audio" />
+        <link rel="preload" href="/notes/C#-high.mp3" as="audio" />
+        <link rel="preload" href="/notes/D-high.mp3" as="audio" />
+        <link rel="preload" href="/notes/D#-high.mp3" as="audio" />
+        <link rel="preload" href="/notes/E-high.mp3" as="audio" />
+        <link rel="preload" href="/notes/F-high.mp3" as="audio" />
+        <link rel="preload" href="/notes/F#-high.mp3" as="audio" />
+        <link rel="preload" href="/notes/G-high.mp3" as="audio" />
+        <link rel="preload" href="/notes/G#-high.mp3" as="audio" />
+        <link rel="preload" href="/notes/A-high.mp3" as="audio" />
+        <link rel="preload" href="/notes/A#-high.mp3" as="audio" />
+        <link rel="preload" href="/notes/B-high.mp3" as="audio" />
+
         <meta name='msapplication-TileColor' content='#b91d47' />
         <meta name='theme-color' content='#fcf5ed' />
       </head>

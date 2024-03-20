@@ -12,8 +12,6 @@ import PreloadNotes from '@/utils/preload-notes';
 import useLocalStorage from '@/utils/use-local-storage';
 import { memo, useState } from 'react';
 
-const MemoizedPreloadNotes = memo(PreloadNotes);
-
 type DisplayTypes = 'question' | 'result';
 
 const INITIAL_SCALE: Scale = 'C major';
@@ -45,36 +43,34 @@ export default function EarTrainingScreen() {
 
   return (
     <TrainerLayout title='Ear Training'>
-      <MemoizedPreloadNotes>
-        <>
-          <PlayPauseNote key={randomNote} note={randomNote} tone={randomTone} />
-          {displayType === 'question' && (
-            <>
-              <div className='w-full'>
-                <SelectScale
-                  initialScale={selectedScale}
-                  onSelectScale={setSelectedScale}
-                />
-              </div>
-              <NoteChoices
-                key={selectedScale}
-                onSelectNote={handleSelectNote}
-                generateNotes={handleGenerateNotes}
-                gridType='7'
-                title={'Select Correct Note'}
-                selectedNotes={selectedNote ? [selectedNote] : undefined}
+      <>
+        <PlayPauseNote key={randomNote} note={randomNote} tone={randomTone} />
+        {displayType === 'question' && (
+          <>
+            <div className='w-full'>
+              <SelectScale
+                initialScale={selectedScale}
+                onSelectScale={setSelectedScale}
               />
-            </>
-          )}
-          {displayType === 'result' && (
-            <EarTrainingResult
-              correctNote={randomNote}
-              isCorrect={randomNote === selectedNote}
-              onNext={handleNext}
+            </div>
+            <NoteChoices
+              key={selectedScale}
+              onSelectNote={handleSelectNote}
+              generateNotes={handleGenerateNotes}
+              gridType='7'
+              title={'Select Correct Note'}
+              selectedNotes={selectedNote ? [selectedNote] : undefined}
             />
-          )}
-        </>
-      </MemoizedPreloadNotes>
+          </>
+        )}
+        {displayType === 'result' && (
+          <EarTrainingResult
+            correctNote={randomNote}
+            isCorrect={randomNote === selectedNote}
+            onNext={handleNext}
+          />
+        )}
+      </>
     </TrainerLayout>
   );
 }
