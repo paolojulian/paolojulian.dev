@@ -8,6 +8,7 @@ export type TriadName =
   | 'relative minor 7th'
   | 'dominant 7th'
   | 'minor 9th'
+  | 'third minor 9th'
   | 'relative minor 9th'
   | 'major 9th';
 
@@ -21,7 +22,7 @@ export interface TriadTypes {
 export const SCALE_TRIAD_NAMES: Record<number, TriadName[]> = {
   1: ['major', 'major 7th', 'major 9th'],
   2: ['minor', 'minor 7th', 'minor 9th'],
-  3: ['minor', 'minor 7th', 'minor 9th'],
+  3: ['minor', 'minor 7th', 'third minor 9th'],
   4: ['major', 'major 7th', 'major 9th'],
   5: ['augmented', 'dominant 7th'],
   6: ['minor', 'relative minor 7th', 'relative minor 9th'],
@@ -33,6 +34,7 @@ export const TRIAD_TYPES: TriadTypes = {
   minor: { name: 'minor', intervals: [0, 3, 7] },
   'minor 7th': { name: 'minor 7th', intervals: [0, 3, 7, 10] },
   'minor 9th': { name: 'major 9th', intervals: [0, 3, 7, 10, 14] },
+  'third minor 9th': { name: 'major 9th', intervals: [0, 3, 7, 10, 13] },
   'relative minor 7th': {
     name: 'relative minor 7th',
     intervals: [0, 3, 7, 10],
