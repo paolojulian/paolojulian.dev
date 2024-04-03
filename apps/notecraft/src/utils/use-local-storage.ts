@@ -1,27 +1,28 @@
 'use client';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 
-// Custom hook for persisting state in localStorage
+function getInitialValue<T>(key: string, defaultValue: T): T {
+  if (typeof window === 'undefined') {
+    return defaultValue;
+  }
+
+  const storedValue = localStorage.getItem(key);
+
+  return storedValue ? JSON.parse(storedValue) : defaultValue;
+}
+
 function useLocalStorage<T>(
   key: string,
   initialValue: T
 ): [T, Dispatch<SetStateAction<T>>] {
-  // Retrieve the stored value from localStorage (if available)
-  const storedValue =
-    typeof window !== 'undefined' ? localStorage.getItem(key) : undefined;
-  // Parse the stored value or use the initial value if it doesn't exist
-  const initial = storedValue ? JSON.parse(storedValue) : initialValue;
-  // Create state to store the value
-  const [value, setValue] = useState<T>(initial);
+  const [value, setValue] = useState<T>(getInitialValue(key, initialValue));
 
-  // Update localStorage whenever the state changes
   useEffect(() => {
     if (typeof window !== 'undefined') {
       localStorage.setItem(key, JSON.stringify(value));
     }
   }, [key, value]);
 
-  // Return the value and a function to update it
   return [value, setValue];
 }
 
