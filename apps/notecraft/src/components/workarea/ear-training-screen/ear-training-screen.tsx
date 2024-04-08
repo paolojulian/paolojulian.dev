@@ -8,13 +8,12 @@ import EarTrainingResult from '@/components/workarea/ear-training-screen/compone
 import useGenerator from '@/components/workarea/ear-training-screen/hooks/use-generator';
 import { Note } from '@/types/note-trainer.types';
 import { Scale } from '@/types/scale.types';
-import PreloadNotes from '@/utils/preload-notes';
 import useLocalStorage from '@/utils/use-local-storage';
-import { memo, useState } from 'react';
+import { ComponentProps, useState } from 'react';
 
 type DisplayTypes = 'question' | 'result';
 
-const INITIAL_SCALE: Scale = 'C major';
+const INITIAL_SCALE: Scale = 'Chromatic';
 
 export default function EarTrainingScreen() {
   const [selectedNote, setSelectedNotes] = useState<Note>();
@@ -41,6 +40,9 @@ export default function EarTrainingScreen() {
     generateNewNoteAndTone();
   };
 
+  const gridType: ComponentProps<typeof NoteChoices>['gridType'] =
+    selectedScale === 'Chromatic' ? '12' : '7';
+
   return (
     <TrainerLayout title='Ear Training'>
       <>
@@ -57,7 +59,7 @@ export default function EarTrainingScreen() {
               key={selectedScale}
               onSelectNote={handleSelectNote}
               generateNotes={handleGenerateNotes}
-              gridType='7'
+              gridType={gridType}
               title={'Select Correct Note'}
               selectedNotes={selectedNote ? [selectedNote] : undefined}
             />
