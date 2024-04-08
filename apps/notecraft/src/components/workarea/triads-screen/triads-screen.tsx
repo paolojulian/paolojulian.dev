@@ -1,7 +1,7 @@
 'use client';
 
 import TrainerLayout from '@/components/common/layouts/trainer.layout';
-import { Fragment, useState } from 'react';
+import { ComponentProps, Fragment, useState } from 'react';
 import { Note } from '../../../types/note-trainer.types';
 import { Scale, getMajorScaleNotes } from '../../../types/scale.types';
 import NoteChoices from '../../common/note-choices/note-choices';
@@ -15,7 +15,7 @@ import useLocalStorage from '@/utils/use-local-storage';
 
 export type DisplayState = 'question' | 'answer';
 
-const INITIAL_SCALE: Scale = 'C major';
+const INITIAL_SCALE: Scale = 'Chromatic';
 
 export default function TriadsWorkArea() {
   const [displayState, setDisplayState] = useState<DisplayState>('question');
@@ -45,6 +45,10 @@ export default function TriadsWorkArea() {
     randomizeQuestion();
   };
 
+  const gridType: ComponentProps<typeof NoteChoices>['gridType'] =
+    selectedScale === 'Chromatic' ? '12' : '7';
+  const shouldShuffleNotes = selectedScale !== 'Chromatic';
+
   return (
     <TrainerLayout title='Triads'>
       <Fragment>
@@ -71,10 +75,10 @@ export default function TriadsWorkArea() {
                 key={selectedScale}
                 onSelectNote={handleSelectNote}
                 generateNotes={handleGenerateNotes}
-                gridType='7'
+                gridType={gridType}
                 title={noteTriadName}
                 selectedNotes={[rootNote, ...selectedNotes]}
-                shouldShuffleNotes={true}
+                shouldShuffleNotes={shouldShuffleNotes}
               />
             )}
           </Fragment>

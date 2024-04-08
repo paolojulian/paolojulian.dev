@@ -1,11 +1,10 @@
 import { Note } from '../../../types/note-trainer.types';
+import { Scale, getMajorScaleNotes } from '../../../types/scale.types';
 import {
-  Scale,
-  getMajorScaleNotes
-} from '../../../types/scale.types';
-import {
+  CHROMATIC_TRIAD_NAMES,
   SCALE_TRIAD_NAMES,
   TRIAD_TYPES,
+  TriadName,
 } from '../../../types/triad.types';
 
 function getRandomElement<T>(array: T[]): T {
@@ -18,7 +17,7 @@ export function generateTriadQuestion(scale: Scale) {
   // Get the root notes based on the selected scale
   const rootNotes = getMajorScaleNotes(scale);
 
-  // Randomly select a root note and triad type
+  // Randomly select a root note
   const rootNote = getRandomElement(rootNotes);
 
   // Generate the correct answer based on the selected root note and triad type
@@ -45,9 +44,16 @@ function generateTriadNotes({
   const scaleNotes = getMajorScaleNotes(scale);
   const rootPosition = scaleNotes.indexOf(rootNote);
 
+  let triadName: TriadName;
+
   // 2. Get the possible triad type based on the position
-  const triadTypes = SCALE_TRIAD_NAMES[getScaleDegree(rootPosition + 1)];
-  const triadName = getRandomElement(triadTypes);
+  if (scale === 'Chromatic') {
+    // If the scale is chromatic, the triad can only be major or minor
+    triadName = getRandomElement(CHROMATIC_TRIAD_NAMES);
+  } else {
+    const triadTypes = SCALE_TRIAD_NAMES[getScaleDegree(rootPosition + 1)];
+    triadName = getRandomElement(triadTypes);
+  }
 
   // 3. Get the note names
   const triadIntervals = TRIAD_TYPES[triadName].intervals;

@@ -29,6 +29,8 @@ export const SCALE_TRIAD_NAMES: Record<number, TriadName[]> = {
   7: ['diminished'],
 };
 
+export const CHROMATIC_TRIAD_NAMES: TriadName[] = ['major 7th', 'minor 7th'];
+
 export const TRIAD_TYPES: TriadTypes = {
   // minors
   minor: { name: 'minor', intervals: [0, 3, 7] },
