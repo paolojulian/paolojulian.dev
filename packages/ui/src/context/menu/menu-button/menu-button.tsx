@@ -1,5 +1,7 @@
 'use client';
+import cn from '../../../utils/cn';
 import { useMenuContext } from '../context/menu-provider';
+import styles from './menu-button.module.css';
 
 export default function MenuButton() {
   const { setIsOpen } = useMenuContext();
@@ -12,7 +14,12 @@ export default function MenuButton() {
     <>
       <div className='ui-z-30 ui-fixed ui-bottom-0 ui-inset-x-0 ui-h-40 ui-w-full ui-bg-gradient-to-t ui-from-black ui-via-black ui-to-transparent ui-flex ui-justify-center ui-pt-10'></div>
       <button
-        className='ui-fixed ui-inset-x-0 ui-bottom-10 ui-mx-auto ui-aspect-square ui-h-16 ui-rounded-full ui-group ui-z-50'
+        className={cn(
+          'ui-fixed ui-inset-x-0 ui-bottom-10 ui-mx-auto',
+          'ui-aspect-square ui-h-16',
+          'ui-rounded-full ui-group ui-z-50',
+          styles.menuButton
+        )}
         onClick={handleClick}
       >
         <svg
@@ -21,7 +28,15 @@ export default function MenuButton() {
           viewBox='0 0 63 63'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
-          className='ui-absolute -ui-top-12 -ui-left-1 ui-text-gray ui-opacity-0 group-hover:ui-opacity-100 ui-duration-500 ui-translate-y-20 group-hover:ui-translate-y-0'
+          className={cn(
+            // Positioning
+            'ui-absolute -ui-top-12 -ui-left-1',
+
+            // Text
+            'ui-text-gray',
+
+            styles.menuText
+          )}
         >
           <path
             d='M49.0599 29.82C49.0718 29.7681 49.0969 29.7301 49.1353 29.706C49.1864 29.674 49.238 29.6639 49.29 29.6759L51.1145 30.0949C51.1665 30.1068 51.2033 30.1372 51.2249 30.1859C51.2593 30.2266 51.2706 30.273 51.2586 30.325L49.5038 37.9661C49.4919 38.0181 49.4604 38.0601 49.4092 38.0921C49.3709 38.1161 49.3257 38.1222 49.2737 38.1102L47.4492 37.6912C47.3972 37.6793 47.354 37.653 47.3196 37.6122C47.298 37.5635 47.2931 37.5131 47.3051 37.4611L47.366 37.196C47.3731 37.1648 47.3675 37.1417 47.3491 37.1265C47.3307 37.1113 47.3075 37.1169 47.2796 37.1434C47.0735 37.3259 46.8401 37.4364 46.5795 37.4751C46.3317 37.5057 46.0519 37.4852 45.74 37.4136C45.1162 37.2704 44.6446 36.9651 44.3251 36.4977C44.008 36.0199 43.9402 35.386 44.1216 34.5959L45.4109 28.982C45.4228 28.9301 45.4479 28.892 45.4863 28.868C45.5374 28.836 45.589 28.8259 45.641 28.8379L47.4655 29.2569C47.5174 29.2688 47.5543 29.2992 47.5759 29.3479C47.6103 29.3886 47.6216 29.435 47.6096 29.487L46.4314 34.6174C46.3622 34.9189 46.3656 35.166 46.4418 35.3586C46.5307 35.5431 46.6895 35.6617 46.9183 35.7142C47.147 35.7668 47.3492 35.7202 47.5249 35.5745C47.7007 35.4288 47.8232 35.2052 47.8924 34.9037L49.0599 29.82Z'
