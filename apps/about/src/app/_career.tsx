@@ -1,7 +1,7 @@
 import SectionHeader from '@repo/ui/components/SectionHeader';
 import Stack from '@repo/ui/components/stack';
 import Typography from '@repo/ui/components/typography';
-import { careerList, historyList } from './_constants';
+import { careerList } from './_constants';
 
 export default function CareerSection() {
   return (
