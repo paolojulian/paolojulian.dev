@@ -14,6 +14,7 @@ import ArticlesSection from './components/articles-section';
 import CareerSection from './components/career-section';
 import FooterSection from './components/footer-section';
 import HeroSection from './components/hero-section';
+import links from '@repo/ui/utils/links';
 
 export default async function Home() {
   const portfolio = await usePortfolio();
@@ -66,7 +67,7 @@ export default async function Home() {
             }}
           />
         </MenuContent>
-        <Menu />
+        <Menu activePathname={links.base} />
         <MenuButton />
         <LeftSideBar
           portfolio={{

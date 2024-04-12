@@ -5,17 +5,13 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-export type NavId = 'landing' | 'history' | 'career' | 'interests';
+export type NavId = 'history' | 'career' | 'interests';
 type NavItem = {
   name: string;
   id: NavId;
 };
 
 export const navItems: NavItem[] = [
-  {
-    name: 'Landing',
-    id: 'landing',
-  },
   {
     name: 'History',
     id: 'history',
@@ -35,7 +31,7 @@ function isNavSection(id: string): id is NavId {
 }
 
 export default function RightSideBar() {
-  const [activeSection, setActiveSection] = useState<NavId>('landing');
+  const [activeSection, setActiveSection] = useState<NavId>('history');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
