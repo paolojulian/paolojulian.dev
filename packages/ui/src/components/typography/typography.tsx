@@ -2,6 +2,7 @@ import { VariantProps } from 'class-variance-authority';
 import cn from '../../utils/cn';
 import { cva } from 'class-variance-authority';
 import localFont from 'next/font/local';
+import { Inter } from 'next/font/google';
 
 const AvantGardeGothic = localFont({
   src: '../../fonts/ITC Avant Garde Gothic/ITC Avant Garde Gothic.otf',
@@ -12,10 +13,14 @@ const AvantGardeGothicMedium = localFont({
 const AvantGardeGothicBold = localFont({
   src: '../../fonts/ITC Avant Garde Gothic/ITC Avant Garde Gothic Bold.otf',
 });
+const interFont = Inter({
+  weight: ['400'],
+  subsets: ['latin'],
+});
 
 type FontWeight = 'ce-demi' | 'medium' | 'bold';
 const fontWeightMap: Record<FontWeight, string> = {
-  'ce-demi': AvantGardeGothic.className,
+  'ce-demi': interFont.className,
   medium: AvantGardeGothicMedium.className,
   bold: AvantGardeGothicBold.className,
 };
@@ -27,7 +32,7 @@ type FontVariants =
   | 'heading-lg'
   | 'heading-xl';
 const fontVariantsMap = {
-  body: 'ui-tracking-[-0.01em] ui-font-semibold',
+  body: 'ui-tracking-[-0.005em]',
   'body-wide': 'ui-text-sm ui-tracking-[0.40em] ui-font-semibold',
   heading:
     'ui-text-[1.5rem] md:ui-text-4xl ui-tracking-[-0.01em] ui-font-semibold',
