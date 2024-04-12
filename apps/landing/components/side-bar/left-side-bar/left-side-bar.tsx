@@ -17,7 +17,7 @@ export default function LeftSideBar({ portfolio }: Props) {
       <Link className='w-8 2xl:w-10 aspect-square relative' href='/'>
         <Image alt='Logo' src='/logo.png' fill quality={100} />
       </Link>
-      <Stack className='gap-8 opacity-0 md:opacity-100 pointer-events-none md:pointer-events-auto'>
+      <Stack className='gap-4 opacity-0 md:opacity-100 pointer-events-none md:pointer-events-auto'>
         <SideBarLinkIcon
           href={portfolio.contact.linkedin}
           Icon={

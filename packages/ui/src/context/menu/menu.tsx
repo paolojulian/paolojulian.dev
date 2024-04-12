@@ -13,7 +13,11 @@ import { useMenuContext } from './context/menu-provider';
 import MenuItem from './menu-item';
 import links from '../../utils/links';
 
-export default function Menu() {
+type MenuProps = {
+  activePathname: string;
+};
+
+export default function Menu({ activePathname }: MenuProps) {
   const { isOpen } = useMenuContext();
 
   return (
@@ -46,7 +50,7 @@ export default function Menu() {
             desktop: HomePageDesktop,
           }}
           title='Home'
-          isActive
+          isActive={activePathname === links.base}
           link={`${links.base}`}
         />
         <MenuItem
@@ -56,8 +60,8 @@ export default function Menu() {
             desktop: AboutPageDesktop,
           }}
           title='About'
-          isActive={false}
-          link={`${links.about}/about`}
+          isActive={activePathname === `${links.base}/about-me`}
+          link={`${links.base}/about-me`}
         />
         <MenuItem
           imageUrls={{
