@@ -6,8 +6,8 @@ import {
   MenuProvider,
 } from '@repo/ui/context/menu';
 import links from '@repo/ui/utils/links';
-import LeftSideBar from '../components/side-bar/left-side-bar';
-import RightSideBar from '../components/side-bar/right-side-bar';
+import LeftSideBar from './components/side-bar/left-side-bar';
+import RightSideBar from './components/side-bar/right-side-bar';
 import CareerSection from './_career';
 import HistorySection from './_history';
 import InterestsSection from './_interests';
@@ -24,7 +24,7 @@ export default async function Home() {
           </Container>
         </main>
       </MenuContent>
-      <Menu activePathname={links.about} />
+      <Menu activePathname={`${links.base}/about`} />
       <MenuButton />
       <LeftSideBar />
       <RightSideBar />

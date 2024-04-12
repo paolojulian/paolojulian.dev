@@ -4,7 +4,7 @@ module.exports = {
     return [
       {
         source: '/about',
-        destination: 'https://v1.paolojulian.dev/about',
+        destination: '/about-me',
         permanent: true,
       },
       {

@@ -60,8 +60,8 @@ export default function Menu({ activePathname }: MenuProps) {
             desktop: AboutPageDesktop,
           }}
           title='About'
-          isActive={activePathname === links.about}
-          link={`${links.about}`}
+          isActive={activePathname === `${links.base}/about-me`}
+          link={`${links.base}/about-me`}
         />
         <MenuItem
           imageUrls={{
