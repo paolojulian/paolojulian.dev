@@ -9,6 +9,7 @@ import LeftSideBar from '../components/side-bar/left-side-bar';
 import RightSideBar from '../components/side-bar/right-side-bar';
 import HeroSection from './_hero';
 import HistorySection from './_history';
+import CareerSection from './_career';
 
 export default async function Home() {
   return (
@@ -18,6 +19,7 @@ export default async function Home() {
           <Container className='max-w-screen-lg w-full mx-auto py-8'>
             <HeroSection />
             <HistorySection />
+            <CareerSection />
           </Container>
         </main>
       </MenuContent>
