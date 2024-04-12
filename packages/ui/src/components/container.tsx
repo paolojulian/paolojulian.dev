@@ -13,7 +13,7 @@ export default function Container({
 }: Props) {
   return (
     <Element
-      className={cn('ui-max-w-screen-2xl ui-mx-auto ui-px-10', className)}
+      className={cn('ui-max-w-screen-lg ui-mx-auto ui-px-10', className)}
     >
       {children}
     </Element>
