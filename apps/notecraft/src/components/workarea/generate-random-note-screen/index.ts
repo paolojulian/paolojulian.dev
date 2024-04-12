@@ -1,0 +1,1 @@
+export { default } from './generate-random-note-screen';
