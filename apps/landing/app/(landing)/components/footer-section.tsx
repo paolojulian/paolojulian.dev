@@ -25,7 +25,7 @@ export default function FooterSection({ portfolio }: Props) {
           <Stack>
             <SocialLink name='Home' href={'/'} />
             <SocialLink name='About' href={'/about'} />
-            <SocialLink name='Articles' href={'/articles'} />
+            <SocialLink name='Articles' href={'https://v1.paolojulian.dev/blogs'} />
             <SocialLink name='Apps' href={'/apps'} />
           </Stack>
           <Stack>
