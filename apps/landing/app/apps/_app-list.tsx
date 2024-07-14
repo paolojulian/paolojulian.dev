@@ -7,8 +7,6 @@ import { useAppItems } from './graphql/use-app-items';
 export default async function AppList() {
   const appItems = await useAppItems();
 
-  console.log('test', { appItems });
-
   return (
     <Stack className='my-20 gap-10'>
       <Stack className='gap-10'>

@@ -14,7 +14,7 @@ export default function AppItem({ appItem }: AppItemProps) {
     <a href={link} className='cursor-pointer'>
       <div className='flex flex-col gap-6 group'>
         {/* Image */}
-        <div className='relative aspect-[385/256] w-full bg-white rounded-md border-4 border-gray overflow-hidden'>
+        <div className='relative aspect-[385/256] w-full rounded-md bg-white overflow-hidden'>
           <Image alt={banner.title} fill src={banner.url} />
           <div className='absolute inset-0 -translate-x-full group-hover:translate-x-0 duration-500 ease-in-out bg-primary/50'></div>
         </div>
