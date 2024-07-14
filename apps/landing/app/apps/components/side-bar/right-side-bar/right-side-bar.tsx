@@ -11,20 +11,7 @@ type NavItem = {
   id: NavId;
 };
 
-export const navItems: NavItem[] = [
-  {
-    name: 'History',
-    id: 'history',
-  },
-  {
-    name: 'Career',
-    id: 'career',
-  },
-  {
-    name: 'Interests',
-    id: 'interests',
-  },
-];
+export const navItems: NavItem[] = [];
 
 function isNavSection(id: string): id is NavId {
   return !!navItems.find((item) => id === item.id);
@@ -77,7 +64,7 @@ export default function RightSideBar() {
         }}
       >
         <Typography className='text-gray rotate-180' variant='body'>
-          about.paolojulian.dev
+          paolojulian.dev/apps
         </Typography>
       </span>
     </Stack>

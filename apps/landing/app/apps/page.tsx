@@ -9,8 +9,14 @@ import links from '@repo/ui/utils/links';
 import LeftSideBar from './components/side-bar/left-side-bar';
 import RightSideBar from './components/side-bar/right-side-bar';
 import AppList from './_app-list';
+import FooterSection from '../(landing)/components/footer-section';
+import { usePortfolio } from '../../graphql/use-portfolio';
 
 export default async function Apps() {
+  const portfolio = await usePortfolio();
+
+  if (!portfolio) return null;
+
   return (
     <MenuProvider>
       <MenuContent>
@@ -19,6 +25,11 @@ export default async function Apps() {
             <AppList />
           </Container>
         </main>
+        <FooterSection
+          portfolio={{
+            contact: portfolio.contact,
+          }}
+        />
       </MenuContent>
       <Menu activePathname={`${links.base}/about`} />
       <MenuButton />
