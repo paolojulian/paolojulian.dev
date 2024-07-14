@@ -12,7 +12,7 @@ export interface BlogPost {
   banner: {
     url: string;
     title: string;
-  },
+  };
   slug: string;
   title: string;
 }
