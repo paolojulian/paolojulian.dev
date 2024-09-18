@@ -23,7 +23,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className='w-screen h-screen fixed inset-0 -z-10 bg-black'>
+      <div className='w-full h-full fixed inset-0 -z-10 bg-black'>
         <Image
           className='select-none pointer-events-none mix-blend-color-dodge bg-no-repeat bg-cover bg-fixed bg-center'
           alt='background'

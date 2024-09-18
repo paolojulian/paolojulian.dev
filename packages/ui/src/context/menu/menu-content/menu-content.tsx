@@ -1,7 +1,7 @@
 'use client';
 import { ReactNode } from 'react';
-import { useMenuContext } from '../context/menu-provider';
 import cn from '../../../utils/cn';
+import { useMenuContext } from '../context/menu-provider';
 
 interface Props {
   children: ReactNode;
@@ -25,7 +25,7 @@ export default function MenuContent({ children }: Props) {
           'ui-duration-500 ui-relative',
           'ui-bg-new-black',
           'ui-flex ui-flex-col',
-          'ui-h-auto ui-w-screen ui-overflow-x-hidden ui-min-h-screen',
+          'ui-h-auto ui-min-h-screen',
           isOpen ? 'ui-cursor-pointer ui-overflow-hidden' : '',
           isOpen
             ? '-ui-translate-y-[400px] md:-ui-translate-y-[500px]'
