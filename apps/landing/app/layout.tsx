@@ -1,18 +1,13 @@
-import './globals.css';
-import '@repo/ui/styles.css';
+import { ReactNode } from 'react';
+import './styles.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Paolo Julian',
-  description:
-    'Blog Site by Paolo Julian created with Next, deployed with Turbo repo in Vercel',
+  description: 'Personal website of Paolo Julian',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}): JSX.Element {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
       <body className='bg-black text-white'>{children}</body>

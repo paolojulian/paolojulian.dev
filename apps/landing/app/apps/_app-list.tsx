@@ -1,8 +1,10 @@
-import SectionHeader from '@repo/ui/components/SectionHeader';
-import Stack from '@repo/ui/components/stack';
 import AppItem from './components/app-item/app-item';
-import Typography from '@repo/ui/components/typography';
 import { useAppItems } from './graphql/use-app-items';
+import {
+  PSectionHeader,
+  PTypography,
+  Stack,
+} from '@paolojulian.dev/design-system';
 
 export default async function AppList() {
   const appItems = await useAppItems();
@@ -10,11 +12,11 @@ export default async function AppList() {
   return (
     <Stack className='my-20 gap-10'>
       <Stack className='gap-10'>
-        <SectionHeader title='Apps' />
-        <Typography className='text-white' variant='heading-lg'>
+        <PSectionHeader title='Apps' />
+        <PTypography className='text-white' variant='heading-lg'>
           Here are my <span className='text-primary'>personal hobbies</span>,
           which helps me in my everyday life as a Software Engineer.
-        </Typography>
+        </PTypography>
       </Stack>
       <div className='border-t border-white w-full'></div>
 

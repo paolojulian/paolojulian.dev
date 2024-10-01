@@ -1,6 +1,8 @@
+import { ReactNode } from 'react';
+
 interface HistoryItem {
   title: string;
-  description: string | React.ReactNode;
+  description: string | ReactNode;
 }
 export const historyList: HistoryItem[] = [
   {
@@ -110,7 +112,7 @@ export const historyList: HistoryItem[] = [
 interface CareerItem {
   companyName: string;
   year: string;
-  description: string | React.ReactNode;
+  description: string | ReactNode;
 }
 export const careerList: CareerItem[] = [
   {
@@ -190,7 +192,7 @@ export const careerList: CareerItem[] = [
 
 interface InterestsItem {
   title: string;
-  description: string | React.ReactNode;
+  description: string | ReactNode;
 }
 export const interestsList: InterestsItem[] = [
   {

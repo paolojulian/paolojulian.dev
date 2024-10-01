@@ -1,11 +1,13 @@
-import Stack from '@repo/ui/components/stack';
-import LinkedInIcon from '@repo/ui/icons/linkedin-icon';
-import MailIcon from '@repo/ui/icons/mail-icon';
-import PhoneIcon from '@repo/ui/icons/phone-icon';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactElement } from 'react';
 import { Portfolio } from '../../../graphql/portfolio.types';
+import { Stack } from '@paolojulian.dev/design-system';
+import {
+  LinkedInIcon,
+  MailIcon,
+  PhoneIcon,
+} from '@paolojulian.dev/design-system/icons';
 
 interface Props {
   portfolio: Pick<Portfolio, 'contact'>;

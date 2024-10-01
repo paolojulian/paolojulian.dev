@@ -1,15 +1,14 @@
-import SectionHeader from '@repo/ui/components/SectionHeader';
-import Typography from '@repo/ui/components/typography';
-import cn from '@repo/ui/utils/cn';
+import { PSectionHeader, PTypography } from '@paolojulian.dev/design-system';
+import { cn } from '@paolojulian.dev/design-system/utils';
 
 export default function HeroSection() {
   return (
     <section id='landing'>
       <div className='mb-20'>
-        <SectionHeader title='Paolo Julian - About' />
+        <PSectionHeader title='Paolo Julian - About' />
         <div className='pt-10'>
           <div className='text-left'>
-            <Typography className='text-white uppercase' variant='heading-xl'>
+            <PTypography className='text-white uppercase' variant='heading-xl'>
               KEEP
               <br />
               <span className='ml-20'>IT</span>
@@ -17,9 +16,9 @@ export default function HeroSection() {
               <span className='text-primary ml-10'>SIMPLE</span>
               <br />
               <span className='ml-28'>STUPID!</span>
-            </Typography>
+            </PTypography>
           </div>
-          <Typography
+          <PTypography
             variant='body'
             className={cn(
               'mt-10',
@@ -33,7 +32,7 @@ export default function HeroSection() {
             possessions, and prioritizing quality over quantity. I aim to free
             up mental space, allowing me to focus on the bigger picture, both in
             work and life.
-          </Typography>
+          </PTypography>
         </div>
       </div>
     </section>

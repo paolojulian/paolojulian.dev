@@ -1,19 +1,21 @@
-import SectionHeader from '@repo/ui/components/SectionHeader';
-import Stack from '@repo/ui/components/stack';
-import Typography from '@repo/ui/components/typography';
 import { careerList } from './_constants';
+import {
+  PSectionHeader,
+  PTypography,
+  Stack,
+} from '@paolojulian.dev/design-system';
 
 export default function CareerSection() {
   return (
     <section id='career'>
       <Stack className='gap-20 my-20'>
         <Stack className='gap-10'>
-          <SectionHeader title='Career' />
-          <Typography className='text-white' variant='heading-lg'>
+          <PSectionHeader title='Career' />
+          <PTypography className='text-white' variant='heading-lg'>
             We must learn to accept the fact that{' '}
             <span className='text-primary'>all codes are garbage</span>,
             Important part is we produce less garbage code.
-          </Typography>
+          </PTypography>
         </Stack>
 
         <ul className='flex flex-col gap-8'>
@@ -23,14 +25,12 @@ export default function CareerSection() {
               key={`${i}-${companyName}`}
             >
               <div>
-                <Typography as='h3' className='text-white'>
+                <PTypography as='h3' className='text-white'>
                   {companyName}
-                </Typography>
-                <Typography className='text-gray-darker'>{year}</Typography>
+                </PTypography>
+                <PTypography className='text-gray-darker'>{year}</PTypography>
               </div>
-              <Typography weight='ce-demi' className='text-gray'>
-                {description}
-              </Typography>
+              <PTypography className='text-gray'>{description}</PTypography>
             </li>
           ))}
         </ul>
