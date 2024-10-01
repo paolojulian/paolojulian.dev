@@ -1,6 +1,5 @@
 'use client';
-import Stack from '@repo/ui/components/stack';
-import Typography from '@repo/ui/components/typography';
+import { PTypography, Stack } from '@paolojulian.dev/design-system';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -80,9 +79,9 @@ export default function RightSideBar() {
           writingMode: 'vertical-lr',
         }}
       >
-        <Typography className='text-gray rotate-180' variant='body'>
+        <PTypography className='text-gray rotate-180' variant='body'>
           paolojulian.dev
-        </Typography>
+        </PTypography>
       </span>
     </Stack>
   );
@@ -105,7 +104,7 @@ function SideBarLink({
         'text-gray hover:text-primary hover:-translate-x-1': !isCurrent,
       })}
     >
-      <Typography className='uppercase'>{label}</Typography>
+      <PTypography className='uppercase'>{label}</PTypography>
     </Link>
   );
 }

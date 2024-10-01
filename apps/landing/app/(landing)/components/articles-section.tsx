@@ -1,15 +1,13 @@
 import { gql } from '@apollo/client';
+import { PTypography, Row, Stack } from '@paolojulian.dev/design-system';
 import SectionHeader from '@repo/ui/components/SectionHeader';
-import Row from '@repo/ui/components/row';
-import Stack from '@repo/ui/components/stack';
-import Typography from '@repo/ui/components/typography';
 import NewTabArrowIcon from '@repo/ui/icons/new-tab-arrow-icon';
+import links from '@repo/ui/utils/links';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import AppReactMarkdown from '../../../components/app-react-markdown/app-react-markdown';
 import { Portfolio } from '../../../graphql/portfolio.types';
 import { useLatestBlogPosts } from '../../../graphql/use-latest-blog-post';
-import links from '@repo/ui/utils/links';
 
 interface Props {
   portfolio: Pick<Portfolio, 'writing'>;
@@ -30,7 +28,7 @@ export default async function ArticlesSection({ portfolio }: Props) {
           <AppReactMarkdown>{portfolio.writing}</AppReactMarkdown>
         </Stack>
         <Stack className='gap-10'>
-          <Typography variant='body-wide'>LATEST ARTICLES</Typography>
+          <PTypography variant='body-wide'>LATEST ARTICLES</PTypography>
           <Stack>
             {formattedLatestBlogPosts.map((blogPost) => (
               <ArticleItem
@@ -46,7 +44,7 @@ export default async function ArticlesSection({ portfolio }: Props) {
           <Row className='items-center justify-end pt-10 md:pt-20'>
             <a href={`${links.articles}/blogs`} target='_blank'>
               <Row className='group items-center justify-center gap-2 text-secondary hover:text-primary duration-500 active:scale-95'>
-                <Typography variant='heading'>See more</Typography>
+                <PTypography variant='heading'>See more</PTypography>
                 <NewTabArrowIcon className='text-secondary group-hover:text-primary duration-500 ease-in-out' />
               </Row>
             </a>
@@ -72,18 +70,18 @@ function ArticleItem({ imageURL, date, slug, title }: ArticleItemProps) {
           <div className='absolute inset-0 -translate-x-full group-hover:translate-x-0 duration-500 ease-in-out bg-primary/50'></div>
         </div>
         <Stack className='flex-1 justify-center items-start gap-2 md:gap-4'>
-          <Typography
+          <PTypography
             className='text-gray-darker uppercase'
             variant='body-wide'
           >
             {date}
-          </Typography>
-          <Typography
+          </PTypography>
+          <PTypography
             className='line-clamp-3 md:line-clamp-2 text-white group-hover:text-primary duration-500 ease-in-out'
             variant='heading'
           >
             {title}
-          </Typography>
+          </PTypography>
         </Stack>
       </div>
     </a>

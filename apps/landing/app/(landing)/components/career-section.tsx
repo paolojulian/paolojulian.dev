@@ -1,11 +1,9 @@
 import { gql } from '@apollo/client';
 import SectionHeader from '@repo/ui/components/SectionHeader';
-import Row from '@repo/ui/components/row';
-import Stack from '@repo/ui/components/stack';
-import Typography from '@repo/ui/components/typography';
 import dayjs from 'dayjs';
 import AppReactMarkdown from '../../../components/app-react-markdown/app-react-markdown';
 import { Portfolio } from '../../../graphql/portfolio.types';
+import { PTypography, Row, Stack } from '@paolojulian.dev/design-system';
 
 interface Props {
   portfolio: Pick<
@@ -26,14 +24,18 @@ export default function CareerSection({ portfolio }: Props) {
     }));
 
   return (
-    <section id={'experience'} className='py-[100px] md:py-[200px]'>
+    <section
+      id={'experience'}
+      aria-label='Experience section'
+      className='py-[100px] md:py-[200px]'
+    >
       <Stack className='gap-24 md:gap-52'>
         <Stack className='gap-10'>
           <SectionHeader title='Experience' />
           <AppReactMarkdown>{portfolio.experience}</AppReactMarkdown>
         </Stack>
         <Stack className='gap-10'>
-          <Typography variant={'body-wide'}>TECH STACK</Typography>
+          <PTypography variant={'body-wide'}>TECH STACK</PTypography>
           <div className='border-b border-stone-700'>
             {portfolio.toolsCollection.items.map(({ name, items }, i) => (
               <ToolItem key={`${name}_${i}`} type={name} tools={items} />
@@ -41,7 +43,7 @@ export default function CareerSection({ portfolio }: Props) {
           </div>
         </Stack>
         <Stack className='gap-10'>
-          <Typography variant={'body-wide'}>CAREER</Typography>
+          <PTypography variant={'body-wide'}>CAREER</PTypography>
           <div className='border-b border-stone-700'>
             {formattedCareers.map((careerItem, i) => (
               <CareerItem
@@ -66,12 +68,12 @@ interface CareerItemProps {
 function CareerItem({ year, position, company }: CareerItemProps) {
   return (
     <Row className='py-6 md:py-10 items-start border-t border-stone-700'>
-      <Typography variant='heading' className='uppercase w-[25%]'>
+      <PTypography variant='heading' className='uppercase w-[25%]'>
         {year}
-      </Typography>
+      </PTypography>
       <Stack className='md:gap-4'>
-        <Typography variant={'heading'}>{position}</Typography>
-        <Typography variant='body'>{company}</Typography>
+        <PTypography variant={'heading'}>{position}</PTypography>
+        <PTypography variant='body'>{company}</PTypography>
       </Stack>
     </Row>
   );
@@ -84,14 +86,14 @@ interface ToolItemProps {
 function ToolItem({ type, tools = [] }: ToolItemProps) {
   return (
     <Row className='py-6 md:py-10 items-start border-t border-stone-700'>
-      <Typography variant='heading' className='w-[25%] capitalize'>
+      <PTypography variant='heading' className='w-[25%] capitalize'>
         {type}
-      </Typography>
+      </PTypography>
       <Stack className='md:gap-4'>
         {tools.map((tool, i) => (
-          <Typography key={i} variant={'heading'}>
+          <PTypography key={i} variant={'heading'}>
             {tool} {i !== tools.length - 1 ? '/' : ''}
-          </Typography>
+          </PTypography>
         ))}
       </Stack>
     </Row>

@@ -1,10 +1,8 @@
 import { gql } from '@apollo/client';
-import Row from '@repo/ui/components/row';
-import Stack from '@repo/ui/components/stack';
-import Typography from '@repo/ui/components/typography';
 import { TriangleListIcon } from '@repo/ui/icons';
 import Link from 'next/link';
 import { Portfolio } from '../../../graphql/portfolio.types';
+import { PTypography, Row, Stack } from '@paolojulian.dev/design-system';
 
 interface Props {
   portfolio: Pick<Portfolio, 'contact'>;
@@ -17,15 +15,18 @@ export default function FooterSection({ portfolio }: Props) {
       id={'contact'}
     >
       <Stack className='max-w-screen-lg mx-auto py-10 gap-20'>
-        <Typography className='uppercase' variant='body-wide'>
+        <PTypography className='uppercase' variant='body-wide'>
           CONNECT
-        </Typography>
+        </PTypography>
 
         <div className='flex flex-col-reverse md:flex-none md:grid grid-cols-3 gap-10 md:gap-4'>
           <Stack>
             <SocialLink name='Home' href={'/'} />
             <SocialLink name='About' href={'/about'} />
-            <SocialLink name='Articles' href={'https://v1.paolojulian.dev/blogs'} />
+            <SocialLink
+              name='Articles'
+              href={'https://v1.paolojulian.dev/blogs'}
+            />
             <SocialLink name='Apps' href={'/apps'} />
           </Stack>
           <Stack>
@@ -53,7 +54,7 @@ function SocialLink({ name, href }: SocialLinkProps) {
       <Row className='gap-4 items-center group'>
         <TriangleListIcon />
         <div className='relative h-full flex-1 px-2 py-1 overflow-hidden'>
-          <Typography variant='heading'>{name}</Typography>
+          <PTypography variant='heading'>{name}</PTypography>
           <div className='-z-10 absolute -left-2 top-1/2 -translate-y-1/2 -translate-x-full h-full w-full group-hover:translate-x-0 duration-500 bg-primary'></div>
         </div>
       </Row>
@@ -68,8 +69,8 @@ interface ContactItemProps {
 function ContactItem({ label, value }: ContactItemProps) {
   return (
     <div>
-      <Typography className='capitalize'>{label}</Typography>
-      <Typography className='text-gray'>{value}</Typography>
+      <PTypography className='capitalize'>{label}</PTypography>
+      <PTypography className='text-gray'>{value}</PTypography>
     </div>
   );
 }

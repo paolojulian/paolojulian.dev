@@ -1,4 +1,3 @@
-import Stack from '@repo/ui/components/stack';
 import {
   Menu,
   MenuButton,
@@ -15,6 +14,7 @@ import CareerSection from './components/career-section';
 import FooterSection from './components/footer-section';
 import HeroSection from './components/hero-section';
 import links from '@repo/ui/utils/links';
+import { Stack } from '@paolojulian.dev/design-system';
 
 export default async function Home() {
   const portfolio = await usePortfolio();

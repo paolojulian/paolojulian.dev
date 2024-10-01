@@ -1,6 +1,6 @@
-import Typography from '@repo/ui/components/typography';
 import ReactMarkdown from 'react-markdown';
 import Highlight from '../../app/(landing)/components/highlight';
+import { PTypography } from '@paolojulian.dev/design-system';
 
 interface Props {
   children: any;
@@ -11,7 +11,7 @@ export default function AppReactMarkdown({ children }: Props) {
     <ReactMarkdown
       components={{
         p: ({ children }) => (
-          <Typography variant={'heading-lg'}>{children}</Typography>
+          <PTypography variant={'heading-lg'}>{children}</PTypography>
         ),
         strong: ({ children }) => <Highlight>{children}</Highlight>,
       }}

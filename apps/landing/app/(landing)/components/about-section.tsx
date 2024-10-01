@@ -1,10 +1,9 @@
 import { gql } from '@apollo/client';
 import SectionHeader from '@repo/ui/components/SectionHeader';
-import Stack from '@repo/ui/components/stack';
-import Typography from '@repo/ui/components/typography';
 import classNames from 'classnames';
 import AppReactMarkdown from '../../../components/app-react-markdown/app-react-markdown';
 import { Portfolio } from '../../../graphql/portfolio.types';
+import { PTypography, Stack } from '@paolojulian.dev/design-system';
 
 interface Props {
   portfolio: Pick<Portfolio, 'about' | 'whatIDo'>;
@@ -19,10 +18,10 @@ export default function AboutSection({ portfolio }: Props) {
           <AppReactMarkdown>{portfolio.about}</AppReactMarkdown>
         </Stack>
         <Stack className='gap-10'>
-          <Typography variant='body-wide'>WHAT I DO</Typography>
+          <PTypography variant='body-wide'>WHAT I DO</PTypography>
           <Stack>
             {portfolio.whatIDo.map((text, i) => (
-              <Typography
+              <PTypography
                 key={i}
                 className={classNames(
                   'border-t border-gray-darker/50 uppercase',
@@ -31,7 +30,7 @@ export default function AboutSection({ portfolio }: Props) {
                 variant='heading-xl'
               >
                 {text}
-              </Typography>
+              </PTypography>
             ))}
           </Stack>
         </Stack>
