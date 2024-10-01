@@ -9,6 +9,7 @@ import ArticlesSection from './components/articles-section';
 import CareerSection from './components/career-section';
 import FooterSection from './components/footer-section';
 import HeroSection from './components/hero-section';
+import { Fragment } from 'react';
 
 export default async function Home() {
   const portfolio = await usePortfolio();
@@ -16,7 +17,7 @@ export default async function Home() {
   if (!portfolio) return null;
 
   return (
-    <>
+    <Fragment>
       <div className='w-full h-full fixed inset-0 -z-10 bg-black'>
         <Image
           className='select-none pointer-events-none mix-blend-color-dodge bg-no-repeat bg-cover bg-fixed bg-center'
@@ -66,6 +67,6 @@ export default async function Home() {
         }}
       />
       <RightSideBar />
-    </>
+    </Fragment>
   );
 }

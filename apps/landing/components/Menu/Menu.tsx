@@ -2,7 +2,6 @@
 import classNames from 'classnames';
 import { usePathname } from 'next/navigation';
 import { FC } from 'react';
-import { createPortal } from 'react-dom';
 import { Routes } from '../../app/utils/constants';
 import { useMenu } from './Menu.context';
 import MenuItem from './MenuItem';
@@ -13,7 +12,7 @@ const Menu: FC<MenuProps> = () => {
   const pathname = usePathname();
   const { isOpen } = useMenu();
 
-  return createPortal(
+  return (
     <div
       aria-label='Menu Container'
       className={classNames(
@@ -71,8 +70,7 @@ const Menu: FC<MenuProps> = () => {
           </ul>
         </nav>
       </div>
-    </div>,
-    document.body
+    </div>
   );
 };
 

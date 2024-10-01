@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { Container } from '../../components/Container';
 import { MenuProvider } from '../../components/Menu';
 import CareerSection from './_career';
@@ -8,7 +9,7 @@ import RightSideBar from './components/side-bar/right-side-bar';
 
 export default async function Home() {
   return (
-    <>
+    <Fragment>
       <main className='bg-black text-white mb-40'>
         <Container className='max-w-screen-lg w-full mx-auto'>
           <HistorySection />
@@ -19,6 +20,6 @@ export default async function Home() {
       <LeftSideBar />
       <RightSideBar />
       <MenuProvider />
-    </>
+    </Fragment>
   );
 }

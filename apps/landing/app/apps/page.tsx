@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import FooterSection from '../(landing)/components/footer-section';
 import { Container } from '../../components/Container';
 import { MenuProvider } from '../../components/Menu';
@@ -12,7 +13,7 @@ export default async function Apps() {
   if (!portfolio) return null;
 
   return (
-    <>
+    <Fragment>
       <main className='bg-black text-white mb-40'>
         <Container className='w-full mx-auto' variant='wide'>
           <AppList />
@@ -26,6 +27,6 @@ export default async function Apps() {
       <LeftSideBar />
       <RightSideBar />
       <MenuProvider />
-    </>
+    </Fragment>
   );
 }
