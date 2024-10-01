@@ -1,10 +1,9 @@
-import './globals.css';
+import './styles.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Paolo Julian',
-  description:
-    'Blog Site by Paolo Julian created with Next, deployed with Turbo repo in Vercel',
+  description: 'Personal website of Paolo Julian',
 };
 
 export default function RootLayout({

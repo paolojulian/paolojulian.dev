@@ -1,10 +1,6 @@
-import {
-  Menu,
-  MenuButton,
-  MenuContent,
-  MenuProvider,
-} from '@repo/ui/context/menu';
+import { Stack } from '@paolojulian.dev/design-system';
 import Image from 'next/image';
+import { MenuProvider } from '../../components/Menu';
 import LeftSideBar from '../../components/side-bar/left-side-bar';
 import RightSideBar from '../../components/side-bar/right-side-bar';
 import { usePortfolio } from '../../graphql/use-portfolio';
@@ -13,8 +9,6 @@ import ArticlesSection from './components/articles-section';
 import CareerSection from './components/career-section';
 import FooterSection from './components/footer-section';
 import HeroSection from './components/hero-section';
-import links from '@repo/ui/utils/links';
-import { Stack } from '@paolojulian.dev/design-system';
 
 export default async function Home() {
   const portfolio = await usePortfolio();
@@ -33,49 +27,45 @@ export default async function Home() {
           priority
         />
       </div>
-      <MenuProvider>
-        <MenuContent>
-          <main>
-            <HeroSection />
-            {/* Main */}
-            <div className='bg-black'>
-              <Stack className='max-w-screen-lg mx-auto bg-black px-4 md:px-10 xl:px-0'>
-                <AboutSection
-                  portfolio={{
-                    about: portfolio.about,
-                    whatIDo: portfolio.whatIDo,
-                  }}
-                />
-                <CareerSection
-                  portfolio={{
-                    careersCollection: portfolio.careersCollection,
-                    experience: portfolio.experience,
-                    toolsCollection: portfolio.toolsCollection,
-                  }}
-                />
-                <ArticlesSection
-                  portfolio={{
-                    writing: portfolio.writing,
-                  }}
-                />
-              </Stack>
-            </div>
-          </main>
-          <FooterSection
-            portfolio={{
-              contact: portfolio.contact,
-            }}
-          />
-        </MenuContent>
-        <Menu activePathname={links.base} />
-        <MenuButton />
-        <LeftSideBar
-          portfolio={{
-            contact: portfolio.contact,
-          }}
-        />
-        <RightSideBar />
-      </MenuProvider>
+      <MenuProvider />
+      <main>
+        <HeroSection />
+        {/* Main */}
+        <div className='bg-black'>
+          <Stack className='max-w-screen-lg mx-auto bg-black px-4 md:px-10 xl:px-0'>
+            <AboutSection
+              portfolio={{
+                about: portfolio.about,
+                whatIDo: portfolio.whatIDo,
+              }}
+            />
+            <CareerSection
+              portfolio={{
+                careersCollection: portfolio.careersCollection,
+                experience: portfolio.experience,
+                toolsCollection: portfolio.toolsCollection,
+              }}
+            />
+            <ArticlesSection
+              portfolio={{
+                writing: portfolio.writing,
+              }}
+            />
+          </Stack>
+        </div>
+      </main>
+      <FooterSection
+        portfolio={{
+          contact: portfolio.contact,
+        }}
+      />
+
+      <LeftSideBar
+        portfolio={{
+          contact: portfolio.contact,
+        }}
+      />
+      <RightSideBar />
     </>
   );
 }
