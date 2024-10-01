@@ -32,13 +32,12 @@ const MenuItem: FC<MenuItemProps> = ({ isActive, href, title, target }) => {
           }
         )}
       >
-        <div className='flex flex-row items-center gap-4'>
-          <TriangleListIcon
-            className={classNames('w-8 h-8 text-secondary', {
-              'opacity-0': !isActive,
-              'opacity-100': isActive,
-            })}
-          />
+        <div className='flex flex-row items-center gap-2 xl:gap-4'>
+          {isActive ? (
+            <TriangleListIcon
+              className={classNames('size-4 xl:size-8 text-secondary')}
+            />
+          ) : null}
           <PTypography
             as='h1'
             aria-label='Menu Content Item'
