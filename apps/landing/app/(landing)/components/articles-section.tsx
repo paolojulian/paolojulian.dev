@@ -5,13 +5,14 @@ import {
   Row,
   Stack,
 } from '@paolojulian.dev/design-system';
-import links from '@repo/ui/utils/links';
+import { NewTabArrowIcon } from '@paolojulian.dev/design-system/icons';
 import dayjs from 'dayjs';
 import Image from 'next/image';
+import Link from 'next/link';
 import AppReactMarkdown from '../../../components/app-react-markdown/app-react-markdown';
 import { Portfolio } from '../../../graphql/portfolio.types';
 import { useLatestBlogPosts } from '../../../graphql/use-latest-blog-post';
-import { NewTabArrowIcon } from '@paolojulian.dev/design-system/icons';
+import { DynamicRoutes, ExternalLinks, Routes } from '../../utils/constants';
 
 interface Props {
   portfolio: Pick<Portfolio, 'writing'>;
@@ -46,12 +47,12 @@ export default async function ArticlesSection({ portfolio }: Props) {
           </Stack>
 
           <Row className='items-center justify-end pt-10 md:pt-20'>
-            <a href={`${links.articles}/blogs`} target='_blank'>
+            <Link href={Routes.Articles} target='_blank'>
               <Row className='group items-center justify-center gap-2 text-secondary hover:text-primary duration-500 active:scale-95'>
                 <PTypography variant='heading'>See more</PTypography>
                 <NewTabArrowIcon className='text-secondary group-hover:text-primary duration-500 ease-in-out' />
               </Row>
-            </a>
+            </Link>
           </Row>
         </Stack>
       </Stack>
@@ -67,7 +68,7 @@ interface ArticleItemProps {
 }
 function ArticleItem({ imageURL, date, slug, title }: ArticleItemProps) {
   return (
-    <a href={`${links.articles}/blogs/${slug}`} className='cursor-pointer'>
+    <Link href={DynamicRoutes.ArticleItem(slug)} className='cursor-pointer'>
       <div className='flex flex-col md:flex-row gap-6 md:gap-10 group py-10'>
         <div className='relative aspect-[320/200] w-full md:w-[40%] lg:w-[320px] bg-white rounded-md border-4 border-gray overflow-hidden'>
           <Image alt={title} fill src={imageURL} />
@@ -88,7 +89,7 @@ function ArticleItem({ imageURL, date, slug, title }: ArticleItemProps) {
           </PTypography>
         </Stack>
       </div>
-    </a>
+    </Link>
   );
 }
 

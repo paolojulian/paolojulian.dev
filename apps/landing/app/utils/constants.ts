@@ -13,3 +13,7 @@ export const Routes = {
   Articles: `${ExternalLinks.oldApp}/blogs`,
   Contact: `${ExternalLinks.oldApp}/contact`,
 } satisfies Record<string, string>;
+
+export const DynamicRoutes = {
+  ArticleItem: (slug: string) => `${ExternalLinks.articles}/blogs/${slug}`,
+};

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Portfolio } from '../../../graphql/portfolio.types';
 import { PTypography, Row, Stack } from '@paolojulian.dev/design-system';
 import { TriangleListIcon } from '@paolojulian.dev/design-system/icons';
+import { Routes } from '../../utils/constants';
 
 interface Props {
   portfolio: Pick<Portfolio, 'contact'>;
@@ -21,13 +22,14 @@ export default function FooterSection({ portfolio }: Props) {
 
         <div className='flex flex-col-reverse md:flex-none md:grid grid-cols-3 gap-10 md:gap-4'>
           <Stack>
-            <SocialLink name='Home' href={'/'} />
-            <SocialLink name='About' href={'/about'} />
+            <SocialLink name='Home' href={Routes.Home} />
+            <SocialLink name='About' href={Routes.About} />
             <SocialLink
               name='Articles'
               href={'https://v1.paolojulian.dev/blogs'}
             />
-            <SocialLink name='Apps' href={'/apps'} />
+            <SocialLink name='Apps' href={Routes.Apps} />
+            <SocialLink name='Contact' href={Routes.Contact} />
           </Stack>
           <Stack>
             <SocialLink name='Linkedin' href={portfolio.contact.linkedin} />
