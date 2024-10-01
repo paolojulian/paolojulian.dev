@@ -24,9 +24,9 @@ export default async function Apps() {
           contact: portfolio.contact,
         }}
       />
+      <MenuProvider />
       <LeftSideBar />
       <RightSideBar />
-      <MenuProvider />
     </Fragment>
   );
 }

@@ -18,11 +18,12 @@ export default function Container({
 }: Props) {
   return (
     <Element
+      aria-label='Container'
       className={cn(
-        'ui-mx-auto ui-px-10',
+        'mx-auto px-10',
         {
-          'ui-max-w-screen-lg': variant === 'default',
-          'ui-max-w-screen-xl': variant === 'wide',
+          'max-w-screen-lg': variant === 'default',
+          'max-w-screen-xl': variant === 'wide',
         },
         className
       )}

@@ -17,9 +17,9 @@ export default async function Home() {
           <InterestsSection />
         </Container>
       </main>
+      <MenuProvider />
       <LeftSideBar />
       <RightSideBar />
-      <MenuProvider />
     </Fragment>
   );
 }
