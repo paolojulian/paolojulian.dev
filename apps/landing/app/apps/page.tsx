@@ -1,4 +1,3 @@
-import Container from '@repo/ui/components/container';
 import {
   Menu,
   MenuButton,
@@ -11,6 +10,7 @@ import RightSideBar from './components/side-bar/right-side-bar';
 import AppList from './_app-list';
 import FooterSection from '../(landing)/components/footer-section';
 import { usePortfolio } from '../../graphql/use-portfolio';
+import { Container } from '../../components/Container';
 
 export default async function Apps() {
   const portfolio = await usePortfolio();

@@ -1,4 +1,3 @@
-import Container from '@repo/ui/components/container';
 import {
   Menu,
   MenuButton,
@@ -11,6 +10,7 @@ import RightSideBar from './components/side-bar/right-side-bar';
 import CareerSection from './_career';
 import HistorySection from './_history';
 import InterestsSection from './_interests';
+import { Container } from '../../components/Container';
 
 export default async function Home() {
   return (

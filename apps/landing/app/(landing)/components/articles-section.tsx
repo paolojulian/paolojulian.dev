@@ -1,13 +1,17 @@
 import { gql } from '@apollo/client';
-import { PTypography, Row, Stack } from '@paolojulian.dev/design-system';
-import SectionHeader from '@repo/ui/components/SectionHeader';
-import NewTabArrowIcon from '@repo/ui/icons/new-tab-arrow-icon';
+import {
+  PSectionHeader,
+  PTypography,
+  Row,
+  Stack,
+} from '@paolojulian.dev/design-system';
 import links from '@repo/ui/utils/links';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import AppReactMarkdown from '../../../components/app-react-markdown/app-react-markdown';
 import { Portfolio } from '../../../graphql/portfolio.types';
 import { useLatestBlogPosts } from '../../../graphql/use-latest-blog-post';
+import { NewTabArrowIcon } from '@paolojulian.dev/design-system/icons';
 
 interface Props {
   portfolio: Pick<Portfolio, 'writing'>;
@@ -24,7 +28,7 @@ export default async function ArticlesSection({ portfolio }: Props) {
     <section id={'writing'} className='py-[100px] md:py-[200px]'>
       <Stack className='gap-24 md:gap-52'>
         <Stack className='gap-10'>
-          <SectionHeader title='Writing' />
+          <PSectionHeader title='Writing' />
           <AppReactMarkdown>{portfolio.writing}</AppReactMarkdown>
         </Stack>
         <Stack className='gap-10'>

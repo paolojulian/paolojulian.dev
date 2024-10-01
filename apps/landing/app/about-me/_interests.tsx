@@ -1,13 +1,16 @@
-import SectionHeader from '@repo/ui/components/SectionHeader';
 import { interestsList } from './_constants';
-import { PTypography, Stack } from '@paolojulian.dev/design-system';
+import {
+  PSectionHeader,
+  PTypography,
+  Stack,
+} from '@paolojulian.dev/design-system';
 
 export default function InterestsSection() {
   return (
     <section id='interests'>
       <Stack className='gap-20 my-20'>
         <Stack className='gap-10'>
-          <SectionHeader title='Interests' />
+          <PSectionHeader title='Interests' />
           <PTypography className='text-white' variant='heading-lg'>
             I'm like the{' '}
             <span className='text-primary'>jack of all trades</span>. I want to

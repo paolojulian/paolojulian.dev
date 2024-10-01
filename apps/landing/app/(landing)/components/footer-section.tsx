@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
-import { TriangleListIcon } from '@repo/ui/icons';
 import Link from 'next/link';
 import { Portfolio } from '../../../graphql/portfolio.types';
 import { PTypography, Row, Stack } from '@paolojulian.dev/design-system';
+import { TriangleListIcon } from '@paolojulian.dev/design-system/icons';
 
 interface Props {
   portfolio: Pick<Portfolio, 'contact'>;

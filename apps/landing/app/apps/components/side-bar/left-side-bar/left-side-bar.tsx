@@ -1,11 +1,6 @@
-import Stack from '@repo/ui/components/stack';
-import LinkedInIcon from '@repo/ui/icons/linkedin-icon';
-import MailIcon from '@repo/ui/icons/mail-icon';
-import PhoneIcon from '@repo/ui/icons/phone-icon';
+import { Stack } from '@paolojulian.dev/design-system';
 import links from '@repo/ui/utils/links';
 import Image from 'next/image';
-import Link from 'next/link';
-import { ReactElement } from 'react';
 
 export default function LeftSideBar() {
   return (
@@ -14,17 +9,5 @@ export default function LeftSideBar() {
         <Image alt='Logo' src='/logo.png' fill quality={100} />
       </a>
     </Stack>
-  );
-}
-
-function SideBarLinkIcon({ Icon, href }: { Icon: ReactElement; href: string }) {
-  return (
-    <Link
-      href={href}
-      className='text-white hover:text-primary group duration-500 ease-in-out'
-      target='_blank'
-    >
-      {Icon}
-    </Link>
   );
 }

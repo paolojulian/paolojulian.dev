@@ -1,9 +1,13 @@
 import { gql } from '@apollo/client';
-import SectionHeader from '@repo/ui/components/SectionHeader';
 import dayjs from 'dayjs';
 import AppReactMarkdown from '../../../components/app-react-markdown/app-react-markdown';
 import { Portfolio } from '../../../graphql/portfolio.types';
-import { PTypography, Row, Stack } from '@paolojulian.dev/design-system';
+import {
+  PSectionHeader,
+  PTypography,
+  Row,
+  Stack,
+} from '@paolojulian.dev/design-system';
 
 interface Props {
   portfolio: Pick<
@@ -31,7 +35,7 @@ export default function CareerSection({ portfolio }: Props) {
     >
       <Stack className='gap-24 md:gap-52'>
         <Stack className='gap-10'>
-          <SectionHeader title='Experience' />
+          <PSectionHeader title='Experience' />
           <AppReactMarkdown>{portfolio.experience}</AppReactMarkdown>
         </Stack>
         <Stack className='gap-10'>

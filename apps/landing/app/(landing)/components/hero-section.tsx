@@ -1,4 +1,4 @@
-import Container from '@repo/ui/components/container';
+import { Container } from '../../../components/Container';
 import Highlight from './highlight';
 import { PTypography, Stack } from '@paolojulian.dev/design-system';
 

@@ -1,13 +1,16 @@
-import SectionHeader from '@repo/ui/components/SectionHeader';
 import { historyList } from './_constants';
-import { PTypography, Stack } from '@paolojulian.dev/design-system';
+import {
+  PSectionHeader,
+  PTypography,
+  Stack,
+} from '@paolojulian.dev/design-system';
 
 export default function HistorySection() {
   return (
     <section id='history'>
       <Stack className='gap-20 my-20'>
         <Stack className='gap-10'>
-          <SectionHeader title='History' />
+          <PSectionHeader title='History' />
           <PTypography className='text-white' variant='heading-lg'>
             Allow me to share my <span className='text-primary'>journey</span>,
             spanning from my early childhood years to the start of my Software

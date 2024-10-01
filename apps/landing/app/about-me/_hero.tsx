@@ -1,12 +1,11 @@
-import { PTypography } from '@paolojulian.dev/design-system';
-import SectionHeader from '@repo/ui/components/SectionHeader';
-import cn from '@repo/ui/utils/cn';
+import { PSectionHeader, PTypography } from '@paolojulian.dev/design-system';
+import { cn } from '@paolojulian.dev/design-system/utils';
 
 export default function HeroSection() {
   return (
     <section id='landing'>
       <div className='mb-20'>
-        <SectionHeader title='Paolo Julian - About' />
+        <PSectionHeader title='Paolo Julian - About' />
         <div className='pt-10'>
           <div className='text-left'>
             <PTypography className='text-white uppercase' variant='heading-xl'>
