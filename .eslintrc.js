@@ -1,9 +1,22 @@
-// This configuration only applies to the package manager root.
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  ignorePatterns: ["apps/**", "packages/**"],
-  extends: ["@repo/eslint-config/library.js"],
-  parser: "@typescript-eslint/parser",
+  root: true,
+  extends: [
+    'eslint:recommended',
+    'prettier',
+    require.resolve('@vercel/style-guide/eslint/next'),
+  ],
+  env: {
+    node: true,
+    commonjs: true,
+    browser: true
+  },
+  ignorePatterns: [
+    // Ignore dotfiles
+    '.*.js',
+    'node_modules/',
+  ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     project: true,
   },
