@@ -12,7 +12,7 @@ import Link from 'next/link';
 import AppReactMarkdown from '../../../components/app-react-markdown/app-react-markdown';
 import { Portfolio } from '../../../graphql/portfolio.types';
 import { useLatestBlogPosts } from '../../../graphql/use-latest-blog-post';
-import { DynamicRoutes, ExternalLinks, Routes } from '../../utils/constants';
+import { DynamicRoutes, Routes } from '../../utils/constants';
 
 interface Props {
   portfolio: Pick<Portfolio, 'writing'>;

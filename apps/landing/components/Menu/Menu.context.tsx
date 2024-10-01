@@ -1,11 +1,18 @@
 'use client';
-import { createContext, FC, useContext, useState } from 'react';
+import {
+  createContext,
+  Dispatch,
+  FC,
+  SetStateAction,
+  useContext,
+  useState,
+} from 'react';
 import Menu from './Menu';
 import MenuButton from './MenuButton';
 
 type Context = {
   isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 const MenuContext = createContext<Context>({

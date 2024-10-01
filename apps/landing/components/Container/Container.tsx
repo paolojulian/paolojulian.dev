@@ -1,10 +1,11 @@
 import { cn } from '@paolojulian.dev/design-system/utils';
+import { ElementType, ReactNode } from 'react';
 
 type Variants = 'default' | 'wide';
 
 interface Props {
-  as?: React.ElementType;
-  children: React.ReactNode;
+  as?: ElementType;
+  children: ReactNode;
   className?: string;
   variant?: Variants;
 }
