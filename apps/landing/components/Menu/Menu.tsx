@@ -62,6 +62,12 @@ const Menu: FC<MenuProps> = () => {
               href={Routes.Apps}
               title='Apps'
             />
+            <MenuItem
+              isActive={pathname === Routes.Contact}
+              href={Routes.Contact}
+              target='_blank'
+              title='Contact'
+            />
           </ul>
         </nav>
       </div>
